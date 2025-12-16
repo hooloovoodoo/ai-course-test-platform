@@ -1,0 +1,302 @@
+[
+  {
+    "question": "What is the foundational principle of professional AI-assisted development according to the module?",
+    "answers": [
+      "Move Fast and Break Things",
+      "Never Trust, Always Verify",
+      "Speed Over Security",
+      "Automate Everything"
+    ],
+    "correct": "Never Trust, Always Verify"
+  },
+  {
+    "question": "Who coined the term 'vibe coding' and when?",
+    "answers": [
+      "Sam Altman in January 2024",
+      "Andrej Karpathy in February 2025",
+      "Elon Musk in March 2024",
+      "Satya Nadella in December 2024"
+    ],
+    "correct": "Andrej Karpathy in February 2025"
+  },
+  {
+    "question": "According to the core mental model, how should developers treat AI in the development process?",
+    "answers": [
+      "As a trusted senior architect",
+      "As an infallible code generator",
+      "As a brilliant, fast, but completely unsupervised junior developer",
+      "As a replacement for code review"
+    ],
+    "correct": "As a brilliant, fast, but completely unsupervised junior developer"
+  },
+  {
+    "question": "What are the four phases of the professional AI-assisted workflow?",
+    "answers": [
+      "Design, Code, Test, Deploy",
+      "Describe the Goal, Generate & Critically Review, Refine & Iterate, Integrate & Test",
+      "Plan, Execute, Monitor, Optimize",
+      "Analyze, Build, Check, Deliver"
+    ],
+    "correct": "Describe the Goal, Generate & Critically Review, Refine & Iterate, Integrate & Test"
+  },
+  {
+    "question": "Which of the following is NOT a characteristic of 'vibe coding'?",
+    "answers": [
+      "Accepting all AI suggestions without reviewing code changes",
+      "Pasting error messages back to the AI without analysis",
+      "Reading and understanding every line of generated code",
+      "Making random changes until bugs disappear"
+    ],
+    "correct": "Reading and understanding every line of generated code"
+  },
+  {
+    "question": "A developer's AI-generated code causes a production outage. According to the module, who is responsible?",
+    "answers": [
+      "The AI vendor",
+      "The company's IT department",
+      "The developer who integrated the code",
+      "No one - AI errors are force majeure"
+    ],
+    "correct": "The developer who integrated the code"
+  },
+  {
+    "question": "What is 'SQL Injection'?",
+    "answers": [
+      "A technique for optimizing database queries",
+      "A vulnerability where unsanitized user input is directly inserted into SQL queries, allowing malicious commands",
+      "A method for securely connecting to databases",
+      "A type of database encryption"
+    ],
+    "correct": "A vulnerability where unsanitized user input is directly inserted into SQL queries, allowing malicious commands"
+  },
+  {
+    "question": "Your colleague asks AI to 'Build a REST API to fetch user data' without specifying security requirements. What vulnerability is most likely to occur?",
+    "answers": [
+      "Memory leak",
+      "Missing authentication and authorization",
+      "Slow response times",
+      "Incorrect data formatting"
+    ],
+    "correct": "Missing authentication and authorization"
+  },
+  {
+    "question": "What does 'Security-by-Omission' mean in the context of AI-generated code?",
+    "answers": [
+      "AI automatically includes all security features",
+      "Security measures are always present by default",
+      "AI won't include security measures unless explicitly instructed",
+      "AI removes insecure code patterns automatically"
+    ],
+    "correct": "AI won't include security measures unless explicitly instructed"
+  },
+  {
+    "question": "According to the BaxBench leaderboard shown in the module, which LLM had the highest 'Correct & Secure' percentage?",
+    "answers": [
+      "Claude 4 Sonnet Thinking",
+      "GPT-5",
+      "OpenAI o3",
+      "DeepSeek R1"
+    ],
+    "correct": "GPT-5"
+  },
+  {
+    "question": "A developer prompts: 'Quickly build a database query function to search users by name.' What security issue is this prompt likely to cause?",
+    "answers": [
+      "Memory overflow",
+      "SQL injection vulnerability",
+      "Network timeout",
+      "File permission errors"
+    ],
+    "correct": "SQL injection vulnerability"
+  },
+  {
+    "question": "What is 'Multi-Stage Prompting' in secure prompt engineering?",
+    "answers": [
+      "Breaking a large feature into multiple small prompts",
+      "Prompting the AI to implement the feature, then reviewing its own output for security issues",
+      "Using multiple AI models simultaneously",
+      "Sending the same prompt multiple times"
+    ],
+    "correct": "Prompting the AI to implement the feature, then reviewing its own output for security issues"
+  },
+  {
+    "question": "Which of the following is an example of 'Negative Constraints' in prompting?",
+    "answers": [
+      "Use parameterized queries",
+      "NEVER hardcode credentials",
+      "Implement rate limiting",
+      "Return appropriate HTTP status codes"
+    ],
+    "correct": "NEVER hardcode credentials"
+  },
+  {
+    "question": "What is 'Path Traversal' vulnerability?",
+    "answers": [
+      "A technique for navigating complex codebases",
+      "A vulnerability where unsanitized file paths allow attackers to access files outside the intended directory",
+      "A method for optimizing file system access",
+      "A way to traverse network paths securely"
+    ],
+    "correct": "A vulnerability where unsanitized file paths allow attackers to access files outside the intended directory"
+  },
+  {
+    "question": "A developer pastes customer email addresses into ChatGPT asking 'Format this list as JSON.' Why is this a GDPR violation?",
+    "answers": [
+      "JSON formatting is prohibited under GDPR",
+      "Customer data was sent to a third party without consent and proper data processing agreements",
+      "ChatGPT cannot process email addresses",
+      "GDPR only applies to European customers"
+    ],
+    "correct": "Customer data was sent to a third party without consent and proper data processing agreements"
+  },
+  {
+    "question": "What is the maximum GDPR fine for data privacy violations?",
+    "answers": [
+      "€1 million or 1% of global revenue",
+      "€10 million or 2% of global revenue",
+      "€20 million or 4% of global revenue",
+      "€50 million or 10% of global revenue"
+    ],
+    "correct": "€20 million or 4% of global revenue"
+  },
+  {
+    "question": "According to the module, which of the following is the AI good at?",
+    "answers": [
+      "Understanding business context and requirements",
+      "Security awareness and threat modeling",
+      "Speed and pattern recognition",
+      "Long-term thinking about maintainability"
+    ],
+    "correct": "Speed and pattern recognition"
+  },
+  {
+    "question": "What is 'Broken Access Control'?",
+    "answers": [
+      "When authentication systems fail to load",
+      "Missing or inadequate checks to restrict user access to sensitive data or functionality",
+      "When passwords are stored in plain text",
+      "When SSL certificates expire"
+    ],
+    "correct": "Missing or inadequate checks to restrict user access to sensitive data or functionality"
+  },
+  {
+    "question": "Your team receives AI-generated code for an order details endpoint. The code fetches orders by ID without checking if the user owns that order. What vulnerability is this?",
+    "answers": [
+      "SQL Injection",
+      "Cross-Site Scripting",
+      "Broken Access Control",
+      "Command Injection"
+    ],
+    "correct": "Broken Access Control"
+  },
+  {
+    "question": "What are 'Hallucinated Dependencies' in AI-generated code?",
+    "answers": [
+      "Dependencies that are too complex to understand",
+      "AI suggesting packages that don't exist or are similar to legitimate ones",
+      "Dependencies that consume too much memory",
+      "Circular dependencies in the code"
+    ],
+    "correct": "AI suggesting packages that don't exist or are similar to legitimate ones"
+  },
+  {
+    "question": "When is 'vibe coding' considered appropriate according to the module?",
+    "answers": [
+      "For enterprise production systems",
+      "For financial services applications",
+      "For rapid prototyping and throwaway weekend projects",
+      "For healthcare applications"
+    ],
+    "correct": "For rapid prototyping and throwaway weekend projects"
+  },
+  {
+    "question": "What is 'Skill Atrophy' in the context of AI-assisted development?",
+    "answers": [
+      "When AI tools become outdated",
+      "The degradation of professional abilities due to over-reliance on AI automation",
+      "When code quality decreases over time",
+      "When team collaboration breaks down"
+    ],
+    "correct": "The degradation of professional abilities due to over-reliance on AI automation"
+  },
+  {
+    "question": "According to the module, what paradigm shift occurs in AI-assisted development?",
+    "answers": [
+      "From Tester to Developer",
+      "From Manager to Individual Contributor",
+      "From Author/Writer to Director/Critical Reviewer",
+      "From Backend to Full-Stack"
+    ],
+    "correct": "From Author/Writer to Director/Critical Reviewer"
+  },
+  {
+    "question": "What is 'Challenge Testing' in secure prompting?",
+    "answers": [
+      "Testing the AI with difficult coding problems",
+      "Proactively testing AI responses with problematic inputs during the prompting phase",
+      "Challenging team members to write better prompts",
+      "Testing code performance under load"
+    ],
+    "correct": "Proactively testing AI responses with problematic inputs during the prompting phase"
+  },
+  {
+    "question": "A developer asks AI to 'Create a file upload endpoint' without security specifications. What vulnerabilities might result?",
+    "answers": [
+      "Only slow upload speeds",
+      "No file type validation, filename sanitization, or size limits allowing malicious uploads",
+      "Only incorrect file naming",
+      "Only storage capacity issues"
+    ],
+    "correct": "No file type validation, filename sanitization, or size limits allowing malicious uploads"
+  },
+  {
+    "question": "What is the 'Speed Trap Risk' in AI-assisted development?",
+    "answers": [
+      "AI generates code too slowly for production deadlines",
+      "AI generates code faster than humans can properly review it, creating pressure to skip verification",
+      "Developers type too fast when using AI",
+      "Network latency affecting AI response times"
+    ],
+    "correct": "AI generates code faster than humans can properly review it, creating pressure to skip verification"
+  },
+  {
+    "question": "According to the mandatory PR checklist, what must developers verify about new packages/libraries?",
+    "answers": [
+      "Only that they compile correctly",
+      "Against official registries for typosquatting, known vulnerabilities, active maintenance, and existence",
+      "Only the package size",
+      "Only the download count"
+    ],
+    "correct": "Against official registries for typosquatting, known vulnerabilities, active maintenance, and existence"
+  },
+  {
+    "question": "What is 'XSS (Cross-Site Scripting)'?",
+    "answers": [
+      "A technique for cross-browser compatibility",
+      "A vulnerability where unsanitized user input is rendered in web pages, allowing malicious script injection",
+      "A method for secure cross-origin requests",
+      "A scripting language for websites"
+    ],
+    "correct": "A vulnerability where unsanitized user input is rendered in web pages, allowing malicious script injection"
+  },
+  {
+    "question": "Your AI-generated error handler returns `{\"error\": str(e)}` to the client. What security issue does this create?",
+    "answers": [
+      "Performance degradation",
+      "Sensitive information exposure through detailed error messages",
+      "Incorrect HTTP status codes",
+      "Memory leaks"
+    ],
+    "correct": "Sensitive information exposure through detailed error messages"
+  },
+  {
+    "question": "What is the 'Principle of Least Privilege'?",
+    "answers": [
+      "Giving all users admin access for convenience",
+      "Users, programs, and processes should have only the minimum permissions necessary to perform their function",
+      "Privileged users should have the least workload",
+      "Only senior developers should have production access"
+    ],
+    "correct": "Users, programs, and processes should have only the minimum permissions necessary to perform their function"
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "question": "What is a token in the context of LLMs?",
+    "answers": [
+      "A security credential for API authentication",
+      "The basic unit of text that an LLM processes, roughly equivalent to about 4 characters or 3/4 of a word",
+      "A word in the English dictionary",
+      "A complete sentence processed at once"
+    ],
+    "correct": "The basic unit of text that an LLM processes, roughly equivalent to about 4 characters or 3/4 of a word"
+  },
+  {
+    "question": "What is the context window in LLMs?",
+    "answers": [
+      "The graphical user interface for interacting with the model",
+      "The number of tokens that an LLM can process at once, including both input and output",
+      "The time window during which the model remembers conversations",
+      "The browser window where prompts are entered"
+    ],
+    "correct": "The number of tokens that an LLM can process at once, including both input and output"
+  },
+  {
+    "question": "Which statement accurately describes LLMs as stateless APIs?",
+    "answers": [
+      "LLMs maintain conversation history automatically between API calls",
+      "LLMs remember nothing between API calls - all context must be included in every request",
+      "LLMs store user sessions in their neural network weights",
+      "LLMs have persistent memory that grows with each interaction"
+    ],
+    "correct": "LLMs remember nothing between API calls - all context must be included in every request"
+  },
+  {
+    "question": "What is a hallucination in the context of LLMs?",
+    "answers": [
+      "A visual glitch in the model's interface",
+      "When the LLM generates plausible-sounding but factually incorrect or fabricated information",
+      "When the model fails to respond to a prompt",
+      "A timeout error during API calls"
+    ],
+    "correct": "When the LLM generates plausible-sounding but factually incorrect or fabricated information"
+  },
+  {
+    "question": "A developer's chatbot application stops working correctly after 20 turns of conversation. What is the most likely cause?",
+    "answers": [
+      "The API key has expired",
+      "The conversation history has exceeded the context window limit",
+      "The model has crashed from too many requests",
+      "Network connectivity issues"
+    ],
+    "correct": "The conversation history has exceeded the context window limit"
+  },
+  {
+    "question": "What was the key innovation introduced by the Transformer architecture in 2017?",
+    "answers": [
+      "Sequential word processing",
+      "Self-attention mechanism",
+      "Character-by-character analysis",
+      "Rule-based language processing"
+    ],
+    "correct": "Self-attention mechanism"
+  },
+  {
+    "question": "What is an embedding in the context of LLMs?",
+    "answers": [
+      "A method for compressing files",
+      "A numerical vector that captures the semantic meaning of a token",
+      "A way to embed images in text",
+      "A technique for hiding data in prompts"
+    ],
+    "correct": "A numerical vector that captures the semantic meaning of a token"
+  },
+  {
+    "question": "Which architecture type are GPT, Claude, and Llama models based on?",
+    "answers": [
+      "Encoder-only",
+      "Decoder-only",
+      "Encoder-decoder",
+      "Recurrent Neural Network (RNN)"
+    ],
+    "correct": "Decoder-only"
+  },
+  {
+    "question": "A user asks an LLM about an event that happened last week, but the model provides incorrect information. What limitation is most likely responsible?",
+    "answers": [
+      "Context window limitation",
+      "Knowledge cutoff - the model's training data ends at a specific date",
+      "Hallucination due to low temperature settings",
+      "Token limit exceeded"
+    ],
+    "correct": "Knowledge cutoff - the model's training data ends at a specific date"
+  },
+  {
+    "question": "What does the temperature parameter control in LLM generation?",
+    "answers": [
+      "The speed of response generation",
+      "The randomness/determinism of the output - lower values are more deterministic",
+      "The maximum length of the response",
+      "The cost of the API call"
+    ],
+    "correct": "The randomness/determinism of the output - lower values are more deterministic"
+  },
+  {
+    "question": "In the three-layer LLM application architecture, what is the backend responsible for?",
+    "answers": [
+      "Only displaying responses to users",
+      "Training the neural network weights",
+      "Constructing prompts, managing context, calling LLM APIs, and validating responses",
+      "Running the LLM inference computations"
+    ],
+    "correct": "Constructing prompts, managing context, calling LLM APIs, and validating responses"
+  },
+  {
+    "question": "Why do LLMs use tokenization instead of processing whole words?",
+    "answers": [
+      "To make outputs more creative",
+      "To handle vocabulary size, unknown words, multiple languages, and efficiency",
+      "To reduce the cost of API calls",
+      "To improve security"
+    ],
+    "correct": "To handle vocabulary size, unknown words, multiple languages, and efficiency"
+  },
+  {
+    "question": "A developer needs to estimate costs for processing a 1,000-word document. What should they use?",
+    "answers": [
+      "Word count (1,000 words)",
+      "Character count divided by 5",
+      "Token counters specific to the model's tokenizer (expect ~1,300+ tokens)",
+      "Page count multiplied by 250"
+    ],
+    "correct": "Token counters specific to the model's tokenizer (expect ~1,300+ tokens)"
+  },
+  {
+    "question": "What is the purpose of vector databases in AI applications?",
+    "answers": [
+      "To store API keys securely",
+      "To provide long-term memory by storing and retrieving embeddings based on semantic similarity",
+      "To train LLMs from scratch",
+      "To compress model weights"
+    ],
+    "correct": "To provide long-term memory by storing and retrieving embeddings based on semantic similarity"
+  },
+  {
+    "question": "What does RAG (Retrieval-Augmented Generation) help solve?",
+    "answers": [
+      "Slow API response times",
+      "Knowledge cutoffs and hallucinations by providing external context to the model",
+      "High token costs",
+      "Network latency issues"
+    ],
+    "correct": "Knowledge cutoffs and hallucinations by providing external context to the model"
+  },
+  {
+    "question": "A team is building a medical diagnosis assistant. What temperature setting would be most appropriate?",
+    "answers": [
+      "Temperature > 1.5 for maximum creativity",
+      "Temperature 0.8-1.0 for balanced responses",
+      "Temperature 0-0.3 for deterministic, factually accurate outputs",
+      "Temperature doesn't matter for medical applications"
+    ],
+    "correct": "Temperature 0-0.3 for deterministic, factually accurate outputs"
+  },
+  {
+    "question": "Why does transformer attention have quadratic complexity with respect to sequence length?",
+    "answers": [
+      "Because it processes words one at a time",
+      "Because it computes pairwise similarities between all tokens",
+      "Because it stores the entire vocabulary in memory",
+      "Because it trains the model during inference"
+    ],
+    "correct": "Because it computes pairwise similarities between all tokens"
+  },
+  {
+    "question": "Which model architecture is best suited for text classification and sentiment analysis tasks?",
+    "answers": [
+      "Decoder-only (e.g., GPT)",
+      "Encoder-only (e.g., BERT)",
+      "Encoder-decoder (e.g., T5)",
+      "Recurrent Neural Networks"
+    ],
+    "correct": "Encoder-only (e.g., BERT)"
+  },
+  {
+    "question": "What is the 'lost in the middle' problem with LLM context windows?",
+    "answers": [
+      "Tokens in the middle of a prompt are charged at higher rates",
+      "Models tend to pay more attention to beginning and end of context, overlooking middle information",
+      "Middle-sized models perform worse than small and large models",
+      "API calls timeout if prompts are too long"
+    ],
+    "correct": "Models tend to pay more attention to beginning and end of context, overlooking middle information"
+  },
+  {
+    "question": "A developer wants same outputs every time for debugging. What parameter setting should they use?",
+    "answers": [
+      "Temperature = 1.0",
+      "Temperature = 0",
+      "Top-p = 1.0",
+      "Max_tokens = unlimited"
+    ],
+    "correct": "Temperature = 0"
+  },
+  {
+    "question": "What is the primary advantage of self-hosting open-source models like Llama?",
+    "answers": [
+      "Better performance than proprietary models",
+      "Complete data privacy, no per-token costs, and customization options",
+      "No infrastructure required",
+      "Automatic model updates"
+    ],
+    "correct": "Complete data privacy, no per-token costs, and customization options"
+  },
+  {
+    "question": "According to the course, when does self-hosting LLMs make economic sense compared to using APIs?",
+    "answers": [
+      "Always - self-hosting is cheaper",
+      "At very high volumes (100M+ tokens/month) or when privacy/compliance requirements mandate it",
+      "Only for startups",
+      "Never - APIs are always cheaper"
+    ],
+    "correct": "At very high volumes (100M+ tokens/month) or when privacy/compliance requirements mandate it"
+  },
+  {
+    "question": "What problem does the self-attention mechanism solve that RNNs couldn't?",
+    "answers": [
+      "Processing images along with text",
+      "Capturing long-range dependencies and enabling parallel processing",
+      "Reducing model size",
+      "Eliminating hallucinations"
+    ],
+    "correct": "Capturing long-range dependencies and enabling parallel processing"
+  },
+  {
+    "question": "A company's LLM application costs are higher than expected. Which strategy could provide up to 90% savings on repeated inputs?",
+    "answers": [
+      "Using larger models",
+      "Prompt caching",
+      "Increasing temperature",
+      "Adding more tokens to prompts"
+    ],
+    "correct": "Prompt caching"
+  },
+  {
+    "question": "What does setting temperature to 0 guarantee about LLM outputs?",
+    "answers": [
+      "The output will be factually correct",
+      "The output will be the same every time for identical inputs",
+      "Hallucinations will be eliminated",
+      "The response will be shorter"
+    ],
+    "correct": "The output will be the same every time for identical inputs"
+  },
+  {
+    "question": "Which is NOT a core responsibility of a developer building AI applications according to the course?",
+    "answers": [
+      "Prompt engineering",
+      "Training LLMs from scratch",
+      "Output validation",
+      "Context management"
+    ],
+    "correct": "Training LLMs from scratch"
+  },
+  {
+    "question": "What is the relationship between embeddings in a vector space?",
+    "answers": [
+      "All words have identical vectors",
+      "Words with similar meanings have similar vector representations and are close together",
+      "Vectors are randomly assigned to words",
+      "Only synonyms share the same embedding"
+    ],
+    "correct": "Words with similar meanings have similar vector representations and are close together"
+  },
+  {
+    "question": "A developer asks an LLM to provide citations for its claims and receives references that look legitimate. What should they do?",
+    "answers": [
+      "Trust the citations since they look properly formatted",
+      "Verify the citations exist and say what the model claims - LLMs can invent citations",
+      "Only check citations if the information seems wrong",
+      "Citations from LLMs are always accurate"
+    ],
+    "correct": "Verify the citations exist and say what the model claims - LLMs can invent citations"
+  },
+  {
+    "question": "What is the 'Iron Triangle' trade-off in AI engineering?",
+    "answers": [
+      "Speed, Security, Scalability",
+      "Cost, Latency, Capability - you can optimize for two but not all three",
+      "Training, Testing, Deployment",
+      "Input, Processing, Output"
+    ],
+    "correct": "Cost, Latency, Capability - you can optimize for two but not all three"
+  },
+  {
+    "question": "Why do LLMs hallucinate according to the course?",
+    "answers": [
+      "They have bugs in their code that need to be fixed",
+      "They optimize for plausible-sounding completions based on statistical patterns, not truth verification",
+      "They intentionally lie to users",
+      "Hallucinations only occur with low-quality models"
+    ],
+    "correct": "They optimize for plausible-sounding completions based on statistical patterns, not truth verification"
+  }
+]

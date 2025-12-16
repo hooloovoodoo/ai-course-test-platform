@@ -1,0 +1,402 @@
+[
+  {
+    "question": "What is the key difference between a prototype AI system and a production AI system according to prompt engineering principles?",
+    "answers": [
+      "Production systems use more expensive models",
+      "Production systems demand engineered prompts, not casual conversation",
+      "Production systems require faster response times",
+      "Production systems use only zero-shot prompting"
+    ],
+    "correct": "Production systems demand engineered prompts, not casual conversation"
+  },
+  {
+    "question": "In the two-tier prompting architecture, what is the primary purpose of the system prompt?",
+    "answers": [
+      "To contain the specific data for each user request",
+      "To store conversation history",
+      "To define the application's constitution: role, policies, formats, and security guidelines",
+      "To optimize token usage for cost savings"
+    ],
+    "correct": "To define the application's constitution: role, policies, formats, and security guidelines"
+  },
+  {
+    "question": "A developer is building a code review bot. Where should the JSON output schema specification be placed?",
+    "answers": [
+      "In the user prompt for each request",
+      "In the system prompt to ensure consistent output across all interactions",
+      "In a separate configuration file only",
+      "In the API response headers"
+    ],
+    "correct": "In the system prompt to ensure consistent output across all interactions"
+  },
+  {
+    "question": "What is in-context learning (ICL) in the context of LLMs?",
+    "answers": [
+      "Training the model on new data during inference",
+      "The ability to learn from examples provided within the prompt itself without model training",
+      "Fine-tuning the model for specific tasks",
+      "Using external databases to retrieve context"
+    ],
+    "correct": "The ability to learn from examples provided within the prompt itself without model training"
+  },
+  {
+    "question": "Which prompting approach provides instructions only, without any examples?",
+    "answers": [
+      "Few-shot learning",
+      "One-shot learning",
+      "Zero-shot learning",
+      "Chain-of-thought prompting"
+    ],
+    "correct": "Zero-shot learning"
+  },
+  {
+    "question": "Your sentiment classification prompt produces inconsistent output formats across requests. What is the most effective solution?",
+    "answers": [
+      "Increase the temperature parameter",
+      "Add few-shot examples showing the exact desired format",
+      "Use a larger model",
+      "Reduce the max_tokens parameter"
+    ],
+    "correct": "Add few-shot examples showing the exact desired format"
+  },
+  {
+    "question": "What does the temperature parameter control in LLM inference?",
+    "answers": [
+      "The accuracy of factual responses",
+      "The randomness of token selection during generation",
+      "The maximum length of the response",
+      "The speed of response generation"
+    ],
+    "correct": "The randomness of token selection during generation"
+  },
+  {
+    "question": "What temperature value should be used for completely deterministic output?",
+    "answers": [
+      "0.5",
+      "1.0",
+      "0",
+      "0.7"
+    ],
+    "correct": "0"
+  },
+  {
+    "question": "Your LLM output is stuck in a repetitive loop, generating the same phrase repeatedly. What parameter adjustment would help?",
+    "answers": [
+      "Decrease temperature from 0 to a negative value",
+      "Increase temperature slightly (e.g., from 0 to 0.3)",
+      "Increase max_tokens significantly",
+      "Set top-p to 0"
+    ],
+    "correct": "Increase temperature slightly (e.g., from 0 to 0.3)"
+  },
+  {
+    "question": "What is Chain-of-Thought (CoT) prompting?",
+    "answers": [
+      "Connecting multiple LLMs in sequence",
+      "Instructing the model to show its reasoning process step-by-step before providing a final answer",
+      "Using multiple prompts to verify the same answer",
+      "Breaking a prompt into smaller tokens for processing"
+    ],
+    "correct": "Instructing the model to show its reasoning process step-by-step before providing a final answer"
+  },
+  {
+    "question": "You need to analyze a 500-page document that exceeds the model's context limit. Which technique is most appropriate?",
+    "answers": [
+      "Zero-shot learning",
+      "Increasing max_tokens",
+      "Prompt chaining with map-reduce pattern",
+      "Using higher temperature"
+    ],
+    "correct": "Prompt chaining with map-reduce pattern"
+  },
+  {
+    "question": "What is the purpose of the seed parameter in LLM inference?",
+    "answers": [
+      "To initialize the model's weights",
+      "To ensure reproducible outputs when temperature is greater than 0",
+      "To control the maximum response length",
+      "To select which model version to use"
+    ],
+    "correct": "To ensure reproducible outputs when temperature is greater than 0"
+  },
+  {
+    "question": "What does the top-p (nucleus sampling) parameter control?",
+    "answers": [
+      "The total number of tokens in the response",
+      "The probability threshold for considering the smallest set of likely tokens",
+      "The position of the response in the output queue",
+      "The priority of the request"
+    ],
+    "correct": "The probability threshold for considering the smallest set of likely tokens"
+  },
+  {
+    "question": "Your production system receives unparseable free-text responses instead of structured data. What is most likely missing from your prompt?",
+    "answers": [
+      "A higher temperature setting",
+      "An explicit JSON schema specification in the system prompt",
+      "More conversation history",
+      "A longer max_tokens value"
+    ],
+    "correct": "An explicit JSON schema specification in the system prompt"
+  },
+  {
+    "question": "What is prompt injection?",
+    "answers": [
+      "Adding more examples to a prompt",
+      "A security attack where user input overrides the application's instructions",
+      "Inserting variables into prompt templates",
+      "Combining multiple prompts into one"
+    ],
+    "correct": "A security attack where user input overrides the application's instructions"
+  },
+  {
+    "question": "You're receiving wildly different outputs for the same prompt across multiple runs. What should you adjust first?",
+    "answers": [
+      "Increase the max_tokens parameter",
+      "Decrease the temperature parameter",
+      "Add more examples to the prompt",
+      "Change the model version"
+    ],
+    "correct": "Decrease the temperature parameter"
+  },
+  {
+    "question": "What is the auto-repair loop pattern used for?",
+    "answers": [
+      "Automatically fixing bugs in generated code",
+      "Automatically fixing invalid JSON responses by sending errors back to the model",
+      "Repairing corrupted model weights",
+      "Fixing network connection issues"
+    ],
+    "correct": "Automatically fixing invalid JSON responses by sending errors back to the model"
+  },
+  {
+    "question": "Why should critical security policies be placed in the system prompt rather than the user prompt?",
+    "answers": [
+      "System prompts are encrypted",
+      "System prompts are less likely to be overridden by user input",
+      "System prompts are processed faster",
+      "System prompts cost fewer tokens"
+    ],
+    "correct": "System prompts are less likely to be overridden by user input"
+  },
+  {
+    "question": "Your code review prompt returns generic responses like 'This code could potentially have issues.' What improvement would be most effective?",
+    "answers": [
+      "Reduce the temperature to 0",
+      "Add a specific role assignment and explicit instructions for what to analyze",
+      "Use a smaller model",
+      "Remove all constraints from the prompt"
+    ],
+    "correct": "Add a specific role assignment and explicit instructions for what to analyze"
+  },
+  {
+    "question": "When debugging a failing prompt, what is the recommended first step according to the debugging checklist?",
+    "answers": [
+      "Rewrite the entire prompt",
+      "Switch to a different model",
+      "Verify the basics: API call success, response completeness, error messages",
+      "Add more few-shot examples"
+    ],
+    "correct": "Verify the basics: API call success, response completeness, error messages"
+  },
+  {
+    "question": "Which of the following is a dangerous practice when handling user input in prompts?",
+    "answers": [
+      "Using template strings with named variables",
+      "Direct string concatenation of user input into prompts",
+      "Validating input before injection",
+      "Using clear delimiters around user content"
+    ],
+    "correct": "Direct string concatenation of user input into prompts"
+  },
+  {
+    "question": "You need reproducible creative outputs for product demos. Which parameter combination should you use?",
+    "answers": [
+      "Temperature = 0, no seed needed",
+      "Temperature = 0.7 with a fixed seed value",
+      "Temperature = 1.5, seed = 0",
+      "Temperature = 2.0 with random seed"
+    ],
+    "correct": "Temperature = 0.7 with a fixed seed value"
+  },
+  {
+    "question": "What is few-shot learning in LLM prompting?",
+    "answers": [
+      "Training the model on a small dataset",
+      "Providing multiple examples in the prompt to demonstrate the desired pattern",
+      "Using the model for only a few requests",
+      "Limiting the response to a few sentences"
+    ],
+    "correct": "Providing multiple examples in the prompt to demonstrate the desired pattern"
+  },
+  {
+    "question": "Which of the following is an anti-pattern in system/user prompting?",
+    "answers": [
+      "Keeping the system prompt constant across interactions",
+      "Specifying output format in the system prompt",
+      "Repeating system-level instructions in every user prompt",
+      "Placing security policies in the system prompt"
+    ],
+    "correct": "Repeating system-level instructions in every user prompt"
+  },
+  {
+    "question": "Your data extraction task requires high accuracy but you're concerned about token costs. What approach should you start with?",
+    "answers": [
+      "Start with few-shot and many examples immediately",
+      "Start with zero-shot, add examples only if accuracy is insufficient",
+      "Always use the maximum number of examples",
+      "Use prompt chaining for every request"
+    ],
+    "correct": "Start with zero-shot, add examples only if accuracy is insufficient"
+  },
+  {
+    "question": "What does the max_tokens parameter control?",
+    "answers": [
+      "The maximum number of tokens in the input prompt",
+      "The maximum number of tokens in the generated response",
+      "The total context window size",
+      "The number of tokens cached for reuse"
+    ],
+    "correct": "The maximum number of tokens in the generated response"
+  },
+  {
+    "question": "Why is enabling JSON mode alone not sufficient for production systems?",
+    "answers": [
+      "JSON mode is too slow for production",
+      "JSON mode only guarantees valid JSON syntax, not that output matches your schema",
+      "JSON mode costs extra tokens",
+      "JSON mode is not supported by most providers"
+    ],
+    "correct": "JSON mode only guarantees valid JSON syntax, not that output matches your schema"
+  },
+  {
+    "question": "Your LLM keeps hallucinating library functions that don't exist. How should you address this in your prompt?",
+    "answers": [
+      "Increase the temperature for more creativity",
+      "Add a constraint that prohibits hallucinating methods or packages",
+      "Use a smaller context window",
+      "Remove all technical terminology from the prompt"
+    ],
+    "correct": "Add a constraint that prohibits hallucinating methods or packages"
+  },
+  {
+    "question": "When is Chain-of-Thought (CoT) prompting most valuable?",
+    "answers": [
+      "Simple classification tasks with clear categories",
+      "Complex reasoning tasks, verification, and tasks requiring transparency",
+      "High-volume, cost-sensitive operations",
+      "Tasks requiring maximum creativity"
+    ],
+    "correct": "Complex reasoning tasks, verification, and tasks requiring transparency"
+  },
+  {
+    "question": "What are the core components that should be included in a well-designed system prompt?",
+    "answers": [
+      "Only the task description and user data",
+      "Role/Persona, Task Description, Constraints/Policies, Output Format, and Tone/Style",
+      "Just the output format specification",
+      "Only security guidelines and constraints"
+    ],
+    "correct": "Role/Persona, Task Description, Constraints/Policies, Output Format, and Tone/Style"
+  },
+  {
+    "question": "Your team has prompts scattered across the codebase with no version control. What is the recommended best practice?",
+    "answers": [
+      "Keep prompts embedded in the code where they're used",
+      "Centralize prompts in a versioned library with documentation and performance metrics",
+      "Store prompts in a database without version history",
+      "Let each developer maintain their own prompt files"
+    ],
+    "correct": "Centralize prompts in a versioned library with documentation and performance metrics"
+  },
+  {
+    "question": "A common misconception about temperature is that setting it to 0 prevents hallucinations. Why is this incorrect?",
+    "answers": [
+      "Temperature 0 is not supported by most models",
+      "Temperature controls randomness, not accuracy; the model can hallucinate consistently at temperature 0",
+      "Temperature 0 actually increases hallucinations",
+      "Hallucinations only occur at temperature values above 1.0"
+    ],
+    "correct": "Temperature controls randomness, not accuracy; the model can hallucinate consistently at temperature 0"
+  },
+  {
+    "question": "Which mitigation strategy helps prevent prompt injection attacks?",
+    "answers": [
+      "Using higher temperature values",
+      "Using clear delimiters and explicit instructions to treat user content as data, not instructions",
+      "Removing all system prompts",
+      "Allowing users to modify the system prompt"
+    ],
+    "correct": "Using clear delimiters and explicit instructions to treat user content as data, not instructions"
+  },
+  {
+    "question": "What is the 'Progressive Disclosure' pattern in prompt design?",
+    "answers": [
+      "Gradually revealing the model's response to users",
+      "System prompt sets core behaviors; user prompt adds task-specific refinements",
+      "Slowly increasing temperature over multiple requests",
+      "Releasing prompt templates in phases"
+    ],
+    "correct": "System prompt sets core behaviors; user prompt adds task-specific refinements"
+  },
+  {
+    "question": "When should you use prompt chaining instead of a single comprehensive prompt?",
+    "answers": [
+      "Only when the model is too slow",
+      "When you need to exceed context limits, enable conditional logic, or use different models for different steps",
+      "Only for creative writing tasks",
+      "When you want to reduce accuracy for faster processing"
+    ],
+    "correct": "When you need to exceed context limits, enable conditional logic, or use different models for different steps"
+  },
+  {
+    "question": "What is meta-prompting in the context of debugging?",
+    "answers": [
+      "Using metadata to track prompt versions",
+      "Asking the LLM to critique or explain its own behavior to understand failures",
+      "Creating prompts about other prompts' metadata",
+      "Using prompts to generate documentation"
+    ],
+    "correct": "Asking the LLM to critique or explain its own behavior to understand failures"
+  },
+  {
+    "question": "According to the cost considerations table, what is the approximate cost difference between zero-shot and few-shot (3 examples) prompts per 1 million requests at $5 per million input tokens?",
+    "answers": [
+      "Zero-shot costs more than few-shot",
+      "Zero-shot: $250, Few-shot: $1,750 (7x difference)",
+      "They cost approximately the same",
+      "Zero-shot: $1,750, Few-shot: $250"
+    ],
+    "correct": "Zero-shot: $250, Few-shot: $1,750 (7x difference)"
+  },
+  {
+    "question": "What does the presence_penalty parameter do?",
+    "answers": [
+      "Penalizes the model for being present in the conversation too long",
+      "Penalizes tokens that have already appeared, reducing repetition",
+      "Controls how present or detailed the response should be",
+      "Determines if the model should be present in multi-turn conversations"
+    ],
+    "correct": "Penalizes tokens that have already appeared, reducing repetition"
+  },
+  {
+    "question": "You're designing an API for a code review system. Which analogy best describes the relationship between system and user prompts?",
+    "answers": [
+      "System prompt is like database queries, user prompt is like database schema",
+      "System prompt is like a configuration file/middleware, user prompt is like function parameters",
+      "System prompt is like user authentication, user prompt is like server logs",
+      "System prompt is like the response, user prompt is like the request headers"
+    ],
+    "correct": "System prompt is like a configuration file/middleware, user prompt is like function parameters"
+  },
+  {
+    "question": "What is the recommended temperature range for data extraction and code generation tasks?",
+    "answers": [
+      "0.8 - 1.2",
+      "1.5+",
+      "0 - 0.3",
+      "0.5 - 0.7"
+    ],
+    "correct": "0 - 0.3"
+  }
+]

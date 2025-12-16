@@ -1,0 +1,302 @@
+[
+  {
+    "question": "According to the 2025 Stack Overflow Developer Survey, what percentage of developers either use or plan to use AI tools in their workflow?",
+    "answers": [
+      "51%",
+      "77%",
+      "84%",
+      "30%"
+    ],
+    "correct": "84%"
+  },
+  {
+    "question": "What percentage of professional developers report using AI coding tools daily?",
+    "answers": [
+      "30%",
+      "51%",
+      "77%",
+      "84%"
+    ],
+    "correct": "51%"
+  },
+  {
+    "question": "How is 'Agentic AI' defined in the context of AI coding assistants?",
+    "answers": [
+      "AI that provides simple code autocomplete suggestions",
+      "AI systems capable of autonomous multi-step task execution, planning, and decision-making",
+      "AI that only responds to explicit developer requests",
+      "AI that requires human approval for every action"
+    ],
+    "correct": "AI systems capable of autonomous multi-step task execution, planning, and decision-making"
+  },
+  {
+    "question": "Which phase of AI coding tool evolution is characterized by the ability to understand high-level goals and autonomously execute complex tasks across entire codebases?",
+    "answers": [
+      "Phase 1: Code Completion (2021-2023)",
+      "Phase 2: Interactive Assistance (2023-2024)",
+      "Phase 3: Agentic Automation (2024-Present)",
+      "Phase 0: Manual Coding (Pre-2021)"
+    ],
+    "correct": "Phase 3: Agentic Automation (2024-Present)"
+  },
+  {
+    "question": "Which of the following skills has become MORE important for developers with the adoption of AI coding assistants?",
+    "answers": [
+      "Writing boilerplate code",
+      "Memorizing syntax details",
+      "Critical Review of AI-generated code",
+      "Manual test case generation"
+    ],
+    "correct": "Critical Review of AI-generated code"
+  },
+  {
+    "question": "Which skill has become LESS important for developers due to AI coding assistants?",
+    "answers": [
+      "System Design",
+      "Problem Decomposition",
+      "Prompt Engineering",
+      "Writing boilerplate code"
+    ],
+    "correct": "Writing boilerplate code"
+  },
+  {
+    "question": "What are the three distinct development environments where AI coding assistants operate?",
+    "answers": [
+      "Desktop, Mobile, and Cloud",
+      "IDE-Integrated, CLI/Terminal, and Web-Based",
+      "Local, Remote, and Hybrid",
+      "Frontend, Backend, and Full-Stack"
+    ],
+    "correct": "IDE-Integrated, CLI/Terminal, and Web-Based"
+  },
+  {
+    "question": "A developer needs to perform deep refactoring across multiple files in an established codebase. Which environment is recommended?",
+    "answers": [
+      "Web-Based Platform",
+      "CLI/Terminal Assistant",
+      "IDE-Integrated Assistant",
+      "Browser-based code editor"
+    ],
+    "correct": "IDE-Integrated Assistant"
+  },
+  {
+    "question": "Your team needs to create a quick prototype for a stakeholder demo with a shareable URL and zero setup. Which environment is most suitable?",
+    "answers": [
+      "IDE-Integrated Assistant",
+      "CLI/Terminal Assistant",
+      "Web-Based Platform",
+      "Local development environment"
+    ],
+    "correct": "Web-Based Platform"
+  },
+  {
+    "question": "Which task is most appropriate for a CLI/Terminal AI assistant?",
+    "answers": [
+      "Building a production feature with debugging",
+      "Creating a stakeholder demo with live URL",
+      "Generating Git commit messages from staged changes",
+      "Collaborative pair programming"
+    ],
+    "correct": "Generating Git commit messages from staged changes"
+  },
+  {
+    "question": "What productivity gains do developers typically experience when using AI coding assistants with proper critical review?",
+    "answers": [
+      "5-10%",
+      "20-50%",
+      "60-80%",
+      "90-100%"
+    ],
+    "correct": "20-50%"
+  },
+  {
+    "question": "What was the approximate global market size for 'AI-powered coding assistant' IDE-integrated tools in 2024?",
+    "answers": [
+      "$50 million",
+      "$205 million",
+      "$500 million",
+      "$5.5 billion"
+    ],
+    "correct": "$205 million"
+  },
+  {
+    "question": "According to the material, major technology companies like Google and Microsoft report that AI now generates what percentage of their new code?",
+    "answers": [
+      "Over 10%",
+      "Over 20%",
+      "Over 30%",
+      "Over 50%"
+    ],
+    "correct": "Over 30%"
+  },
+  {
+    "question": "What is Cursor described as in the document?",
+    "answers": [
+      "A CLI tool for terminal-based coding",
+      "A fork of VS Code re-architected to provide AI with deep, project-wide context",
+      "A web-based collaborative IDE",
+      "A plugin for JetBrains IDEs"
+    ],
+    "correct": "A fork of VS Code re-architected to provide AI with deep, project-wide context"
+  },
+  {
+    "question": "Which AI coding tool is described as employing 'spec-driven development' that translates natural language prompts into structured specifications?",
+    "answers": [
+      "Cursor",
+      "GitHub Copilot",
+      "Windsurf",
+      "Kiro"
+    ],
+    "correct": "Kiro"
+  },
+  {
+    "question": "What is a key advantage of CLI/Terminal AI assistants?",
+    "answers": [
+      "Full access to project context and file structure",
+      "Easy sharing and collaboration",
+      "Scriptable and can be integrated into CI/CD pipelines",
+      "Integrated deployment pipelines"
+    ],
+    "correct": "Scriptable and can be integrated into CI/CD pipelines"
+  },
+  {
+    "question": "When should you NOT use web-based AI coding platforms?",
+    "answers": [
+      "Rapid prototyping and MVPs",
+      "Learning new frameworks",
+      "Production applications with strict data privacy requirements",
+      "Stakeholder demonstrations"
+    ],
+    "correct": "Production applications with strict data privacy requirements"
+  },
+  {
+    "question": "According to best practices, what is the recommended approach when working with AI-generated code?",
+    "answers": [
+      "Accept first-generation code immediately to maximize productivity",
+      "Iterate: Generate, Review, Refine, and Validate",
+      "Only use AI for documentation, not code generation",
+      "Avoid AI tools for production code entirely"
+    ],
+    "correct": "Iterate: Generate, Review, Refine, and Validate"
+  },
+  {
+    "question": "Which AI model is recommended for complex reasoning and large contexts according to the material?",
+    "answers": [
+      "OpenAI's GPT-5",
+      "Anthropic's Claude Opus",
+      "Google's Gemini Pro",
+      "GitHub Copilot"
+    ],
+    "correct": "Anthropic's Claude Opus"
+  },
+  {
+    "question": "What is the purpose of creating an AGENTS.md file in your repository?",
+    "answers": [
+      "To store API keys for AI services",
+      "To document architecture, code standards, and patterns for AI assistants to reference",
+      "To track AI-generated code commits",
+      "To configure billing for AI API usage"
+    ],
+    "correct": "To document architecture, code standards, and patterns for AI assistants to reference"
+  },
+  {
+    "question": "A developer writes the prompt 'Fix this function'. According to best practices, what is wrong with this approach?",
+    "answers": [
+      "The prompt is too long",
+      "The prompt lacks rich context about the function's purpose, error details, and environment",
+      "Fix requests should only be made in CLI tools",
+      "AI assistants cannot fix functions, only generate new ones"
+    ],
+    "correct": "The prompt lacks rich context about the function's purpose, error details, and environment"
+  },
+  {
+    "question": "What feature does Lovable offer to eliminate potential vendor lock-in?",
+    "answers": [
+      "Local-only processing",
+      "GitHub integration for real-time synchronization and code export",
+      "Built-in version control system",
+      "Proprietary file format conversion"
+    ],
+    "correct": "GitHub integration for real-time synchronization and code export"
+  },
+  {
+    "question": "Why are many AI coding assistant providers moving from flat-rate subscriptions to usage-based pricing models?",
+    "answers": [
+      "To reduce the number of users",
+      "Because agentic tasks consume significantly more computational resources than simple completions",
+      "To comply with new regulations",
+      "Because developers prefer pay-per-use models"
+    ],
+    "correct": "Because agentic tasks consume significantly more computational resources than simple completions"
+  },
+  {
+    "question": "What is a key limitation of IDE-integrated AI assistants?",
+    "answers": [
+      "No access to project files",
+      "Requires local setup and configuration",
+      "Cannot generate code",
+      "Only works in web browsers"
+    ],
+    "correct": "Requires local setup and configuration"
+  },
+  {
+    "question": "According to the material, how many paid subscribers did GitHub Copilot have as of FY2024?",
+    "answers": [
+      "500,000",
+      "1 million",
+      "1.8 million",
+      "5 million"
+    ],
+    "correct": "1.8 million"
+  },
+  {
+    "question": "What is Windsurf (formerly Codeium) described as?",
+    "answers": [
+      "A CLI-only tool for shell scripting",
+      "An agentic code editor that can autonomously plan, execute tasks, and iteratively debug",
+      "A web-based collaborative platform",
+      "A VS Code extension for code completion only"
+    ],
+    "correct": "An agentic code editor that can autonomously plan, execute tasks, and iteratively debug"
+  },
+  {
+    "question": "You need to explain a complex bash command while already working in the terminal. Which environment is recommended?",
+    "answers": [
+      "IDE-Integrated Assistant",
+      "CLI/Terminal Assistant",
+      "Web-Based Platform",
+      "Switching to a desktop application"
+    ],
+    "correct": "CLI/Terminal Assistant"
+  },
+  {
+    "question": "What is the key privacy concern mentioned regarding IDE-integrated AI assistants?",
+    "answers": [
+      "They store code locally without encryption",
+      "Code is often sent to cloud APIs for processing",
+      "They share code with other developers automatically",
+      "They require public GitHub repositories"
+    ],
+    "correct": "Code is often sent to cloud APIs for processing"
+  },
+  {
+    "question": "According to the document, which tool's core feature is a 'Context Engine' designed to overcome context limitations for large-scale, complex codebases?",
+    "answers": [
+      "GitHub Copilot",
+      "Cursor",
+      "Augment",
+      "Replit"
+    ],
+    "correct": "Augment"
+  },
+  {
+    "question": "What is the recommended approach for effective developers regarding AI tool usage?",
+    "answers": [
+      "Master one tool and use it for all scenarios",
+      "Avoid AI tools until they are more mature",
+      "Use 2-3 different AI tools simultaneously, selecting the right tool for each context",
+      "Only use free AI tools to minimize costs"
+    ],
+    "correct": "Use 2-3 different AI tools simultaneously, selecting the right tool for each context"
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "question": "What is the fundamental difference between traditional programming and AI-powered systems?",
+    "answers": [
+      "Traditional programming is slower than AI systems",
+      "Traditional programming is deterministic while AI systems are probabilistic",
+      "AI systems require less code than traditional programming",
+      "Traditional programming cannot handle complex calculations"
+    ],
+    "correct": "Traditional programming is deterministic while AI systems are probabilistic"
+  },
+  {
+    "question": "What is Artificial Narrow Intelligence (ANI)?",
+    "answers": [
+      "AI that can perform any intellectual task a human can",
+      "AI designed to perform specific, narrow tasks - this is all the AI we have today",
+      "AI that is still in development and not yet available",
+      "AI that combines multiple general-purpose capabilities"
+    ],
+    "correct": "AI designed to perform specific, narrow tasks - this is all the AI we have today"
+  },
+  {
+    "question": "Which statement about Artificial General Intelligence (AGI) is correct?",
+    "answers": [
+      "AGI is currently available through OpenAI's GPT-4",
+      "AGI exists but is restricted to government use",
+      "AGI does not exist today and all predictions about it are speculative",
+      "AGI was achieved in 2023 with the release of ChatGPT"
+    ],
+    "correct": "AGI does not exist today and all predictions about it are speculative"
+  },
+  {
+    "question": "What distinguishes Generative AI from traditional AI systems?",
+    "answers": [
+      "Generative AI is faster at processing data",
+      "Generative AI creates new content while traditional AI classifies, predicts, or recommends",
+      "Generative AI requires less training data",
+      "Generative AI can achieve AGI capabilities"
+    ],
+    "correct": "Generative AI creates new content while traditional AI classifies, predicts, or recommends"
+  },
+  {
+    "question": "A developer notices that an AI code assistant generates slightly different implementations each time they ask for the same function. What explains this behavior?",
+    "answers": [
+      "The AI system has a bug that needs to be reported",
+      "This is expected because AI systems are probabilistic and can produce variable outputs",
+      "The developer's prompts must be slightly different each time",
+      "The AI model is being retrained between requests"
+    ],
+    "correct": "This is expected because AI systems are probabilistic and can produce variable outputs"
+  },
+  {
+    "question": "What is Supervised Learning?",
+    "answers": [
+      "ML where a human manually monitors every prediction",
+      "ML where models learn from labeled examples (input-output pairs)",
+      "ML where the model learns without any data",
+      "ML that requires supervision from multiple AI systems"
+    ],
+    "correct": "ML where models learn from labeled examples (input-output pairs)"
+  },
+  {
+    "question": "In the context of machine learning, what are 'labels'?",
+    "answers": [
+      "Tags used to organize training code files",
+      "The correct answers paired with input data during training",
+      "Names given to different AI models",
+      "Categories of neural network layers"
+    ],
+    "correct": "The correct answers paired with input data during training"
+  },
+  {
+    "question": "What is 'inference' in the AI lifecycle?",
+    "answers": [
+      "The process of collecting training data",
+      "Using a trained model to make predictions or generate outputs on new data",
+      "The process of adjusting weights during training",
+      "Validating the model architecture before training"
+    ],
+    "correct": "Using a trained model to make predictions or generate outputs on new data"
+  },
+  {
+    "question": "A team receives AI-generated code that appears correct. According to best practices, what should they do?",
+    "answers": [
+      "Deploy immediately since AI-generated code is reliable",
+      "Always test, review, and validate before deploying - apply 'never trust, always verify'",
+      "Only review if the code looks suspicious",
+      "Trust the output if it comes from a reputable AI provider"
+    ],
+    "correct": "Always test, review, and validate before deploying - apply 'never trust, always verify'"
+  },
+  {
+    "question": "What is the correct hierarchical relationship between AI, Machine Learning, and Deep Learning?",
+    "answers": [
+      "Deep Learning > Machine Learning > AI",
+      "Machine Learning > AI > Deep Learning",
+      "AI > Machine Learning > Deep Learning",
+      "They are all equal and interchangeable terms"
+    ],
+    "correct": "AI > Machine Learning > Deep Learning"
+  },
+  {
+    "question": "What makes a neural network 'deep'?",
+    "answers": [
+      "The complexity of its training data",
+      "Having many layers (sometimes hundreds)",
+      "The depth of its understanding of concepts",
+      "The amount of memory it requires"
+    ],
+    "correct": "Having many layers (sometimes hundreds)"
+  },
+  {
+    "question": "When an AI model produces incorrect outputs, how does 'debugging' differ from traditional code debugging?",
+    "answers": [
+      "You step through the model's code line by line",
+      "You adjust prompts, parameters, and context rather than fixing lines of code",
+      "You directly edit the model's weights",
+      "You rewrite the neural network architecture"
+    ],
+    "correct": "You adjust prompts, parameters, and context rather than fixing lines of code"
+  },
+  {
+    "question": "What is the formula that represents the Traditional Programming model?",
+    "answers": [
+      "DATA + ANSWERS = RULES",
+      "RULES + ANSWERS = DATA",
+      "DATA + RULES = ANSWERS",
+      "ANSWERS + RULES = DATA"
+    ],
+    "correct": "DATA + RULES = ANSWERS"
+  },
+  {
+    "question": "What is the formula that represents the Machine Learning model?",
+    "answers": [
+      "DATA + RULES = ANSWERS",
+      "DATA + ANSWERS = RULES (learned)",
+      "RULES + MODEL = ANSWERS",
+      "ANSWERS + RULES = DATA"
+    ],
+    "correct": "DATA + ANSWERS = RULES (learned)"
+  },
+  {
+    "question": "How does testing AI systems differ from traditional unit testing?",
+    "answers": [
+      "AI testing uses exact pass/fail assertions like traditional testing",
+      "AI testing evaluates performance across distributions using metrics like accuracy and precision",
+      "AI testing doesn't require any test cases",
+      "AI testing only needs one example per scenario"
+    ],
+    "correct": "AI testing evaluates performance across distributions using metrics like accuracy and precision"
+  },
+  {
+    "question": "In a neural network, what are 'weights'?",
+    "answers": [
+      "The physical size of the model file",
+      "Parameters that determine the strength of connections between neurons, learned during training",
+      "The number of training examples used",
+      "The processing speed of each layer"
+    ],
+    "correct": "Parameters that determine the strength of connections between neurons, learned during training"
+  },
+  {
+    "question": "What does the principle 'never trust, always verify' mean for developers working with AI?",
+    "answers": [
+      "Never use AI tools in production environments",
+      "Always validate and test AI outputs as they may look plausible but be wrong",
+      "Trust AI outputs only from verified vendors",
+      "Verify that AI tools have proper licensing"
+    ],
+    "correct": "Always validate and test AI outputs as they may look plausible but be wrong"
+  },
+  {
+    "question": "When is AI/ML more appropriate than traditional rule-based programming?",
+    "answers": [
+      "When you need guaranteed deterministic outputs",
+      "When rules are too complex, unknown, or change over time",
+      "When the problem space is small and well-defined",
+      "When exact reproducibility is required for every input"
+    ],
+    "correct": "When rules are too complex, unknown, or change over time"
+  },
+  {
+    "question": "What are the four new responsibilities of a developer as an 'AI Director'?",
+    "answers": [
+      "Coder, Tester, Deployer, Maintainer",
+      "Director of Intent, Critical Reviewer, Integrator, Quality Guardian",
+      "Trainer, Evaluator, Optimizer, Publisher",
+      "Designer, Implementer, Debugger, Documenter"
+    ],
+    "correct": "Director of Intent, Critical Reviewer, Integrator, Quality Guardian"
+  },
+  {
+    "question": "What happens during the 'training' phase of machine learning?",
+    "answers": [
+      "The model is deployed to production servers",
+      "The model adjusts weights to minimize the difference between predicted and actual outputs",
+      "Users provide feedback on model predictions",
+      "The model's API endpoints are configured"
+    ],
+    "correct": "The model adjusts weights to minimize the difference between predicted and actual outputs"
+  },
+  {
+    "question": "A company's fraud detection model starts making poor predictions. Investigation reveals the training data contained mostly examples from 2019. What principle does this illustrate?",
+    "answers": [
+      "Models need more layers to improve accuracy",
+      "Data quality and representativeness directly impact model performance",
+      "The model should be switched to rule-based programming",
+      "Inference should be performed more frequently"
+    ],
+    "correct": "Data quality and representativeness directly impact model performance"
+  },
+  {
+    "question": "Which type of AI is GitHub Copilot?",
+    "answers": [
+      "Artificial General Intelligence (AGI)",
+      "Artificial Narrow Intelligence (ANI) - specifically Generative AI",
+      "Traditional rule-based AI",
+      "Unsupervised learning system"
+    ],
+    "correct": "Artificial Narrow Intelligence (ANI) - specifically Generative AI"
+  },
+  {
+    "question": "What are Large Language Models (LLMs) trained to predict?",
+    "answers": [
+      "The truth value of statements",
+      "The next word (or token) in a sequence",
+      "The meaning of sentences",
+      "The intent of the user"
+    ],
+    "correct": "The next word (or token) in a sequence"
+  },
+  {
+    "question": "A developer is building an application that uses an LLM API. How should they handle the probabilistic nature of outputs?",
+    "answers": [
+      "Assume outputs will always be correct since LLMs are highly trained",
+      "Design for probabilistic behavior with validation, retries, and fallback strategies",
+      "Only accept the first response and never retry",
+      "Avoid using LLMs for any critical functionality"
+    ],
+    "correct": "Design for probabilistic behavior with validation, retries, and fallback strategies"
+  },
+  {
+    "question": "According to the course materials, what is a neural network?",
+    "answers": [
+      "A biological brain structure used in AI research",
+      "A computational model consisting of interconnected nodes (neurons) organized in layers",
+      "A network of computers working together on AI tasks",
+      "A type of internet protocol for AI communications"
+    ],
+    "correct": "A computational model consisting of interconnected nodes (neurons) organized in layers"
+  },
+  {
+    "question": "How should developers handle edge cases when working with AI systems compared to traditional code?",
+    "answers": [
+      "Add explicit if/else handling for each edge case in the model",
+      "Test with diverse data, monitor predictions, implement fallbacks, and continuously improve",
+      "Edge cases don't exist in AI systems",
+      "Let the model automatically handle all edge cases without intervention"
+    ],
+    "correct": "Test with diverse data, monitor predictions, implement fallbacks, and continuously improve"
+  },
+  {
+    "question": "What is the key difference between the training and inference phases for developers using LLMs?",
+    "answers": [
+      "Developers typically do both training and inference equally",
+      "Training is expensive and specialized; developers add value primarily through inference",
+      "Inference is more expensive than training",
+      "Training happens automatically when using APIs"
+    ],
+    "correct": "Training is expensive and specialized; developers add value primarily through inference"
+  },
+  {
+    "question": "A company wants to build a spam filter. According to the course, why would ML be preferred over explicit rule-based programming?",
+    "answers": [
+      "ML is always faster than rule-based systems",
+      "Rules for what makes email 'spammy' are hard to articulate and patterns change over time",
+      "Rule-based systems cannot process email",
+      "ML requires no training data for spam detection"
+    ],
+    "correct": "Rules for what makes email 'spammy' are hard to articulate and patterns change over time"
+  },
+  {
+    "question": "Which of the following is an example of Generative AI creating new content?",
+    "answers": [
+      "Classifying an email as 95% likely spam",
+      "Predicting a stock will rise by 3%",
+      "Generating a function that implements binary search",
+      "Recommending a movie to a user"
+    ],
+    "correct": "Generating a function that implements binary search"
+  },
+  {
+    "question": "When building robust AI-powered systems, what should developers implement to account for AI's probabilistic nature?",
+    "answers": [
+      "Only synchronous API calls",
+      "Validation, retries, fallback strategies, and human oversight",
+      "Larger context windows only",
+      "Multiple AI models that vote on outputs"
+    ],
+    "correct": "Validation, retries, fallback strategies, and human oversight"
+  }
+]
