@@ -170,16 +170,6 @@
     "correct": "Suggests prompt enhancement in 1-click"
   },
   {
-    "question": "You need native inline code completion, real-time suggestions, and refactoring hints directly inside your IDE (e.g., VS Code or JetBrains), without switching to a chat. In the course's AI Tool Ecosystem, which category best matches this need?",
-    "answers": [
-      "Multimodal chat assistants with coding features (e.g., ChatGPT, Gemini)",
-      "Code tools for IDE inline completion and refactoring (e.g., GitHub Copilot)",
-      "Enterprise AI platforms for secure, document-centered tasks (e.g., HAIP)",
-      "Image-generation tools for visual design work (e.g., Midjourney, DALL-E 3)"
-    ],
-    "correct": "Code tools for IDE inline completion and refactoring (e.g., GitHub Copilot)"
-  },
-  {
     "question": "What is data pseudonymization in the context of AI tools?",
     "answers": [
       "Completely avoiding AI tools for any business-related tasks or processes",

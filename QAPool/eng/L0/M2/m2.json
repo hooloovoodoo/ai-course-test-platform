@@ -1,15 +1,5 @@
 [
   {
-    "question": "What is AI bias?",
-    "answers": [
-      "When a model generates fabricated information while presenting it confidently as fact",
-      "When systems make unfair decisions based on race, gender, age, or other protected characteristics",
-      "When a model overfits training data and performs poorly on new data",
-      "When a system's internal decision process cannot be explained or interpreted with confidence"
-    ],
-    "correct": "When systems make unfair decisions based on race, gender, age, or other protected characteristics"
-  },
-  {
     "question": "A chatbot asserts that 'Smith et al., 2022' found a 37% effect and even cites page numbers, but no such paper can be located in reputable databases. Which option best characterizes this failure mode?",
     "answers": [
       "Exposure to online misinformation - faithful reproduction of a dubious source",
@@ -28,16 +18,6 @@
       "Competitors had developed far superior systems that made Amazon's technology obsolete"
     ],
     "correct": "It couldn't guarantee bias elimination after downgrading women's resumes"
-  },
-  {
-    "question": "What happened to Microsoft's Tay chatbot within 24 hours of launch?",
-    "answers": [
-      "It became the most popular chatbot ever created with millions of satisfied users worldwide",
-      "It stopped working due to technical issues",
-      "It was manipulated by trolls to post offensive content and had to be shut down",
-      "It achieved self-learning beyond intended boundaries"
-    ],
-    "correct": "It was manipulated by trolls to post offensive content and had to be shut down"
   },
   {
     "question": "Which of the following is NOT a core principle of Ethical AI?",
@@ -100,36 +80,6 @@
     "correct": "Add robust input/output safety filters and adversarial testing to block abusive content"
   },
   {
-    "question": "Your colleague used ChatGPT and got very specific industry figures but no sources. Before adding them to a client presentation, what is the best next step?",
-    "answers": [
-      "Ask the model to regenerate the stats with citations and use those citations without further review",
-      "Verify the figures with independent, reputable sources and confirm any cited sources actually exist",
-      "Do a plausibility scan and proceed if the numbers look reasonable given your experience",
-      "Spot-check one figure on a trusted site and assume the remaining numbers are correct"
-    ],
-    "correct": "Verify the figures with independent, reputable sources and confirm any cited sources actually exist"
-  },
-  {
-    "question": "You need help debugging code that contains your company's proprietary algorithm. What's the best approach?",
-    "answers": [
-      "Paste the entire codebase into ChatGPT for comprehensive and accurate analysis",
-      "Share only small, non-proprietary code snippets or use pseudocode",
-      "Seek guidance by posting the code on a programming forum",
-      "Send the code to a personal email to work on it remotely"
-    ],
-    "correct": "Share only small, non-proprietary code snippets or use pseudocode"
-  },
-  {
-    "question": "An AI tool generates a report with academic citations. Which action best aligns with the course's fact-checking strategies before submission?",
-    "answers": [
-      "Trust the citations if they look professional and use standard academic formatting",
-      "Confirm each source exists and supports the specific claims it is cited for",
-      "Verify that each link or DOI resolves to a paper; content review isn't required",
-      "Spot-check one or two references for plausibility and submit if nothing seems off"
-    ],
-    "correct": "Confirm each source exists and supports the specific claims it is cited for"
-  },
-  {
     "question": "You are drafting an email about employee salaries and plan to use a public AI writing assistant. What should you do?",
     "answers": [
       "Use fictional ranges or placeholders and avoid real names or figures; draft safely, then add specifics offline.",
@@ -150,16 +100,6 @@
     "correct": "Decline and verify through an official channel; never share PII with public AI tools."
   },
   {
-    "question": "You plan to upload a coworker's headshot to an external AI presentation tool that may retain data for model improvement. What should you do next?",
-    "answers": [
-      "Rely on the tool's privacy policy and upload with 'no training' settings",
-      "Get explicit consent and confirm the tool is security-approved before upload",
-      "Blur the face and proceed if the headshot is only used for an internal presentation",
-      "Upload now and ask permission afterward; delete the file if needed"
-    ],
-    "correct": "Get explicit consent and confirm the tool is security-approved before upload"
-  },
-  {
     "question": "An AI chatbot confidently states that your company's main competitor filed for bankruptcy yesterday. Your next step should be:",
     "answers": [
       "Immediately notify your leadership team",
@@ -168,16 +108,6 @@
       "Discuss it on social media for quick feedback"
     ],
     "correct": "Verify this information through official sources before taking any action"
-  },
-  {
-    "question": "You need high-level guidance from a public, unvetted AI assistant on cleaning a customer database that includes names and addresses. What is the safest approach?",
-    "answers": [
-      "Upload the full dataset so the assistant can analyze real patterns.",
-      "Anonymize or use synthetic records that mirror your data, avoiding PII.",
-      "Share only customers who consented to marketing; that makes it permissible.",
-      "Use real samples but delete the chat afterward to protect privacy."
-    ],
-    "correct": "Anonymize or use synthetic records that mirror your data, avoiding PII."
   },
   {
     "question": "An AI tool drafts guidance for a high-stakes, jurisdiction-specific contract dispute and includes case and statute citations. What is the most appropriate next step?",
@@ -208,16 +138,6 @@
       "A short snippet copied from an open-source library's official documentation"
     ],
     "correct": "A 40-line function from your company's private repo implementing discount eligibility rules"
-  },
-  {
-    "question": "When you input confidential information into AI tools, who are you sharing it with?",
-    "answers": [
-      "Only with the AI interface you're using",
-      "Chat information is not shared with anyone else, interaction stays within the browser, on client side",
-      "With the AI service provider, potentially other users, and future AI models",
-      "Only with your company's systems"
-    ],
-    "correct": "With the AI service provider, potentially other users, and future AI models"
   },
   {
     "question": "What are red flags for recognizing AI hallucinations?",

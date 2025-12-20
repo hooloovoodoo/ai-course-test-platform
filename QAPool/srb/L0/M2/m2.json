@@ -1,15 +1,5 @@
 [
   {
-    "question": "Šta je pristrasnost AI?",
-    "answers": [
-      "Kada model generiše izmišljene informacije predstavljajući ih samouvereno kao činjenice",
-      "Kada sistemi donose nepravedne odluke zasnovane na rasi, polu, starosti ili drugim zaštićenim karakteristikama",
-      "Kada model prefituje trening podatke i loše radi na novim podacima",
-      "Kada se interni proces donošenja odluka sistema ne može objasniti ili interpretirati"
-    ],
-    "correct": "Kada sistemi donose nepravedne odluke zasnovane na rasi, polu, starosti ili drugim zaštićenim karakteristikama"
-  },
-  {
     "question": "Koji scenario NAJBOLJE opisuje halucinaciju AI?",
     "answers": [
       "Model zbog šuma pogrešno klasifikuje sliku mačke kao psa.",
@@ -48,16 +38,6 @@
       "Odgovornost"
     ],
     "correct": "Transparentnost"
-  },
-  {
-    "question": "Šta su 'guardrails' u AI sistemima?",
-    "answers": [
-      "Fizičke barijere oko računara koji štite hardver od oštećenja i neovlašćenog pristupa data centrima",
-      "Bezbednosni mehanizmi koji sprečavaju AI da generiše štetni, pristrasni ili neprikladan sadržaj",
-      "Programi za obuku AI programera",
-      "Hardverska ograničenja"
-    ],
-    "correct": "Bezbednosni mehanizmi koji sprečavaju AI da generiše štetni, pristrasni ili neprikladan sadržaj"
   },
   {
     "question": "Šta je osnovni uzrok problema 'crne kutije' u savremenim AI sistemima?",
@@ -100,16 +80,6 @@
     "correct": "Neophodni su snažni guardrails, moderacija i zaštita od neprijateljskih unosa tokom rada sistema otvorenog za javnu interakciju, uz nadzor."
   },
   {
-    "question": "Koji od sledećih primera spada u vlasnički kôd (kao poverljivu informaciju)?",
-    "answers": [
-      "Interno razvijeni kod, algoritmi ili poslovna logika",
-      "Listing biblioteka treće strane (third party) koju koristi kompanija",
-      "Interna dokumentacija o arhitekturi bez izvornog koda",
-      "Snimci ekrana internih alata bez prikaza koda"
-    ],
-    "correct": "Interno razvijeni kod, algoritmi ili poslovna logika"
-  },
-  {
     "question": "Šta najtačnije opisuje gde poverljive informacije mogu završiti kada ih unesete u javne/spoljne generativne AI alate (bez posebnih enterprise ugovora)?",
     "answers": [
       "često ostaju u okviru sesije i mogu biti automatski obrisane nakon perioda neaktivnosti, bez šire upotrebe od strane sistema.",
@@ -118,16 +88,6 @@
       "Prenose se i skladište šifrovano, pa najčešće samo korisnik ima uvid u sadržaj, dok provajder u pravilu nema pristup samom tekstu."
     ],
     "correct": "Mogu biti dostupne provajderu, zadržane u logovima i korišćene za treniranje, pa uticati na buduće modele i odgovore."
-  },
-  {
-    "question": "Planiraš da u internu AI prezentaciju uključiš fotografiju koleginice preuzetu sa njenog javnog profila. Pozadina je zamućena i metapodaci su uklonjeni. Prema materijalu, koji je sledeći ispravan korak?",
-    "answers": [
-      "Zbog javne dostupnosti i interne namene, koristi sliku uz navođenje profila.",
-      "Traži menadžersko odobrenje po politici, bez kontaktiranja koleginice.",
-      "Zatraži izričitu saglasnost koleginice, uz objašnjenje svrhe i konteksta.",
-      "Upotrebi sliku uz skrivanje imena/naloga; saglasnost naknadno ako zatreba."
-    ],
-    "correct": "Zatraži izričitu saglasnost koleginice, uz objašnjenje svrhe i konteksta."
   },
   {
     "question": "Koja od sledećih pojava najverovatnije ukazuje na AI halucinaciju?",
@@ -190,16 +150,6 @@
     "correct": "Nezavisno unakrsno proveriti tvrdnje u više pouzdanih izvora izvan AI alata"
   },
   {
-    "question": "Razmatrate upotrebu AI alata za analizu dokumenta sa iznosima plata zaposlenih. Koji pristup je najbezbedniji i u skladu sa pravilima privatnosti?",
-    "answers": [
-      "Uneti stvarne cifre u javni AI i dodati napomenu 'poverljivo' radi bolje analize i brzog dobijanja preporuka.",
-      "Upotrebiti odobreni interni AI uz anonimizovane ili agregirane podate; ako to nije moguće, raditi sa hipotetičkim opsezima.",
-      "Ukloniti imena, ali zadržati tačne cifre plata; to bi trebalo da bude dovoljno za zaštitu privatnosti tokom analize.",
-      "Koristiti javni AI u 'privatnom režimu' i podeliti sažetak sa tačnim ciframa, ali bez imena i drugih identifikatora."
-    ],
-    "correct": "Upotrebiti odobreni interni AI uz anonimizovane ili agregirane podate; ako to nije moguće, raditi sa hipotetičkim opsezima."
-  },
-  {
     "question": "AI chatbot samouvereno tvrdi da je vaš konkurent juče bankrotirao. Koji je ispravan prvi korak pre bilo kakve akcije?",
     "answers": [
       "Proveriti u zvaničnim evidencijama i potvrditi iz više nezavisnih izvora.",
@@ -220,16 +170,6 @@
     "correct": "Primeni anonimne ili sintetičke podatke i koristi odobren interni alat"
   },
   {
-    "question": "AI je generisala pravni savet o poverljivom ugovornom sporu i navela sudske presedane. Koji je najprimereniji sledeći korak u skladu sa strategijama verifikacije i zaštite privatnosti?",
-    "answers": [
-      "Proveriti citirane presedane i interne politike, zatim doneti odluku bez stručne pravne procene.",
-      "Zatražiti od AI izvore i, ako citati postoje, prihvatiti savet bez ljudskog nadzora.",
-      "Podeliti anonimizovan sažetak ugovora sa internim, odobrenim AI alatom i postupiti prema preporuci bez dalje provere.",
-      "Shvatiti savet kao polaznu tačku, potvrditi presedane u pouzdanim izvorima i konsultovati kvalifikovanog pravnika pre odluke."
-    ],
-    "correct": "Shvatiti savet kao polaznu tačku, potvrditi presedane u pouzdanim izvorima i konsultovati kvalifikovanog pravnika pre odluke."
-  },
-  {
     "question": "Vaš tim želi da koristi neodobren AI alat za obradu internih dokumenata. Šta treba preporučiti?",
     "answers": [
       "Koristiti tajno da izbegnete birokratiju",
@@ -248,16 +188,6 @@
       "Najaviti snimanje na početku i nastaviti ako niko ne prigovori (opt-out); po mogućnosti koristiti 'privatni' AI alat."
     ],
     "correct": "Pre snimanja zatražiti pristanak svih učesnika; ako bilo ko odbije, ne snimati; koristiti isključivo odobren AI alat."
-  },
-  {
-    "question": "AI alat u okviru četa (ne na zvaničnoj SSO/login stranici) traži vašu lozinku da 'verifikuje identitet'. Šta treba uraditi?",
-    "answers": [
-      "Odbijte zahtev; lozinke se unose isključivo na zvaničnoj SSO/login stranici, nikada u četu.",
-      "Podelite lozinku jer alat traži verifikaciju za personalizaciju odgovora.",
-      "Uključite 'privatni/poverljivi' režim i podelite lozinku u četu, to je bezbedno.",
-      "Pošaljite samo deo lozinke ili zamaskiranu verziju; dovoljno je za proveru identiteta."
-    ],
-    "correct": "Odbijte zahtev; lozinke se unose isključivo na zvaničnoj SSO/login stranici, nikada u četu."
   },
   {
     "question": "Korisnik dobija dva protivrečna odgovora od AI asistenta o doziranju leka na recept nakon identičnog upita, bez promene konteksta. Prema principima odgovorne upotrebe AI i 'Human in the Loop', koja je najprimerenija naredna akcija?",
