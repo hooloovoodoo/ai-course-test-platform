@@ -24,7 +24,7 @@ class QuestionGenerator:
 
     def __init__(self,
                  language: str = "ENG",
-                 results_sheet: str = "1JQAyIR4Y27GlwSJkO8lpwjZuKMvXpmEEwG3MtcUn7cE"):
+                 results_sheet: str = "1ACSRHmuU_Jg1NuPsErYye3kXg64C2ibfk8omg3vKlsA"):
         """
         Initialize the quiz generator
 
@@ -36,11 +36,10 @@ class QuestionGenerator:
         self.results_sheet = results_sheet
 
         # Fixed quiz settings (rarely changed)
-        self.title = "AI Citizen"
+        self.title = "AI Coder"
         self.description = "To AI or not to AI, that is the question"
         self.points_per_question = 1
-        self.confirmation_message = "Hvala što ste učestvovali u kvizu!" + \
-        " / Thanks for taking the quiz!"
+        self.confirmation_message = "Thanks for taking the quiz!"
 
     def get_file_configs_for_language(
         self, language: str = "ENG") -> List[Dict[str, Any]]:
@@ -56,16 +55,19 @@ class QuestionGenerator:
         language = language.upper()
 
         if language == "ENG":
-            base_path = "QAPool/eng/L0"
+            base_path = "QAPool/eng/L1"
         elif language == "SRB":
-            base_path = "QAPool/srb/L0"
+            base_path = "QAPool/srb/L1"
         else:
             raise ValueError(f"Unsupported language: {language}. Use 'ENG' or 'SRB'")
 
         return [
-            {'path': f'{base_path}/M1/m1.json', 'count': 7},  # AI Fundamentals
-            {'path': f'{base_path}/M2/m2.json', 'count': 11},  # AI Ethics & Bias
-            {'path': f'{base_path}/M3/m3.json', 'count': 7}   # AI Applications
+            {'path': f'{base_path}/M1/m1.json', 'count': 3},  # A Developer's Refresher on AI & Machine Learning
+            {'path': f'{base_path}/M2/m2.json', 'count': 6},  # Foundations - How LLMs Think
+            {'path': f'{base_path}/M3/m3.json', 'count': 7},  # The Core Skill - Engineering Prompts and Controlling Output
+            {'path': f'{base_path}/M4/m4.json', 'count': 7},  # The Responsible AI Developer - A Guide to Secure Coding
+            {'path': f'{base_path}/M5/m5.json', 'count': 5},  # From API to Application - Integrating AI Features Securely
+            {'path': f'{base_path}/M6/m6.json', 'count': 2}   # The AI Coding Assistant Revolution
         ]
 
     def load_questions_from_multiple_files(
@@ -76,7 +78,7 @@ class QuestionGenerator:
 
         Args:
             file_configs: List of dicts with 'path' and 'count' keys
-                         e.g., [{'path': 'l0/m1.json', 'count': 10}, ...]
+                         e.g., [{'path': 'l1/m1.json', 'count': 10}, ...]
 
         Returns:
             List of validated question dictionaries from all files
@@ -256,7 +258,7 @@ class QuestionGenerator:
             ValueError: If requested count exceeds available questions
         """
         if count is None:
-            count = 25  # Total questions: 7 + 11 + 7
+            count = 30  # Total questions: 3 + 6 + 7 + 7 + 5 + 2
 
         if count > len(questions):
             raise ValueError(f"Requested {count} questions but only {len(questions)} available")
@@ -425,12 +427,12 @@ function onFormSubmit(e) {{
   const pct = totalPoints > 0 ? (earnedPoints / totalPoints) * 100 : 0;
   const passed = pct >= 80;
 
-  const subject = `AI Citizen: ${{Math.round(pct)}}% — ${{passed ? 'PASS ✅' : 'FAIL ❌'}}`;
+  const subject = `AI Coder: ${{Math.round(pct)}}% — ${{passed ? 'PASS ✅' : 'FAIL ❌'}}`;
 
   const HERO_IMAGE_URL = `https://cdn.haip.hooloovoo.rs/${{passed ? "pass" : "fail"}}.jpg`;
   const heroBlob = UrlFetchApp.fetch(HERO_IMAGE_URL, {{ muteHttpExceptions: true }}).getBlob().setName("hero.jpg");
 
-  const textBody = `Hvala što ste učestvovali u kvizu! / Thanks for taking the quiz!
+  const textBody = `Thanks for taking the quiz!
 
 🎯: ${{earnedPoints}} / ${{totalPoints}} (${{pct.toFixed(1)}}%)
 🏁: ${{passed ? 'PASS ✅' : 'FAIL ❌'}}`;
@@ -445,10 +447,10 @@ function onFormSubmit(e) {{
             <tr>
               <td align="center" style="padding:24px;">
                 <h1 style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:1.3;color:#222;">
-                  AI Citizen
+                  AI Coder
                 </h1>
                 <p style="font-family:Arial,Helvetica,sans-serif;color:#555;margin:12px 0 24px;">
-                  Hvala što ste učestvovali u kvizu! / Thanks for taking the quiz!
+                  Thanks for taking the quiz!
                 </p>
               </td>
             </tr>
@@ -496,7 +498,7 @@ function onFormSubmit(e) {{
     inlineImages: {{
       "hero-cid": heroBlob
     }},
-    name: "AI Citizen Quiz"
+    name: "AI Coder Quiz"
   }});
 
 
@@ -579,7 +581,7 @@ function onFormSubmit(e) {{
 
         Args:
             file_configs: List of dicts with 'path' and 'count' keys
-                         e.g., [{'path': 'QAPool/eng/L0/M1/m1.json', 'count': 10}, ...]
+                         e.g., [{'path': 'QAPool/eng/L1/M1/m1.json', 'count': 10}, ...]
             output_path: Path to save generated script
 
         Returns:

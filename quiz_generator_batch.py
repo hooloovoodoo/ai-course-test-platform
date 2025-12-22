@@ -26,7 +26,7 @@ def generate_quiz_variants(
     language: str = "ENG",
     num_variants: int = 10,
     output_dir: str = "/tmp",
-    results_sheet: str = "1JQAyIR4Y27GlwSJkO8lpwjZuKMvXpmEEwG3MtcUn7cE"
+    results_sheet: str = "1ACSRHmuU_Jg1NuPsErYye3kXg64C2ibfk8omg3vKlsA"
     ) -> list:
     """
     Generate multiple quiz variants for the specified language
@@ -56,7 +56,7 @@ def generate_quiz_variants(
 
     for variant_num in range(1, num_variants + 1):
         try:
-            filename = f"AI Citizen | {current_date} | [{language}] | Variant {variant_num}.gs"
+            filename = f"AI Coder | {current_date} | [{language}] | Variant {variant_num}.gs"
             output_path = os.path.join(output_dir, filename)
 
             logger.info("📝 Generating variant %d/%d: %s",
@@ -90,9 +90,9 @@ def list_generated_files(output_dir: str = "/tmp", language: str = None):
         language: Optional language filter ("ENG" or "SRB")
     """
 
-    pattern = "AI Citizen | * | *.gs"
+    pattern = "AI Coder | * | *.gs"
     if language:
-        pattern = f"AI Citizen | * | [{language.upper()}] | *.gs"
+        pattern = f"AI Coder | * | [{language.upper()}] | *.gs"
 
     quiz_files = list(Path(output_dir).glob(pattern))
 
@@ -146,7 +146,7 @@ def main():
     parser.add_argument(
         '--results-sheet',
         '-r',
-        default='1JQAyIR4Y27GlwSJkO8lpwjZuKMvXpmEEwG3MtcUn7cE',
+        default='1ACSRHmuU_Jg1NuPsErYye3kXg64C2ibfk8omg3vKlsA',
         help='Google Sheets document ID to store results'
     )
 

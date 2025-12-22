@@ -60,16 +60,6 @@
     "correct": "The engineer who merged and deployed the change"
   },
   {
-    "question": "Assume a Python DB-API-compliant driver (placeholders are %s or ? depending on the driver). The variable name comes directly from a user request. Parameters passed as the second argument to execute/callproc are bound by the driver, and the stored procedure does not use dynamic SQL. Which snippet introduces an SQL injection risk?",
-    "answers": [
-      "cursor.execute(\"SELECT * FROM users WHERE name = %s\", (name,))",
-      "cursor.execute(\"SELECT * FROM users WHERE name = '%s'\" % name)",
-      "cursor.execute(\"SELECT * FROM users WHERE name = ?\", [name])",
-      "cursor.callproc(\"get_user_by_name\", [name])"
-    ],
-    "correct": "cursor.execute(\"SELECT * FROM users WHERE name = '%s'\" % name)"
-  },
-  {
     "question": "In the module's Omission of Security Requirements example, a developer prompts: 'Build a REST API to fetch user data' without specifying protections. Which specific risk did the module identify as the most likely outcome?",
     "answers": [
       "Missing authentication and authorization checks",

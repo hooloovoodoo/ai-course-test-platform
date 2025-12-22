@@ -134,38 +134,27 @@ class EmailNotifier:
         </head>
         <body>
             <div class="header">
-                <h1>🧠 AI Citizen Test</h1>
+                <h1>💻🥷🏻 AI Coder Test</h1>
             </div>
 
-            <p><strong>Instructions / Uputstva:</strong></p>
+            <p><strong>Instructions</strong></p>
             <ul>
-                <li>Choose one test in your preferred language
-                    / Izaberite test na željenom jeziku</li>
-                <li>Complete all questions to receive your score
-                    / Odgovorite na sva pitanja da biste dobili rezultat</li>
-                <li>Each test takes approximately 15-20 minutes
-                    / Svaki test traje približno 15-20 minuta</li>
-                <li>Email with results (PASS/FAIL) will be sent to you after you complete the test
-                    / Posle završetka testa, dobićete email sa vašim rezultatom (PASS/FAIL)</li>
+                <li>Choose one test in your preferred language</li>
+                <li>Complete all questions to receive your score</li>
+                <li>Each test takes approximately 15-20 minutes</li>
+                <li>Email with results (PASS/FAIL) will be sent to you after you complete the test</li>
             </ul>
 
             <div class="content">
                 <div class="quiz-section">
                     <h3>🇺🇸 / 🇬🇧 English Test</h3>
-                    <p>Test your knowledge of AI Citizen with our comprehensive test. Good luck!</p>
+                    <p>Test your knowledge of AI Coder with our comprehensive test. Good luck!</p>
                     <a href="{en_url}" class="quiz-button">Take English Test</a>
-                </div>
-
-                <div class="quiz-section">
-                    <h3>🇷🇸 Srpski Test</h3>
-                    <p>Testirajte svoje znanje o osnovama veštačke inteligencije. Srećno!</p>
-                    <a href="{sr_url}" class="quiz-button">Započni Srpski Test</a>
                 </div>
             </div>
 
             <div class="footer">
                 <p><em>This is an automated message. Please do not reply to this email.</em><br>
-                <em>Ovo je automatska poruka. Molimo ne odgovarajte na ovaj email.</em><br>
                 <em>HLV 💚 YOU \\o/ :)</em></p>
             </div>
 
@@ -177,25 +166,21 @@ class EmailNotifier:
     def create_plain_text_content(self, en_url: str, sr_url: str) -> str:
         """Create plain text email content as fallback."""
         text_content = f"""
-AI Citizen Test
+AI Coder Test
 ===============
 
-Hello! You have been invited to take the AI Citizen test.
+Hello! You have been invited to take the AI Coder test.
 
 ENGLISH TEST:
 {en_url}
 
-SERBIAN TEST / SRPSKI TEST:
-{sr_url}
-
-Instructions / Uputstva:
-- Choose one test in your preferred language / Izaberite test na željenom jeziku
-- Complete all questions to receive your score / Odgovorite na sva pitanja da biste dobili rezultat
-- Each test takes approximately 15-20 minutes / Svaki test traje približno 15-20 minuta
-- Email with your results (PASS/FAIL) will be sent to you after you complete the test / Posle završetka testa, dobićete email sa vašim rezultatom (PASS/FAIL)
+Instructions:
+- Choose one test in your preferred language
+- Complete all questions to receive your score
+- Each test takes approximately 15-20 minutes
+- Email with your results (PASS/FAIL) will be sent to you after you complete the test
 
 This is an automated message. Please do not reply to this email.
-Ovo je automatska poruka. Molimo ne odgovarajte na ovaj email.
 HLV 💚 YOU \\o/ :)
         """
         return text_content.strip()
@@ -207,7 +192,7 @@ HLV 💚 YOU \\o/ :)
             msg = MIMEMultipart('alternative')
             msg['From'] = self.sender_email
             msg['To'] = recipient
-            msg['Subject'] = "🧠 AI Citizen Test"
+            msg['Subject'] = "💻🥷🏻 AI Coder Test"
 
             # Create both HTML and plain text versions
             text_content = self.create_plain_text_content(en_url, sr_url)

@@ -1,15 +1,5 @@
 [
   {
-    "question": "According to the adoption data cited in the module (e.g., the 2025 Stack Overflow Developer Survey), which metric most directly demonstrates that AI coding assistants are part of developers' daily workflows today?",
-    "answers": [
-      "51% of professional developers use AI tools daily.",
-      "84% of developers use or plan to use AI tools.",
-      "AI now generates over 30% of new code at major tech companies.",
-      "GitHub Copilot counts 1.8M paid seats and 77K enterprise customers."
-    ],
-    "correct": "51% of professional developers use AI tools daily."
-  },
-  {
     "question": "Two teams describe how their AI coding tools behave when asked to 'migrate this service to the new authentication API.' Scenario A: 'The tool lists a plan, requests confirmation after each step, proposes small diffs for a few files, and leaves it to you to run tests and apply changes.' Scenario B: 'The tool proposes a plan, applies coordinated edits across the codebase and tests, executes the test suite, iterates on failures it detects, updates documentation, and opens a PR with a change summary.' Which scenario best represents Phase 3 (Agentic Automation)?",
     "answers": [
       "Scenario A only",
@@ -48,16 +38,6 @@
       "Frontend, Backend, and Full-Stack"
     ],
     "correct": "IDE-Integrated, CLI/Terminal, and Web-Based"
-  },
-  {
-    "question": "You must deliver a clickable prototype for tomorrow's stakeholder demo. Constraints: zero local setup, a live shareable URL, real-time collaboration during the review, and the ability to export code afterward to continue locally. According to the module's three-environment framework, which environment is the best fit?",
-    "answers": [
-      "IDE-integrated assistant",
-      "CLI/terminal assistant",
-      "Web-based development platform",
-      "CLI assistant with file-edit capabilities"
-    ],
-    "correct": "Web-based development platform"
   },
   {
     "question": "You're triaging a production issue over SSH on a headless server. You need AI help while staying in the terminal, with no visual debugging, and you may turn the result into a script. Which task is best suited to a CLI/terminal AI assistant?",
@@ -168,15 +148,5 @@
       "Replit"
     ],
     "correct": "Augment"
-  },
-  {
-    "question": "Based on Module 6's decision framework, choose the best environment for each task: refactoring a legacy service, writing deployment scripts, and building a quick MVP demo.",
-    "answers": [
-      "Refactor: IDE-integrated; Deployment scripts: CLI; MVP demo: Web-based",
-      "Refactor: Web-based; Deployment scripts: IDE-integrated; MVP demo: CLI",
-      "Refactor: IDE-integrated; Deployment scripts: IDE-integrated; MVP demo: Web-based",
-      "Refactor: IDE-integrated; Deployment scripts: CLI; MVP demo: IDE-integrated"
-    ],
-    "correct": "Refactor: IDE-integrated; Deployment scripts: CLI; MVP demo: Web-based"
   }
 ]

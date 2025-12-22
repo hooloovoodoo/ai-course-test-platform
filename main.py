@@ -85,7 +85,7 @@ class AIQuizOrchestrator:
         language: str = "ENG",
         variants: int = 10,
         output_dir: str = "/tmp",
-        results_sheet: str = "1JQAyIR4Y27GlwSJkO8lpwjZuKMvXpmEEwG3MtcUn7cE"
+        results_sheet: str = "1ACSRHmuU_Jg1NuPsErYye3kXg64C2ibfk8omg3vKlsA"
         ) -> bool:
         """Generate quiz variants"""
         logger.info("🎯 Generating %d quiz variants in %s", variants, language)
@@ -147,7 +147,7 @@ def main():
     gen_parser.add_argument(
         '--results-sheet',
         '-r',
-        default='1JQAyIR4Y27GlwSJkO8lpwjZuKMvXpmEEwG3MtcUn7cE',
+        default='1ACSRHmuU_Jg1NuPsErYye3kXg64C2ibfk8omg3vKlsA',
         help='Google Sheets document ID to store results'
     )
 

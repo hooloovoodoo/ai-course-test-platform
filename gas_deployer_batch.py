@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 def deploy_all_quizzes(
-    pattern: str = "/tmp/AI Citizen | * | Variant *.gs", language: str = None):
+    pattern: str = "/tmp/AI Coder | * | Variant *.gs", language: str = None):
     """
     Deploy all quiz variants from /tmp directory
 
@@ -74,7 +74,7 @@ def main():
 
     parser.add_argument(
         '--pattern',
-        default="/tmp/AI Citizen | * | Variant *.gs",
+        default="/tmp/AI Coder | * | Variant *.gs",
         help='Glob pattern to find quiz files'
     )
 
