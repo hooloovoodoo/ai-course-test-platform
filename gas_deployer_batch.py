@@ -19,13 +19,13 @@ logger = logging.getLogger(__name__)
 
 
 def deploy_all_quizzes(
-    pattern: str = "/tmp/AI Citizen | * | Variant *.gs", language: str = None):
+    pattern: str = "/tmp/* | * | * | Variant *.gs", language: str = None):
     """
     Deploy all quiz variants from /tmp directory
 
     Args:
-        pattern: Glob pattern to find quiz files
-        language: Optional language filter ("ENG", "SRB", or None for all)
+        pattern: Glob pattern to find quiz files (default matches any quiz name)
+        language: Optional language filter ("en", "rs", or None for all)
 
     Returns:
         List of deployed quiz information
@@ -36,7 +36,7 @@ def deploy_all_quizzes(
 
     # Filter by language if specified
     if language:
-        language = language.upper()
+        language = language.lower()
         quiz_files = [f for f in quiz_files if f"[{language}]" in f]
         logger.info("🚀 Starting batch quiz deployment for %s quizzes...", language)
         if not quiz_files:
@@ -74,14 +74,14 @@ def main():
 
     parser.add_argument(
         '--pattern',
-        default="/tmp/AI Citizen | * | Variant *.gs",
-        help='Glob pattern to find quiz files'
+        default="/tmp/* | * | * | Variant *.gs",
+        help='Glob pattern to find quiz files (default matches all quiz names)'
     )
 
     parser.add_argument(
         '--language', '-l',
-        choices=['ENG', 'SRB'],
-        help='Deploy only quizzes for specific language (ENG or SRB)'
+        choices=['en', 'rs'],
+        help='Deploy only quizzes for specific language (en or rs)'
     )
 
     parser.add_argument(
@@ -105,7 +105,7 @@ def main():
         quiz_files = glob.glob(args.pattern)
 
         if args.language:
-            quiz_files = [f for f in quiz_files if f"[{args.language}]" in f]
+            quiz_files = [f for f in quiz_files if f"[{args.language.lower()}]" in f]
 
         if quiz_files:
             lang_msg = f" ({args.language} only)" if args.language else ""

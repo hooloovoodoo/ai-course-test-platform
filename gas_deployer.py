@@ -89,17 +89,20 @@ class GoogleAppsScriptDeployer:
             logger.error("Authentication failed: %s", e)
             return False
 
-    def create_timestamped_project_name(self) -> str:
+    def create_timestamped_project_name(self, base_name: str = "Quiz") -> str:
         """
         Create a project name with ISO 8601 timestamp
 
+        Args:
+            base_name: Base name for the project (default: "Quiz")
+
         Returns:
-            Project name in format "AI Citizen | 2025-09-08T12:19:18Z"
+            Project name in format "{base_name} | 2025-09-08T12:19:18Z"
         """
         timestamp = datetime.datetime.now(
             datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-        return f"AI Citizen | {timestamp}"
+        return f"{base_name} | {timestamp}"
 
     def create_script_project(self, project_title: str, script_content: str) -> Optional[str]:
         """
@@ -205,7 +208,7 @@ class GoogleAppsScriptDeployer:
 
     def deploy_batch_quiz_scripts(
         self,
-        quiz_files_pattern: str = "/tmp/AI Quiz | L0 | * | Variant *.gs") -> List[Dict[str, str]]:
+        quiz_files_pattern: str = "/tmp/* | * | * | Variant *.gs") -> List[Dict[str, str]]:
         """
         Deploy multiple quiz scripts from /tmp directory
 

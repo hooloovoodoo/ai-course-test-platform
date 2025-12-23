@@ -23,50 +23,63 @@ class QuestionGenerator:
     """Main class for generating quiz scripts from JSON question data"""
 
     def __init__(self,
-                 language: str = "ENG",
-                 results_sheet: str = "1JQAyIR4Y27GlwSJkO8lpwjZuKMvXpmEEwG3MtcUn7cE"):
+                 name: str,
+                 language: str,
+                 results_sheet: str,
+                 description: str = "To AI or not to AI, that is the question",
+                 points_per_question: int = 1,
+                 confirmation_message: str = "Hvala što ste učestvovali u kvizu! / Thanks for taking the quiz!"):
         """
         Initialize the quiz generator
 
         Args:
-            language: Language code ("ENG" or "SRB")
+            name: Quiz name/title (e.g., "AI Citizen")
+            language: ISO 3166 language code ("en", "rs", or "both")
             results_sheet: Google Sheets document ID to store results
+            description: Quiz description (optional)
+            points_per_question: Points awarded per question (optional)
+            confirmation_message: Message shown after completion (optional)
         """
-        self.language = language.upper()
+        self.name = name
+        self.language = language.lower()
         self.results_sheet = results_sheet
+        self.description = description
+        self.points_per_question = points_per_question
+        self.confirmation_message = confirmation_message
 
-        # Fixed quiz settings (rarely changed)
-        self.title = "AI Citizen"
-        self.description = "To AI or not to AI, that is the question"
-        self.points_per_question = 1
-        self.confirmation_message = "Hvala što ste učestvovali u kvizu!" + \
-        " / Thanks for taking the quiz!"
+        # Title will be set dynamically with language tag
+        self.title = name
 
-    def get_file_configs_for_language(
-        self, language: str = "ENG") -> List[Dict[str, Any]]:
+    def get_file_configs_from_content(
+        self, content_config: Dict[str, int], language: str) -> List[Dict[str, Any]]:
         """
-        Get file configurations for the specified language
+        Build file configurations from content config and language
 
         Args:
-            language: Language code ("ENG" or "SRB")
+            content_config: Dictionary mapping relative paths to question counts
+                           e.g., {"/l0-ai-citizen/m1.json": 7, ...}
+            language: ISO 3166 language code ("en" or "rs")
 
         Returns:
-            List of file configurations with paths and question counts
+            List of file configurations with full paths and question counts
         """
-        language = language.upper()
+        language = language.lower()
 
-        if language == "ENG":
-            base_path = "QAPool/eng/L0"
-        elif language == "SRB":
-            base_path = "QAPool/srb/L0"
-        else:
-            raise ValueError(f"Unsupported language: {language}. Use 'ENG' or 'SRB'")
+        # Validate language code
+        if language not in ["en", "rs"]:
+            raise ValueError(f"Unsupported language: {language}. Use 'en' or 'rs'")
 
-        return [
-            {'path': f'{base_path}/M1/m1.json', 'count': 7},  # AI Fundamentals
-            {'path': f'{base_path}/M2/m2.json', 'count': 11},  # AI Ethics & Bias
-            {'path': f'{base_path}/M3/m3.json', 'count': 7}   # AI Applications
-        ]
+        file_configs = []
+
+        for relative_path, count in content_config.items():
+            # Build full path: QAPool/{language}{relative_path}
+            full_path = f"QAPool/{language}{relative_path}"
+            file_configs.append({
+                'path': full_path,
+                'count': count
+            })
+
+        return file_configs
 
     def load_questions_from_multiple_files(
         self,
@@ -425,7 +438,7 @@ function onFormSubmit(e) {{
   const pct = totalPoints > 0 ? (earnedPoints / totalPoints) * 100 : 0;
   const passed = pct >= 80;
 
-  const subject = `AI Citizen: ${{Math.round(pct)}}% — ${{passed ? 'PASS ✅' : 'FAIL ❌'}}`;
+  const subject = `{self.name}: ${{Math.round(pct)}}% — ${{passed ? 'PASS ✅' : 'FAIL ❌'}}`;
 
   const HERO_IMAGE_URL = `https://cdn.haip.hooloovoo.rs/${{passed ? "pass" : "fail"}}.jpg`;
   const heroBlob = UrlFetchApp.fetch(HERO_IMAGE_URL, {{ muteHttpExceptions: true }}).getBlob().setName("hero.jpg");
@@ -445,7 +458,7 @@ function onFormSubmit(e) {{
             <tr>
               <td align="center" style="padding:24px;">
                 <h1 style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:20px;line-height:1.3;color:#222;">
-                  AI Citizen
+                  {self.name}
                 </h1>
                 <p style="font-family:Arial,Helvetica,sans-serif;color:#555;margin:12px 0 24px;">
                   Hvala što ste učestvovali u kvizu! / Thanks for taking the quiz!
@@ -496,7 +509,7 @@ function onFormSubmit(e) {{
     inlineImages: {{
       "hero-cid": heroBlob
     }},
-    name: "AI Citizen Quiz"
+    name: "{self.name} Quiz"
   }});
 
 
@@ -579,18 +592,18 @@ function onFormSubmit(e) {{
 
         Args:
             file_configs: List of dicts with 'path' and 'count' keys
-                         e.g., [{'path': 'QAPool/eng/L0/M1/m1.json', 'count': 10}, ...]
+                         e.g., [{'path': 'QAPool/en/l0-ai-citizen/m1.json', 'count': 10}, ...]
             output_path: Path to save generated script
 
         Returns:
             Generated script content
         """
         try:
-            # Update title with language
+            # Update title with language tag
             original_title = self.title
             language_tag = f"[{self.language}]"
 
-            # Set title with language tag only
+            # Set title with language tag
             self.title = f"{original_title} {language_tag}"
 
             # Load questions from multiple files
@@ -679,14 +692,16 @@ function onFormSubmit(e) {{
 
     def generate_quiz_for_language(
         self,
-        language: str = "ENG",
+        content_config: Dict[str, int],
+        language: str,
         output_path: str = None,
         variant_number: Optional[int] = None) -> str:
         """
-        Generate quiz using the standard file structure for the specified language
+        Generate quiz using content configuration for the specified language
 
         Args:
-            language: Language code ("ENG" or "SRB")
+            content_config: Dictionary mapping relative paths to question counts
+            language: ISO 3166 language code ("en" or "rs")
             output_path: Path to save generated script (optional)
             variant_number: Optional variant number to include in title
 
@@ -694,10 +709,10 @@ function onFormSubmit(e) {{
             Generated script content
         """
         # Update language
-        self.language = language.upper()
+        self.language = language.lower()
 
         # Get file configurations for the language
-        file_configs = self.get_file_configs_for_language(language)
+        file_configs = self.get_file_configs_from_content(content_config, language)
 
         # Generate default output path if not provided
         if output_path is None:
@@ -712,15 +727,28 @@ function onFormSubmit(e) {{
 
 # Example usage and testing
 if __name__ == "__main__":
-    # Initialize generator with defaults
-    generator = QuestionGenerator(language="ENG")
+    # Example content configuration
+    content_config = {
+        "/l0-ai-citizen/m1.json": 7,
+        "/l0-ai-citizen/m2.json": 11,
+        "/l0-ai-citizen/m3.json": 7
+    }
+
+    # Initialize generator with required parameters
+    # NOTE: Replace with your actual Google Sheets ID
+    generator = QuestionGenerator(
+        name="AI Citizen",
+        language="en",
+        results_sheet="YOUR_GOOGLE_SHEETS_ID_HERE"
+    )
 
     # Test both languages
     try:
         # Generate English quiz
         print("Generating English quiz...")
         eng_script = generator.generate_quiz_for_language(
-            language="ENG",
+            content_config=content_config,
+            language="en",
             output_path="generated_quiz_eng.gs",
             variant_number=1
         )
@@ -730,7 +758,8 @@ if __name__ == "__main__":
         # Generate Serbian quiz
         print("\nGenerating Serbian quiz...")
         srb_script = generator.generate_quiz_for_language(
-            language="SRB",
+            content_config=content_config,
+            language="rs",
             output_path="generated_quiz_srb.gs",
             variant_number=1
         )

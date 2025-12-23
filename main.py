@@ -3,19 +3,22 @@
 AI Quiz System - Main Entry Point
 
 This script provides a unified interface for the complete AI quiz:
-1. Generate quiz variants in multiple languages (quiz_generator_batch.py)
+1. Generate quiz variants from JSON config files (quiz_generator_batch.py)
 2. Deploy quizzes to Google Apps Script (gas_deployer_batch.py)
 3. Send bilingual email notifications (email_notifier.py)
 
 Usage Examples:
-    # Generate 10 English quiz variants
-    python main.py generate --language ENG --variants 10
+    # Generate quiz variants from config file (uses config defaults)
+    python main.py generate QATests/l0-ai-citizen.json
 
-    # Generate 5 variants for both languages
-    python main.py generate --language BOTH --variants 5
+    # Generate with overrides (5 English variants only)
+    python main.py generate QATests/l0-ai-citizen.json --language en --variants 5
+
+    # Generate AI Coder quiz
+    python main.py generate QATests/l1-ai-coder.json
 
     # Deploy all English quizzes
-    python main.py deploy --language ENG
+    python main.py deploy --language en
 
     # Send emails with quiz URLs
     python main.py email en_urls.txt sr_urls.txt recipients.txt
@@ -51,6 +54,9 @@ class AIQuizOrchestrator:
         else:
             self.python_cmd = str(self.venv_python)
 
+        # Default config directory
+        self.config_dir = self.base_dir / "QATests"
+
     def run_script(self, script_name: str, args: List[str]) -> bool:
         """
         Run a script with the given arguments
@@ -82,20 +88,29 @@ class AIQuizOrchestrator:
 
     def generate_quizzes(
         self,
-        language: str = "ENG",
-        variants: int = 10,
-        output_dir: str = "/tmp",
-        results_sheet: str = "1JQAyIR4Y27GlwSJkO8lpwjZuKMvXpmEEwG3MtcUn7cE"
+        config_file: str,
+        language: str = None,
+        variants: int = None,
+        output_dir: str = None
         ) -> bool:
-        """Generate quiz variants"""
-        logger.info("🎯 Generating %d quiz variants in %s", variants, language)
+        """Generate quiz variants from configuration file"""
+        config_path = self.base_dir / config_file
 
-        args = [
-            "--language", language,
-            "--variants", str(variants),
-            "--output-dir", output_dir,
-            "--results-sheet", results_sheet
-        ]
+        if not config_path.exists():
+            logger.error("Configuration file not found: %s", config_path)
+            return False
+
+        logger.info("🎯 Generating quiz variants from config: %s", config_file)
+
+        args = [str(config_path)]
+
+        # Add optional overrides
+        if language:
+            args.extend(["--language", language])
+        if variants:
+            args.extend(["--variants", str(variants)])
+        if output_dir:
+            args.extend(["--output-dir", output_dir])
 
         return self.run_script("quiz_generator_batch.py", args)
 
@@ -138,23 +153,18 @@ def main():
 
     # Generate command
     gen_parser = subparsers.add_parser('generate', help='Generate quiz variants')
-    gen_parser.add_argument('--language', '-l', choices=['ENG', 'SRB', 'BOTH'],
-                           default='ENG', help='Language for quiz generation')
-    gen_parser.add_argument('--variants', '-n', type=int, default=10,
-                           help='Number of quiz variants to generate')
-    gen_parser.add_argument('--output-dir', '-o', default='/tmp',
-                           help='Output directory for generated files')
-    gen_parser.add_argument(
-        '--results-sheet',
-        '-r',
-        default='1JQAyIR4Y27GlwSJkO8lpwjZuKMvXpmEEwG3MtcUn7cE',
-        help='Google Sheets document ID to store results'
-    )
+    gen_parser.add_argument('config', help='Path to configuration file (e.g., QATests/l0-ai-citizen.json)')
+    gen_parser.add_argument('--language', '-l', choices=['en', 'rs'],
+                           help='Override language from config (en or rs)')
+    gen_parser.add_argument('--variants', '-n', type=int,
+                           help='Override number of quiz variants from config')
+    gen_parser.add_argument('--output-dir', '-o',
+                           help='Override output directory from config')
 
     # Deploy command
     deploy_parser = subparsers.add_parser('deploy', help='Deploy quizzes to Google Apps Script')
-    deploy_parser.add_argument('--language', '-l', choices=['ENG', 'SRB'],
-                              help='Deploy only specific language quizzes')
+    deploy_parser.add_argument('--language', '-l', choices=['en', 'rs'],
+                              help='Deploy only specific language quizzes (en or rs)')
     deploy_parser.add_argument('--list-files', '-ls', action='store_true',
                               help='List available quiz files without deploying')
 
@@ -185,10 +195,10 @@ def main():
         # Execute the requested command
         if args.command == 'generate':
             success = orchestrator.generate_quizzes(
+                config_file=args.config,
                 language=args.language,
                 variants=args.variants,
-                output_dir=args.output_dir,
-                results_sheet=args.results_sheet
+                output_dir=args.output_dir
             )
 
         elif args.command == 'deploy':
