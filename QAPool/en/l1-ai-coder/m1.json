@@ -1,0 +1,302 @@
+[
+  {
+    "question": "Which equation pair best represents the shift from traditional programming to machine learning described in this module?",
+    "answers": [
+      "Traditional: DATA + RULES = ANSWERS; ML: DATA + ANSWERS = RULES.",
+      "Traditional: DATA + ANSWERS = RULES; ML: DATA + RULES = ANSWERS.",
+      "Traditional: DATA + RULES = ANSWERS; ML: DATA + LABELS = ANSWERS.",
+      "Traditional: DATA + RULES + TESTS = ANSWERS; ML: DATA + MODELS = ANSWERS."
+    ],
+    "correct": "Traditional: DATA + RULES = ANSWERS; ML: DATA + ANSWERS = RULES."
+  },
+  {
+    "question": "Which option best illustrates Artificial Narrow Intelligence (ANI) as defined in this module?",
+    "answers": [
+      "A recommendation model that predicts movies a user will enjoy, yet does not summarize or interpret research papers",
+      "An assistant that adapts to unfamiliar tasks and applies prior knowledge across unrelated domains with minimal guidance",
+      "A system that maintains human-level performance on a broad range of intellectual tasks across many fields",
+      "A chatbot that shifts from writing backend APIs to diagnosing medical images after brief instructions"
+    ],
+    "correct": "A recommendation model that predicts movies a user will enjoy, yet does not summarize or interpret research papers"
+  },
+  {
+    "question": "According to the module, which statement best reflects the status of AGI and its relationship to today's models?",
+    "answers": [
+      "AGI does not exist today; current systems, including generative AI, are ANI.",
+      "AGI means any AI that handles multiple tasks, so large language models are AGI.",
+      "AGI is available in GPT-5.2 but access is restricted to certain APIs.",
+      "AGI was achieved in 2023 with the release of ChatGPT."
+    ],
+    "correct": "AGI does not exist today; current systems, including generative AI, are ANI."
+  },
+  {
+    "question": "Which statement best captures the primary way Generative AI differs from common classification, prediction, or recommendation systems?",
+    "answers": [
+      "It generates novel content (e.g., text, code, images) rather than only returning labels, scores, or rankings",
+      "It is trained without labeled data, unlike the supervised approaches emphasized for modern LLMs",
+      "Its core mechanism is next-token prediction instead of producing labels or scores, which is the key distinction from other models",
+      "It produces identical outputs for the same prompt and exhibits domain-general, human-level intelligence across tasks"
+    ],
+    "correct": "It generates novel content (e.g., text, code, images) rather than only returning labels, scores, or rankings"
+  },
+  {
+    "question": "A developer sees an AI code assistant produce slightly different implementations each time they request the same function, even when using the exact same prompt and parameters. What best explains this behavior?",
+    "answers": [
+      "Expected sampling from a probability distribution causes variation, even with identical inputs.",
+      "The provider constantly retrains the model, even between two requests, so outputs change each time.",
+      "It's an issue on LLM provider's end; identical prompts should always yield identical deterministic code.",
+      "LLM APIs default to deterministic decoding; differences mean the prompt text changed."
+    ],
+    "correct": "Expected sampling from a probability distribution causes variation, even with identical inputs."
+  },
+  {
+    "question": "You're building an email classifier using thousands of examples, each marked as spam or not spam. Which learning paradigm does this describe?",
+    "answers": [
+      "Supervised learning",
+      "Unsupervised learning",
+      "Reinforcement learning",
+      "Semi-supervised learning"
+    ],
+    "correct": "Supervised learning"
+  },
+  {
+    "question": "In supervised learning, what are labels?",
+    "answers": [
+      "Features or attributes extracted from the input data",
+      "Ground-truth outputs paired with training inputs",
+      "The model's predicted outputs during training",
+      "Metadata about examples, such as source or collection method"
+    ],
+    "correct": "Ground-truth outputs paired with training inputs"
+  },
+  {
+    "question": "A service calls a pre-trained LLM API to summarize each incoming document at request time and returns the summary to the user. In the AI lifecycle described in this module, this activity is best classified as:",
+    "answers": [
+      "Inference: using a trained model to produce outputs - predictions or generations - for new inputs.",
+      "Evaluation: scoring model behavior on a held-out dataset to estimate real-world performance.",
+      "Hyperparameter tuning: selecting settings such as learning rate or batch size based on validation results.",
+      "Fine-tuning: updating model weights on domain-specific examples to adapt behavior."
+    ],
+    "correct": "Inference: using a trained model to produce outputs - predictions or generations - for new inputs."
+  },
+  {
+    "question": "An AI-generated function compiles and passes basic unit tests. It will handle critical billing calculations in your app. What is the best next step?",
+    "answers": [
+      "Run static analysis and unit tests, then deploy behind a feature flag with monitoring; skip manual review to move fast.",
+      "Perform peer review, expand tests with edge cases and representative samples, run security scans, and validate before a staged rollout.",
+      "Deploy as-is because tests passed and the model vendor provides safety assurances and audit logs, mark as 'created with assistance from AI'",
+      "Merge disabled by default and collect telemetry in production, planning to review only if anomalies appear."
+    ],
+    "correct": "Perform peer review, expand tests with edge cases and representative samples, run security scans, and validate before a staged rollout."
+  },
+  {
+    "question": "Using '>' to mean 'is a superset of', which option correctly states the hierarchy and the status of Generative AI?",
+    "answers": [
+      "AI > Machine Learning > Deep Learning; Generative AI is a subset of ANI.",
+      "AI > Deep Learning > Machine Learning; Generative AI is a step toward AGI.",
+      "Machine Learning > AI > Deep Learning; Generative AI is not considered ANI.",
+      "AI > Machine Learning > Deep Learning; Generative AI is a type of AGI."
+    ],
+    "correct": "AI > Machine Learning > Deep Learning; Generative AI is a subset of ANI."
+  },
+  {
+    "question": "In deep learning terminology, what specifically makes a neural network deep?",
+    "answers": [
+      "Many parameters in the training model",
+      "Many hidden layers in the network",
+      "Many neurons per layer",
+      "Use of convolutional layers"
+    ],
+    "correct": "Many hidden layers in the network"
+  },
+  {
+    "question": "When a model returns a plausible but incorrect answer to a single prompt, what is the most appropriate immediate debugging action in the probabilistic paradigm described in this module?",
+    "answers": [
+      "Step through the model's execution and fix the faulty line of code (one responsible for the incorrect output)",
+      "Refine the prompt, adjust parameters, and supply missing context or examples",
+      "Force the expected format with wrapper code and regex, check whether it passes in that fashion",
+      "Analyze failures across a broader test set and plan fallback strategies"
+    ],
+    "correct": "Refine the prompt, adjust parameters, and supply missing context or examples"
+  },
+  {
+    "question": "In the module's contrast of paradigms, which formula best represents the Traditional (rules-based) programming model where a developer writes explicit logic applied to inputs to produce outputs?",
+    "answers": [
+      "DATA + RULES = ANSWERS",
+      "DATA + ANSWERS = RULES",
+      "PROMPTS + MODEL = RESPONSES",
+      "DATA + MODEL = PREDICTIONS"
+    ],
+    "correct": "DATA + RULES = ANSWERS"
+  },
+  {
+    "question": "According to the module's framing, which option correctly maps (a) ML training and (b) inference?",
+    "answers": [
+      "Training: DATA + LABELS = RULES (learned); Inference: NEW DATA + RULES (learned) = PREDICTIONS",
+      "Training: DATA + RULES = ANSWERS; Inference: NEW DATA + RULES (learned) = PREDICTIONS",
+      "Training: DATA + LABELS = ANSWERS; Inference: NEW DATA + ANSWERS = RULES (learned)",
+      "Training: DATA + MODEL = RULES (learned); Inference: NEW DATA + RULES (learned) = ANSWERS"
+    ],
+    "correct": "Training: DATA + LABELS = RULES (learned); Inference: NEW DATA + RULES (learned) = PREDICTIONS"
+  },
+  {
+    "question": "Select the single best practice for testing AI systems compared to traditional unit tests that assert exact outputs.",
+    "answers": [
+      "Evaluate on distributions with metrics (accuracy, precision/recall) plus human sampling or A/B tests.",
+      "Set temperature to 0, freeze prompts, and compare outputs exactly to golden answers.",
+      "Use snapshot tests with fixed random seeds to stabilize outputs for exact matching and tracking.",
+      "Inspect model layers and edit weights (if they are open-sourced) during inference to fix erroneous rules and outputs."
+    ],
+    "correct": "Evaluate on distributions with metrics (accuracy, precision/recall) plus human sampling or A/B tests."
+  },
+  {
+    "question": "In a neural network, weights are best described as:",
+    "answers": [
+      "Hyperparameters fixed before training that control learning (e.g., learning rate)",
+      "Learned parameters that scale connection strengths between neurons",
+      "Bias terms that shift neuron activations independent of input",
+      "Activation functions that add nonlinearity to neuron outputs"
+    ],
+    "correct": "Learned parameters that scale connection strengths between neurons"
+  },
+  {
+    "question": "You used an LLM to draft a database migration. Under the 'never trust, always verify' principle, what is the best next step before running it in production?",
+    "answers": [
+      "Back up the database, run a dry run locally on sampled data, and if no errors appear, deploy straight to production",
+      "Validate in a staging clone with prod-like data: run controlled dry runs with human review, verify diffs, and ensure tested backups/rollback before promotion",
+      "Write unit tests and property checks, ask the model to self-critique the script, and if all checks pass, deploy and monitor closely",
+      "Do a canary migration in production behind a feature flag, watch metrics and logs, and skip staging to reduce lead time, if no issues were observed with unit tests"
+    ],
+    "correct": "Validate in a staging clone with prod-like data: run controlled dry runs with human review, verify diffs, and ensure tested backups/rollback before promotion"
+  },
+  {
+    "question": "You're choosing between hand-written rules and using supervised ML for a classifier. Which situation most strongly supports choosing ML?",
+    "answers": [
+      "Regulations require fixed thresholds, full traceability, and deterministic, rule-based decisions in audits.",
+      "Patterns are subtle, change over time (concept drift), and you have ample labeled history.",
+      "Labels are scarce, requirements are stable, and simple heuristics meet accuracy targets.",
+      "You need probability scores and have some labels, but audits demand simple, human-readable rules."
+    ],
+    "correct": "Patterns are subtle, change over time (concept drift), and you have ample labeled history."
+  },
+  {
+    "question": "What are the four new responsibilities of a developer as an 'AI Director'?",
+    "answers": [
+      "Coder, Tester, Deployer, Maintainer",
+      "Director of Intent, Critical Reviewer, Integrator, Quality Guardian",
+      "Trainer, Evaluator, Optimizer, Publisher",
+      "Designer, Implementer, Debugger, Documenter"
+    ],
+    "correct": "Director of Intent, Critical Reviewer, Integrator, Quality Guardian"
+  },
+  {
+    "question": "Which statement best describes how parameters are learned during training of a deep neural network?",
+    "answers": [
+      "Model weights are iteratively adjusted via backpropagation to minimize loss on labeled mini-batches.",
+      "Hyperparameters are tuned on a validation set to improve generalization across unseen data.",
+      "The network architecture is selected before training and kept fixed while learning proceeds.",
+      "Early stopping halts optimization when validation loss plateaus to reduce overfitting."
+    ],
+    "correct": "Model weights are iteratively adjusted via backpropagation to minimize loss on labeled mini-batches."
+  },
+  {
+    "question": "A company's fraud detection model begins missing new fraud patterns. Analysis shows the training set is dominated by 2019 transactions with little recent data. Which principle best explains the decline?",
+    "answers": [
+      "Adding more layers will resolve the problem by modeling more complex patterns",
+      "Performance hinges on up-to-date, representative data; stale training leads to drift",
+      "Because AI is probabilistic, add retries and validation rather than retraining",
+      "Reverting to hard-coded rules will restore consistent accuracy across cases"
+    ],
+    "correct": "Performance hinges on up-to-date, representative data; stale training leads to drift"
+  },
+  {
+    "question": "Which statement best describes GitHub Copilot within the AI spectrum presented in this module?",
+    "answers": [
+      "A generative narrow AI that creates code suggestions from learned patterns; not a general intelligence.",
+      "An artificial general intelligence that reasons broadly across domains at human level.",
+      "A deterministic rule-based expert system that completes code using handcrafted rules.",
+      "A narrow discriminative AI that labels code snippets rather than generating new code."
+    ],
+    "correct": "A generative narrow AI that creates code suggestions from learned patterns; not a general intelligence."
+  },
+  {
+    "question": "What are Large Language Models (LLMs) trained to predict?",
+    "answers": [
+      "The truth value of statements",
+      "The next word (or token) in a sequence",
+      "The meaning of sentences",
+      "The intent of the user"
+    ],
+    "correct": "The next word (or token) in a sequence"
+  },
+  {
+    "question": "Which strategy best operationalizes the module's 'design for probability, not certainty' principle when deploying an LLM-backed feature to production?",
+    "answers": [
+      "Set a low temperature, use a rigid prompt template, and depend on unit tests of generated content; omit runtime validation to keep latency low.",
+      "Rely on structured outputs (JSON schema) and extensive pre-release testing; accept responses automatically at runtime unless the schema is invalid, without human-in-the-loop.",
+      "Pair automated validation and guardrails with confidence gating, retries and alternate paths (fallback prompts/models), and escalate uncertain cases to human review.",
+      "Fine-tune on domain data and apply conservative thresholds to block risky outputs, but simplify operations by removing runtime fallbacks and manual review."
+    ],
+    "correct": "Pair automated validation and guardrails with confidence gating, retries and alternate paths (fallback prompts/models), and escalate uncertain cases to human review."
+  },
+  {
+    "question": "Which description best matches a neural network used in deep learning?",
+    "answers": [
+      "A computational model that learns weighted connections across layered transformations to map inputs to outputs",
+      "A hierarchical system of explicit if/else rules that encodes expert knowledge in stacked stages",
+      "A coordinated cluster of networked machines used to distribute and accelerate AI workloads",
+      "A digital reconstruction of a human brain whose neurons understand and reason like people"
+    ],
+    "correct": "A computational model that learns weighted connections across layered transformations to map inputs to outputs"
+  },
+  {
+    "question": "Compared with traditional code, which approach best reflects how edge cases should be handled in AI systems?",
+    "answers": [
+      "Use distributional tests, production monitoring, confidence-based fallbacks, and iterative improvement.",
+      "Rely on a single, well-engineered prompt (golden prompt) and expand unit tests until outputs stabilize across retries.",
+      "Fine-tune on known edge cases and replace continuous monitoring with periodic manual checks.",
+      "Set temperature to 0 and treat outputs as deterministic so you can skip fallback and retries."
+    ],
+    "correct": "Use distributional tests, production monitoring, confidence-based fallbacks, and iterative improvement."
+  },
+  {
+    "question": "You're integrating a pre-trained LLM via API. Which activity belongs to inference rather than training?",
+    "answers": [
+      "Write prompts, manage context, validate outputs, and handle errors in your app.",
+      "Curate labeled datasets and run backpropagation to tune the model.",
+      "Set temperature and max tokens to control output style during training.",
+      "Define the network architecture and learning-rate schedule for convergence."
+    ],
+    "correct": "Write prompts, manage context, validate outputs, and handle errors in your app."
+  },
+  {
+    "question": "When building an email spam filter, which is the single best reason to prefer machine learning over explicit rule-based programming?",
+    "answers": [
+      "Spam signals are nuanced and evolve; data-driven models can learn and adapt better than fixed rule lists.",
+      "ML outputs are generally more consistent than heuristic rules, which simplifies audit and compliance reviews.",
+      "Because ML learns from labeled examples, it reduces manual rule maintenance and speeds up initial implementation.",
+      "A broadly trained model often transfers across most email domains with little domain-specific tuning required."
+    ],
+    "correct": "Spam signals are nuanced and evolve; data-driven models can learn and adapt better than fixed rule lists."
+  },
+  {
+    "question": "Which task is an example of generative AI (creating new content) rather than classification, prediction, recommendation, recognition, or transformation?",
+    "answers": [
+      "Categorizes resumes into job-fit tiers",
+      "Transcribes a meeting recording into text",
+      "Drafts a concise commit message from a diff",
+      "Converts support emails into JSON fields"
+    ],
+    "correct": "Drafts a concise commit message from a diff"
+  },
+  {
+    "question": "According to the module's 'Design for Probability, Not Certainty' principle, you're shipping an LLM summarizer whose output quality varies by input. Which production strategy best addresses this probabilistic behavior?",
+    "answers": [
+      "Adjust temperature and expand context to stabilize generations, start with low values and increase with testing.",
+      "Gate responses mainly with deterministic validators and schema checks",
+      "Auto-approve high-confidence outputs when downstream checks pass",
+      "Use layered safeguards: validation, targeted retries, fallbacks, and human review"
+    ],
+    "correct": "Use layered safeguards: validation, targeted retries, fallbacks, and human review"
+  }
+]
