@@ -251,36 +251,14 @@ class QuestionGenerator:
                     len(js_questions), shuffle_choices)
         return js_questions
 
-    def select_random_questions(
-        self,
-        questions: List[Dict[str, Any]],
-        count: Optional[int] = None) -> List[Dict[str, Any]]:
-        """
-        Randomly select questions from the pool
-
-        Args:
-            questions: List of available questions
-            count: Number of questions to select (defaults to config.question_count)
-
-        Returns:
-            List of randomly selected questions
-
-        Raises:
-            ValueError: If requested count exceeds available questions
-        """
-        if count is None:
-            count = 25  # Total questions: 7 + 11 + 7
-
-        if count > len(questions):
-            raise ValueError(f"Requested {count} questions but only {len(questions)} available")
-
-        selected = random.sample(questions, count)
-        logger.info("Selected %d random questions", len(selected))
-        return selected
-
     def generate_script(
         self,
-        questions: List[Dict[str, Any]]) -> str:
+        questions: List[Dict[str, Any]],
+        quiz_title: str = "AI Knowledge Quiz",
+        quiz_description: str = "Test your knowledge of AI concepts",
+        confirmation_message: str = "Thanks for taking the quiz!",
+        results_sheet: str = "your_spreadsheet_id",
+        points_per_question: int = 1) -> str:
         """
         Generate complete Google Apps Script code with embedded questions
 
@@ -635,59 +613,6 @@ function onFormSubmit(e) {{
 
         except RuntimeError as e:
             logger.error("Error in multi-file quiz generation workflow: %s", e)
-            raise
-
-    def generate_quiz_from_json(
-        self,
-        json_path: str,
-        output_path: str,
-        question_count: Optional[int] = None) -> str:
-        """
-        Complete workflow: Load JSON, generate script, and save to file
-
-        Args:
-            json_path: Path to JSON question file
-            output_path: Path to save generated script
-            question_count: Number of questions to select (optional)
-
-        Returns:
-            Generated script content
-        """
-        try:
-            # Update title with language
-            original_title = self.title
-            language_tag = f"[{self.language}]"
-
-            # Set title with language tag only
-            self.title = f"{original_title} {language_tag}"
-
-            # Load and validate questions
-            questions = self.load_questions(json_path)
-
-            # Convert to JS format
-            js_questions = self.convert_format(questions)
-
-            # Select random subset
-            selected_questions = self.select_random_questions(js_questions, question_count)
-
-            # Generate script
-            script_content = self.generate_script(selected_questions)
-
-            # Save to file
-            self.save_script(script_content, output_path)
-
-            logger.info(
-                "Successfully generated %s quiz script with %d questions",
-                self.language,
-                len(selected_questions))
-
-            # Restore original title
-            self.title = original_title
-
-            return script_content
-
-        except RuntimeError as e:
-            logger.error("Error in quiz generation workflow: %s", e)
             raise
 
     def generate_quiz_for_language(
