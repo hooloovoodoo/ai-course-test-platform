@@ -114,7 +114,7 @@ class QuestionGenerator:
                     f"but {required_count} required"
                 )
 
-            selected_questions = random.sample(file_questions, required_count)
+            selected_questions = file_questions[:required_count]
             all_questions.extend(selected_questions)
 
             logger.info("Selected %d questions from %s",
@@ -589,9 +589,6 @@ function onFormSubmit(e) {{
 
             # Convert to JS format
             js_questions = self.convert_format(all_questions)
-
-            # Shuffle all questions together
-            random.shuffle(js_questions)
 
             # Generate script
             script_content = self.generate_script(js_questions)
