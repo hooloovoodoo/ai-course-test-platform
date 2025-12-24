@@ -33,8 +33,7 @@ from typing import List, Optional
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -74,7 +73,7 @@ class AITestOrchestrator:
             return False
 
         cmd = [self.python_cmd, str(script_path)] + args
-        logger.info("Running: %s",' '.join(cmd))
+        logger.info("Running: %s", " ".join(cmd))
 
         try:
             result = subprocess.run(cmd, check=True, cwd=self.base_dir)
@@ -91,8 +90,8 @@ class AITestOrchestrator:
         config_file: str,
         language: str = None,
         variants: int = None,
-        output_dir: str = None
-        ) -> bool:
+        output_dir: str = None,
+    ) -> bool:
         """Generate test variants from configuration file"""
         config_path = self.base_dir / config_file
 
@@ -114,7 +113,9 @@ class AITestOrchestrator:
 
         return self.run_script("test_generator_batch.py", args)
 
-    def deploy_tests(self, language: Optional[str] = None, list_files: bool = False) -> bool:
+    def deploy_tests(
+        self, language: Optional[str] = None, list_files: bool = False
+    ) -> bool:
         """Deploy test variants to Google Apps Script"""
         if list_files:
             logger.info("📁 Listing available test files")
@@ -128,7 +129,9 @@ class AITestOrchestrator:
 
         return self.run_script("gas_deployer_batch.py", args)
 
-    def send_emails(self, en_urls_file: str, sr_urls_file: str, recipients_file: str) -> bool:
+    def send_emails(
+        self, en_urls_file: str, sr_urls_file: str, recipients_file: str
+    ) -> bool:
         """Send bilingual email notifications"""
         logger.info("📧 Sending bilingual email notifications")
 
@@ -141,41 +144,69 @@ class AITestOrchestrator:
         args = [en_urls_file, sr_urls_file, recipients_file]
         return self.run_script("email_notifier.py", args)
 
+
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description='AI Test System - Unified Interface',
+        description="AI Test System - Unified Interface",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=__doc__
+        epilog=__doc__,
     )
 
-    subparsers = parser.add_subparsers(dest='command', help='Available commands')
+    subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
     # Generate command
-    gen_parser = subparsers.add_parser('generate', help='Generate test variants')
-    gen_parser.add_argument('config', help='Path to configuration file (e.g., QATests/l0-ai-citizen.json)')
-    gen_parser.add_argument('--language', '-l', choices=['en', 'rs'],
-                           help='Override language from config (en or rs)')
-    gen_parser.add_argument('--variants', '-n', type=int,
-                           help='Override number of test variants from config')
-    gen_parser.add_argument('--output-dir', '-o',
-                           help='Override output directory from config')
+    gen_parser = subparsers.add_parser("generate", help="Generate test variants")
+    gen_parser.add_argument(
+        "config", help="Path to configuration file (e.g., QATests/l0-ai-citizen.json)"
+    )
+    gen_parser.add_argument(
+        "--language",
+        "-l",
+        choices=["en", "rs"],
+        help="Override language from config (en or rs)",
+    )
+    gen_parser.add_argument(
+        "--variants",
+        "-n",
+        type=int,
+        help="Override number of test variants from config",
+    )
+    gen_parser.add_argument(
+        "--output-dir", "-o", help="Override output directory from config"
+    )
 
     # Deploy command
-    deploy_parser = subparsers.add_parser('deploy', help='Deploy tests to Google Apps Script')
-    deploy_parser.add_argument('--language', '-l', choices=['en', 'rs'],
-                              help='Deploy only specific language tests (en or rs)')
-    deploy_parser.add_argument('--list-files', '-ls', action='store_true',
-                              help='List available test files without deploying')
+    deploy_parser = subparsers.add_parser(
+        "deploy", help="Deploy tests to Google Apps Script"
+    )
+    deploy_parser.add_argument(
+        "--language",
+        "-l",
+        choices=["en", "rs"],
+        help="Deploy only specific language tests (en or rs)",
+    )
+    deploy_parser.add_argument(
+        "--list-files",
+        "-ls",
+        action="store_true",
+        help="List available test files without deploying",
+    )
 
     # Email command
-    email_parser = subparsers.add_parser('email', help='Send bilingual email notifications')
-    email_parser.add_argument('en_urls_file', help='File containing English test URLs')
-    email_parser.add_argument('sr_urls_file', help='File containing Serbian test URLs')
-    email_parser.add_argument('recipients_file', help='File containing recipient email addresses')
+    email_parser = subparsers.add_parser(
+        "email", help="Send bilingual email notifications"
+    )
+    email_parser.add_argument("en_urls_file", help="File containing English test URLs")
+    email_parser.add_argument("sr_urls_file", help="File containing Serbian test URLs")
+    email_parser.add_argument(
+        "recipients_file", help="File containing recipient email addresses"
+    )
 
     # Global options
-    parser.add_argument('--verbose', '-v', action='store_true', help='Enable verbose logging')
+    parser.add_argument(
+        "--verbose", "-v", action="store_true", help="Enable verbose logging"
+    )
 
     args = parser.parse_args()
 
@@ -193,25 +224,24 @@ def main():
 
     try:
         # Execute the requested command
-        if args.command == 'generate':
+        if args.command == "generate":
             success = orchestrator.generate_tests(
                 config_file=args.config,
                 language=args.language,
                 variants=args.variants,
-                output_dir=args.output_dir
+                output_dir=args.output_dir,
             )
 
-        elif args.command == 'deploy':
+        elif args.command == "deploy":
             success = orchestrator.deploy_tests(
-                language=args.language,
-                list_files=args.list_files
+                language=args.language, list_files=args.list_files
             )
 
-        elif args.command == 'email':
+        elif args.command == "email":
             success = orchestrator.send_emails(
                 en_urls_file=args.en_urls_file,
                 sr_urls_file=args.sr_urls_file,
-                recipients_file=args.recipients_file
+                recipients_file=args.recipients_file,
             )
 
         else:

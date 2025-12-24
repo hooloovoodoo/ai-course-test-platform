@@ -22,13 +22,15 @@ logger = logging.getLogger(__name__)
 class QuestionGenerator:
     """Main class for generating test scripts from JSON question data"""
 
-    def __init__(self,
-                 name: str,
-                 language: str,
-                 results_sheet: str,
-                 description: str = "To AI or not to AI, that is the question",
-                 points_per_question: int = 1,
-                 confirmation_message: str = "Hvala što ste učestvovali u kvizu! / Thanks for taking the quiz!"):
+    def __init__(
+        self,
+        name: str,
+        language: str,
+        results_sheet: str,
+        description: str = "To AI or not to AI, that is the question",
+        points_per_question: int = 1,
+        confirmation_message: str = "Hvala što ste učestvovali u kvizu! / Thanks for taking the quiz!",
+    ):
         """
         Initialize the test generator
 
@@ -51,7 +53,8 @@ class QuestionGenerator:
         self.title = name
 
     def get_file_configs_from_content(
-        self, content_config: Dict[str, int], language: str) -> List[Dict[str, Any]]:
+        self, content_config: Dict[str, int], language: str
+    ) -> List[Dict[str, Any]]:
         """
         Build file configurations from content config and language
 
@@ -74,16 +77,13 @@ class QuestionGenerator:
         for relative_path, count in content_config.items():
             # Build full path: QAPool/{language}{relative_path}
             full_path = f"QAPool/{language}{relative_path}"
-            file_configs.append({
-                'path': full_path,
-                'count': count
-            })
+            file_configs.append({"path": full_path, "count": count})
 
         return file_configs
 
     def load_questions_from_multiple_files(
-        self,
-        file_configs: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        self, file_configs: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
         """
         Load and validate questions from multiple JSON files with specific counts
 
@@ -101,11 +101,10 @@ class QuestionGenerator:
         all_questions = []
 
         for config in file_configs:
-            file_path = config['path']
-            required_count = config['count']
+            file_path = config["path"]
+            required_count = config["count"]
 
-            logger.info("Loading %d questions from %s",
-            required_count, file_path)
+            logger.info("Loading %d questions from %s", required_count, file_path)
             file_questions = self.load_questions(file_path)
 
             if len(file_questions) < required_count:
@@ -117,15 +116,14 @@ class QuestionGenerator:
             selected_questions = file_questions[:required_count]
             all_questions.extend(selected_questions)
 
-            logger.info("Selected %d questions from %s",
-                        len(selected_questions), file_path)
+            logger.info(
+                "Selected %d questions from %s", len(selected_questions), file_path
+            )
 
         logger.info("Total questions loaded: %d", len(all_questions))
         return all_questions
 
-    def load_questions(
-        self,
-        json_path: str) -> List[Dict[str, Any]]:
+    def load_questions(self, json_path: str) -> List[Dict[str, Any]]:
         """
         Load and validate questions from JSON file
 
@@ -144,7 +142,7 @@ class QuestionGenerator:
             if not json_file.exists():
                 raise FileNotFoundError(f"Question file not found: {json_path}")
 
-            with open(json_file, 'r', encoding='utf-8') as f:
+            with open(json_file, "r", encoding="utf-8") as f:
                 questions = json.load(f)
 
             if not isinstance(questions, list):
@@ -157,8 +155,9 @@ class QuestionGenerator:
                     continue
                 validated_questions.append(question)
 
-            logger.info("Loaded %d valid questions from %s",
-            len(validated_questions), json_path)
+            logger.info(
+                "Loaded %d valid questions from %s", len(validated_questions), json_path
+            )
             return validated_questions
 
         except json.JSONDecodeError as e:
@@ -168,10 +167,7 @@ class QuestionGenerator:
             logger.error("Error loading questions: %s", e)
             raise
 
-    def _validate_question(
-        self,
-        question: Dict[str, Any],
-        index: int) -> bool:
+    def _validate_question(self, question: Dict[str, Any], index: int) -> bool:
         """
         Validate individual question structure
 
@@ -182,33 +178,32 @@ class QuestionGenerator:
         Returns:
             True if question is valid, False otherwise
         """
-        required_fields = ['question', 'answers', 'correct']
+        required_fields = ["question", "answers", "correct"]
 
         for field in required_fields:
             if field not in question:
                 logger.warning(
-                    "Question %d: Missing required field '%s', skipping",
-                    index, field)
+                    "Question %d: Missing required field '%s', skipping", index, field
+                )
                 return False
 
-        if not isinstance(question['answers'], list) or len(question['answers']) != 4:
+        if not isinstance(question["answers"], list) or len(question["answers"]) != 4:
             logger.warning(
-                "Question %d: 'answers' must be a list of 4 options, skipping",
-                index)
+                "Question %d: 'answers' must be a list of 4 options, skipping", index
+            )
             return False
 
-        if question['correct'] not in question['answers']:
+        if question["correct"] not in question["answers"]:
             logger.warning(
-                "Question %d: 'correct' answer not found in 'answers', skipping",
-                index)
+                "Question %d: 'correct' answer not found in 'answers', skipping", index
+            )
             return False
 
         return True
 
     def convert_format(
-        self,
-        questions: List[Dict[str, Any]],
-        shuffle_choices: bool = True) -> List[Dict[str, Any]]:
+        self, questions: List[Dict[str, Any]], shuffle_choices: bool = True
+    ) -> List[Dict[str, Any]]:
         """
         Convert JSON question format to JavaScript-compatible structure
 
@@ -222,8 +217,8 @@ class QuestionGenerator:
         js_questions = []
 
         for question in questions:
-            choices = question['answers'].copy()
-            correct_answer = question['correct']
+            choices = question["answers"].copy()
+            correct_answer = question["correct"]
 
             if shuffle_choices:
                 # Shuffle the choices and find new correct index
@@ -240,15 +235,18 @@ class QuestionGenerator:
                 choices.append("Ne znam")
 
             js_question = {
-                'question': question['question'],
-                'choices': choices,
-                'correct': correct_index
+                "question": question["question"],
+                "choices": choices,
+                "correct": correct_index,
             }
 
             js_questions.append(js_question)
 
-        logger.info("Converted %d questions to JS format (shuffle_choices=%s)",
-                    len(js_questions), shuffle_choices)
+        logger.info(
+            "Converted %d questions to JS format (shuffle_choices=%s)",
+            len(js_questions),
+            shuffle_choices,
+        )
         return js_questions
 
     def generate_script(
@@ -258,7 +256,8 @@ class QuestionGenerator:
         quiz_description: str = "Test your knowledge of AI concepts",
         confirmation_message: str = "Thanks for taking the quiz!",
         results_sheet: str = "your_spreadsheet_id",
-        points_per_question: int = 1) -> str:
+        points_per_question: int = 1,
+    ) -> str:
         """
         Generate complete Google Apps Script code with embedded questions
 
@@ -482,19 +481,16 @@ function onFormSubmit(e) {{
         logger.info("Generated Google Apps Script code")
         return script_template
 
-    def _escape_js_string(
-        self,
-        text: str) -> str:
+    def _escape_js_string(self, text: str) -> str:
         """Escape special characters for JavaScript strings (double-quoted)"""
-        return text.replace(
-            '\\', '\\\\').replace(
-                '"', '\\"').replace(
-                    '\n', '\\n').replace(
-                        '\r', '\\r')
+        return (
+            text.replace("\\", "\\\\")
+            .replace('"', '\\"')
+            .replace("\n", "\\n")
+            .replace("\r", "\\r")
+        )
 
-    def _format_questions_for_js(
-        self,
-        questions: List[Dict[str, Any]]) -> str:
+    def _format_questions_for_js(self, questions: List[Dict[str, Any]]) -> str:
         """
         Format questions as JavaScript array string
 
@@ -507,13 +503,13 @@ function onFormSubmit(e) {{
         js_array = "[\n"
 
         for i, q in enumerate(questions):
-            question_text = self._escape_js_string(q['question'])
-            choices = [self._escape_js_string(choice) for choice in q['choices']]
+            question_text = self._escape_js_string(q["question"])
+            choices = [self._escape_js_string(choice) for choice in q["choices"]]
 
             js_array += f'''    {{
       question: "{question_text}",
       choices: {json.dumps(choices)},
-      correct: {q['correct']}
+      correct: {q["correct"]}
     }}'''
 
             if i < len(questions) - 1:
@@ -523,10 +519,7 @@ function onFormSubmit(e) {{
         js_array += "  ]"
         return js_array
 
-    def save_script(
-        self,
-        script_content: str,
-        output_path: str) -> None:
+    def save_script(self, script_content: str, output_path: str) -> None:
         """
         Save generated script to file
 
@@ -538,7 +531,7 @@ function onFormSubmit(e) {{
             output_file = Path(output_path)
             output_file.parent.mkdir(parents=True, exist_ok=True)
 
-            with open(output_file, 'w', encoding='utf-8') as f:
+            with open(output_file, "w", encoding="utf-8") as f:
                 f.write(script_content)
 
             logger.info("Script saved to %s", output_path)
@@ -548,9 +541,8 @@ function onFormSubmit(e) {{
             raise
 
     def generate_test_from_multiple_files(
-        self,
-        file_configs: List[Dict[str, Any]],
-        output_path: str) -> str:
+        self, file_configs: List[Dict[str, Any]], output_path: str
+    ) -> str:
         """
         Complete workflow: Load questions from multiple JSONs, generate script, save to file
 
@@ -582,12 +574,13 @@ function onFormSubmit(e) {{
             # Save to file
             self.save_script(script_content, output_path)
 
-            total_questions = sum(config['count'] for config in file_configs)
+            total_questions = sum(config["count"] for config in file_configs)
             logger.info(
                 "Successfully generated %s test script with %d questions from %d files",
                 self.language,
                 total_questions,
-                len(file_configs))
+                len(file_configs),
+            )
 
             # Restore original title
             self.title = original_title
@@ -603,7 +596,8 @@ function onFormSubmit(e) {{
         content_config: Dict[str, int],
         language: str,
         output_path: str = None,
-        variant_number: Optional[int] = None) -> str:
+        variant_number: Optional[int] = None,
+    ) -> str:
         """
         Generate test using content configuration for the specified language
 
@@ -626,7 +620,9 @@ function onFormSubmit(e) {{
         if output_path is None:
             lang_suffix = language.lower()
             if variant_number is not None:
-                output_path = f"generated_test_{lang_suffix}_variant_{variant_number}.gs"
+                output_path = (
+                    f"generated_test_{lang_suffix}_variant_{variant_number}.gs"
+                )
             else:
                 output_path = f"generated_test_{lang_suffix}.gs"
 
@@ -639,15 +635,13 @@ if __name__ == "__main__":
     content_config = {
         "/l0-ai-citizen/m1.json": 7,
         "/l0-ai-citizen/m2.json": 11,
-        "/l0-ai-citizen/m3.json": 7
+        "/l0-ai-citizen/m3.json": 7,
     }
 
     # Initialize generator with required parameters
     # NOTE: Replace with your actual Google Sheets ID
     generator = QuestionGenerator(
-        name="AI Citizen",
-        language="en",
-        results_sheet="YOUR_GOOGLE_SHEETS_ID_HERE"
+        name="AI Citizen", language="en", results_sheet="YOUR_GOOGLE_SHEETS_ID_HERE"
     )
 
     # Test both languages
@@ -658,7 +652,7 @@ if __name__ == "__main__":
             content_config=content_config,
             language="en",
             output_path="generated_test_eng.gs",
-            variant_number=1
+            variant_number=1,
         )
         print("English test generation completed successfully!")
         print(f"Script length: {len(eng_script)} characters")
@@ -669,7 +663,7 @@ if __name__ == "__main__":
             content_config=content_config,
             language="rs",
             output_path="generated_test_srb.gs",
-            variant_number=1
+            variant_number=1,
         )
         print("Serbian test generation completed successfully!")
         print(f"Script length: {len(srb_script)} characters")

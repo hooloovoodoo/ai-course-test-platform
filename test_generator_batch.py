@@ -18,8 +18,7 @@ from test_generator import QuestionGenerator
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -35,7 +34,7 @@ def load_config(config_path: str) -> Dict[str, Any]:
         Configuration dictionary
     """
     try:
-        with open(config_path, 'r', encoding='utf-8') as f:
+        with open(config_path, "r", encoding="utf-8") as f:
             config = json.load(f)
         logger.info("Loaded configuration from %s", config_path)
         return config
@@ -51,8 +50,8 @@ def generate_test_variants(
     config: Dict[str, Any],
     language: str = None,
     num_variants: int = None,
-    output_dir: str = None
-    ) -> list:
+    output_dir: str = None,
+) -> list:
     """
     Generate multiple test variants based on configuration
 
@@ -66,18 +65,18 @@ def generate_test_variants(
         List of generated file paths
     """
     # Use config values or overrides
-    test_name = config['name']
-    results_sheet = config['results_sheet']
-    content_config = config['content']
-    config_language = config.get('language', 'both').lower()
-    variants = num_variants if num_variants is not None else config.get('variants', 10)
-    output = output_dir if output_dir is not None else config.get('output-dir', '/tmp')
+    test_name = config["name"]
+    results_sheet = config["results_sheet"]
+    content_config = config["content"]
+    config_language = config.get("language", "both").lower()
+    variants = num_variants if num_variants is not None else config.get("variants", 10)
+    output = output_dir if output_dir is not None else config.get("output-dir", "/tmp")
 
     # Determine which languages to generate
     if language:
         languages_to_generate = [language.lower()]
-    elif config_language == 'both':
-        languages_to_generate = ['en', 'rs']
+    elif config_language == "both":
+        languages_to_generate = ["en", "rs"]
     else:
         languages_to_generate = [config_language.lower()]
 
@@ -97,9 +96,7 @@ def generate_test_variants(
 
         # Initialize generator for this language
         generator = QuestionGenerator(
-            name=test_name,
-            language=lang,
-            results_sheet=results_sheet
+            name=test_name, language=lang, results_sheet=results_sheet
         )
 
         for variant_num in range(1, variants + 1):
@@ -107,30 +104,40 @@ def generate_test_variants(
                 filename = f"{test_name} | {current_date} | [{lang}] | Variant {variant_num}.gs"
                 output_path = os.path.join(output, filename)
 
-                logger.info("📝 Generating variant %d/%d: %s",
-                            variant_num, variants, filename)
+                logger.info(
+                    "📝 Generating variant %d/%d: %s", variant_num, variants, filename
+                )
 
                 # Generate test for the specified language
                 script_content = generator.generate_test_for_language(
                     content_config=content_config,
                     language=lang,
                     output_path=output_path,
-                    variant_number=variant_num
+                    variant_number=variant_num,
                 )
 
                 generated_files.append(output_path)
-                logger.info("✅ Generated variant %d: %d characters", variant_num, len(script_content))
+                logger.info(
+                    "✅ Generated variant %d: %d characters",
+                    variant_num,
+                    len(script_content),
+                )
 
             except RuntimeError as e:
                 logger.error("❌ Failed to generate variant %d: %s", variant_num, e)
                 continue
 
-    logger.info("🎉 Successfully generated %d/%d test variants",
-                len(generated_files), len(languages_to_generate) * variants)
+    logger.info(
+        "🎉 Successfully generated %d/%d test variants",
+        len(generated_files),
+        len(languages_to_generate) * variants,
+    )
     return generated_files
 
 
-def list_generated_files(output_dir: str = "/tmp", language: str = None, test_name: str = None):
+def list_generated_files(
+    output_dir: str = "/tmp", language: str = None, test_name: str = None
+):
     """
     List all generated test files in the output directory
 
@@ -164,40 +171,41 @@ def list_generated_files(output_dir: str = "/tmp", language: str = None, test_na
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description='Generate multiple test variants from JSON configuration')
-
-    parser.add_argument(
-        'config',
-        help='Path to JSON configuration file (e.g., QATests/l0-ai-citizen.json)'
+        description="Generate multiple test variants from JSON configuration"
     )
 
     parser.add_argument(
-        '--language', '-l',
-        choices=['en', 'rs'],
-        help='Override language from config (en or rs)'
+        "config",
+        help="Path to JSON configuration file (e.g., QATests/l0-ai-citizen.json)",
     )
 
     parser.add_argument(
-        '--variants', '-n',
+        "--language",
+        "-l",
+        choices=["en", "rs"],
+        help="Override language from config (en or rs)",
+    )
+
+    parser.add_argument(
+        "--variants",
+        "-n",
         type=int,
-        help='Override number of test variants from config'
+        help="Override number of test variants from config",
     )
 
     parser.add_argument(
-        '--output-dir', '-o',
-        help='Override output directory from config'
+        "--output-dir", "-o", help="Override output directory from config"
     )
 
     parser.add_argument(
-        '--list-files', '-ls',
-        action='store_true',
-        help='List existing test files in output directory'
+        "--list-files",
+        "-ls",
+        action="store_true",
+        help="List existing test files in output directory",
     )
 
     parser.add_argument(
-        '--verbose', '-v',
-        action='store_true',
-        help='Enable verbose logging'
+        "--verbose", "-v", action="store_true", help="Enable verbose logging"
     )
 
     args = parser.parse_args()
@@ -214,16 +222,19 @@ def main():
         return 1
 
     # Determine output directory for listing files
-    output_dir = args.output_dir if args.output_dir else config.get('output-dir', '/tmp')
+    output_dir = (
+        args.output_dir if args.output_dir else config.get("output-dir", "/tmp")
+    )
 
     # List files if requested
     if args.list_files:
-        list_generated_files(
-            output_dir, args.language, test_name=config.get('name'))
+        list_generated_files(output_dir, args.language, test_name=config.get("name"))
         return 0
 
     # Validate arguments
-    variants = args.variants if args.variants is not None else config.get('variants', 10)
+    variants = (
+        args.variants if args.variants is not None else config.get("variants", 10)
+    )
     if variants <= 0:
         logger.error("❌ Number of variants must be positive")
         return 1
@@ -234,17 +245,19 @@ def main():
             config=config,
             language=args.language,
             num_variants=args.variants,
-            output_dir=args.output_dir
+            output_dir=args.output_dir,
         )
 
         # Summary
         if all_generated_files:
-            logger.info("🎊 Generation complete! Created %d test files",
-                        len(all_generated_files))
+            logger.info(
+                "🎊 Generation complete! Created %d test files",
+                len(all_generated_files),
+            )
             logger.info("📂 Files saved to: %s", output_dir)
 
             # List generated files
-            list_generated_files(output_dir, test_name=config.get('name'))
+            list_generated_files(output_dir, test_name=config.get("name"))
 
             return 0
 

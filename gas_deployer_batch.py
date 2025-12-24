@@ -12,14 +12,14 @@ from pathlib import Path
 from gas_deployer import GoogleAppsScriptDeployer
 
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
 
 def deploy_all_quizzes(
-    pattern: str = "/tmp/* | * | * | Variant *.gs", language: str = None):
+    pattern: str = "/tmp/* | * | * | Variant *.gs", language: str = None
+):
     """
     Deploy all quiz variants from /tmp directory
 
@@ -70,30 +70,30 @@ def deploy_all_quizzes(
 
 def main():
     """Main entry point"""
-    parser = argparse.ArgumentParser(description='Deploy all generated quizes')
+    parser = argparse.ArgumentParser(description="Deploy all generated quizes")
 
     parser.add_argument(
-        '--pattern',
+        "--pattern",
         default="/tmp/* | * | * | Variant *.gs",
-        help='Glob pattern to find quiz files (default matches all quiz names)'
+        help="Glob pattern to find quiz files (default matches all quiz names)",
     )
 
     parser.add_argument(
-        '--language', '-l',
-        choices=['en', 'rs'],
-        help='Deploy only quizzes for specific language (en or rs)'
+        "--language",
+        "-l",
+        choices=["en", "rs"],
+        help="Deploy only quizzes for specific language (en or rs)",
     )
 
     parser.add_argument(
-        '--list-files', '-ls',
-        action='store_true',
-        help='List available quiz files without deploying'
+        "--list-files",
+        "-ls",
+        action="store_true",
+        help="List available quiz files without deploying",
     )
 
     parser.add_argument(
-        '--verbose', '-v',
-        action='store_true',
-        help='Enable verbose logging'
+        "--verbose", "-v", action="store_true", help="Enable verbose logging"
     )
 
     args = parser.parse_args()

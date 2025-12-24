@@ -2,30 +2,29 @@
 """
 Test Analyzer - Topic Redundancy Detection
 
-This script analyzes test questions for topic redundancy using OpenAI's GPT-4.1.
-It loads course materials and test configurations, then identifies questions
-that may be too similar or cover the same narrow topic excessively.
+This script analyzes generated test files (.gs) for topic redundancy using OpenAI's GPT-4.1.
+It parses questions from the generated Google Apps Script file, identifies similar/redundant
+questions, and suggests replacements based on provided course materials.
 
 Usage:
-    python test_analyzer.py --test-config QATests/l0-ai-citizen.json \
-                            --materials-path /path/to/course-materials \
-                            --language en
+    python test_analyzer.py --test-file "/tmp/AI Citizen | 2025-12-24 | [en] | Variant 1.gs" \
+                            --materials-path /path/to/course-materials
 """
 
 import argparse
 import json
 import logging
 import os
+import re
 import sys
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List
 
 from openai import OpenAI
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -44,53 +43,78 @@ def load_prompt(prompt_path: str = PROMPT_FILE) -> str:
         Prompt content as string
     """
     try:
-        with open(prompt_path, 'r', encoding='utf-8') as f:
+        with open(prompt_path, "r", encoding="utf-8") as f:
             return f.read()
     except FileNotFoundError:
         logger.error("Prompt file not found: %s", prompt_path)
         raise
 
 
-def load_test_config(config_path: str) -> Dict[str, Any]:
+def parse_questions_from_gs_file(gs_file_path: str) -> List[Dict[str, Any]]:
     """
-    Load test configuration from JSON file
+    Parse questions from a generated Google Apps Script (.gs) file
+
+    The .gs file contains a JavaScript array like:
+    const questionsPool = [
+      { question: "...", choices: [...], correct: N },
+      ...
+    ];
 
     Args:
-        config_path: Path to test configuration file
+        gs_file_path: Path to the generated .gs file
 
     Returns:
-        Configuration dictionary
+        List of question dictionaries with 'question', 'answers', and 'correct' keys
     """
     try:
-        with open(config_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        with open(gs_file_path, "r", encoding="utf-8") as f:
+            content = f.read()
     except FileNotFoundError:
-        logger.error("Test configuration file not found: %s", config_path)
-        raise
-    except json.JSONDecodeError as e:
-        logger.error("Invalid JSON in configuration file: %s", e)
+        logger.error("Test file not found: %s", gs_file_path)
         raise
 
+    # Extract the questionsPool array from the JavaScript
+    # Pattern matches: const questionsPool = [...]
+    pattern = r"const questionsPool = (\[.*?\]);"
+    match = re.search(pattern, content, re.DOTALL)
 
-def load_questions_from_file(file_path: str) -> List[Dict[str, Any]]:
-    """
-    Load questions from a JSON file
+    if not match:
+        logger.error("Could not find questionsPool in %s", gs_file_path)
+        raise ValueError(f"Could not parse questions from {gs_file_path}")
 
-    Args:
-        file_path: Path to questions JSON file
+    js_array = match.group(1)
 
-    Returns:
-        List of question dictionaries
-    """
+    # Convert JavaScript object notation to valid JSON
+    # Replace unquoted keys with quoted keys
+    json_str = re.sub(r"(\s)(question|choices|correct):", r'\1"\2":', js_array)
+
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        logger.warning("Questions file not found: %s", file_path)
-        return []
+        questions_raw = json.loads(json_str)
     except json.JSONDecodeError as e:
-        logger.error("Invalid JSON in questions file %s: %s", file_path, e)
-        return []
+        logger.error("Failed to parse questions JSON: %s", e)
+        raise ValueError(f"Could not parse questions from {gs_file_path}: {e}")
+
+    # Convert to our standard format (correct index -> correct answer text)
+    questions = []
+    for q in questions_raw:
+        correct_idx = q["correct"]
+        choices = q["choices"]
+        # Filter out "I don't know" / "Ne znam" from answers for analysis
+        real_choices = [c for c in choices if c not in ("I don't know", "Ne znam")]
+        correct_answer = (
+            choices[correct_idx] if correct_idx < len(choices) else real_choices[0]
+        )
+
+        questions.append(
+            {
+                "question": q["question"],
+                "answers": real_choices,
+                "correct": correct_answer,
+            }
+        )
+
+    logger.info("Parsed %d questions from %s", len(questions), gs_file_path)
+    return questions
 
 
 def load_course_materials(materials_path: str) -> str:
@@ -113,7 +137,7 @@ def load_course_materials(materials_path: str) -> str:
 
     for md_file in md_files:
         try:
-            with open(md_file, 'r', encoding='utf-8') as f:
+            with open(md_file, "r", encoding="utf-8") as f:
                 file_content = f.read()
                 content_parts.append(f"## {md_file.name}\n\n{file_content}")
         except Exception as e:
@@ -121,39 +145,6 @@ def load_course_materials(materials_path: str) -> str:
 
     logger.info("Loaded %d markdown files from %s", len(content_parts), materials_path)
     return "\n\n---\n\n".join(content_parts)
-
-
-def get_test_questions(
-    config: Dict[str, Any],
-    language: str,
-    base_path: str = "."
-) -> List[Dict[str, Any]]:
-    """
-    Load all questions for a test based on configuration
-
-    Args:
-        config: Test configuration dictionary
-        language: Language code ("en" or "rs")
-        base_path: Base path for question files
-
-    Returns:
-        List of all questions for the test
-    """
-    content_config = config.get('content', {})
-    all_questions = []
-
-    for relative_path, count in content_config.items():
-        full_path = Path(base_path) / "QAPool" / language / relative_path.lstrip('/')
-        questions = load_questions_from_file(str(full_path))
-
-        # Take the specified number of questions (in order, no shuffling)
-        selected = questions[:count]
-        all_questions.extend(selected)
-
-        logger.info("Loaded %d/%d questions from %s",
-                    len(selected), count, relative_path)
-
-    return all_questions
 
 
 def format_questions_for_analysis(questions: List[Dict[str, Any]]) -> str:
@@ -169,9 +160,9 @@ def format_questions_for_analysis(questions: List[Dict[str, Any]]) -> str:
     formatted = []
     for i, q in enumerate(questions, 1):
         formatted.append(f"Q{i}: {q['question']}")
-        for j, answer in enumerate(q['answers']):
-            marker = "✓" if answer == q['correct'] else " "
-            formatted.append(f"  {chr(65+j)}. [{marker}] {answer}")
+        for j, answer in enumerate(q["answers"]):
+            marker = "✓" if answer == q["correct"] else " "
+            formatted.append(f"  {chr(65 + j)}. [{marker}] {answer}")
         formatted.append("")
 
     return "\n".join(formatted)
@@ -182,10 +173,10 @@ def analyze_test_with_gpt(
     questions: List[Dict[str, Any]],
     course_materials: str,
     system_prompt: str,
-    model: str = "gpt-4.1"
+    model: str = "gpt-4.1",
 ) -> str:
     """
-    Analyze test questions for redundancy using GPT
+    Analyze test questions for redundancy and suggest replacements using GPT
 
     Args:
         client: OpenAI client
@@ -205,9 +196,17 @@ def analyze_test_with_gpt(
 
 ---
 
-## Test Questions
+## Test Questions (from generated test file)
 
 {formatted_questions}
+
+---
+
+## Task
+
+1. Analyze these questions for topic redundancy (3+ questions on the same narrow concept)
+2. If redundancy is found, suggest replacement questions based on the course materials above
+3. Replacement questions should cover underrepresented topics from the materials
 """
 
     logger.info("Sending %d questions to %s for analysis...", len(questions), model)
@@ -217,10 +216,10 @@ def analyze_test_with_gpt(
             model=model,
             messages=[
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_message}
+                {"role": "user", "content": user_message},
             ],
             temperature=0.3,
-            max_tokens=4000
+            max_tokens=4000,
         )
 
         return response.choices[0].message.content
@@ -233,50 +232,36 @@ def analyze_test_with_gpt(
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description='Analyze test questions for topic redundancy using GPT-4.1'
+        description="Analyze generated test files for topic redundancy using GPT-4.1"
     )
 
     parser.add_argument(
-        '--test-config', '-c',
+        "--test-file",
+        "-t",
         required=True,
-        help='Path to test configuration file (e.g., QATests/l0-ai-citizen.json)'
+        help="Path to generated test file (.gs) in /tmp or elsewhere",
     )
 
     parser.add_argument(
-        '--materials-path', '-m',
+        "--materials-path",
+        "-m",
         required=True,
-        help='Path to directory containing course materials (markdown files)'
+        help="Path to directory containing course materials (markdown files)",
     )
 
     parser.add_argument(
-        '--language', '-l',
-        choices=['en', 'rs'],
-        default='en',
-        help='Language of questions to analyze (default: en)'
+        "--model", default="gpt-4.1", help="OpenAI model to use (default: gpt-4.1)"
     )
 
     parser.add_argument(
-        '--model',
-        default='gpt-4.1',
-        help='OpenAI model to use (default: gpt-4.1)'
-    )
-
-    parser.add_argument(
-        '--base-path', '-b',
-        default='.',
-        help='Base path for question files (default: current directory)'
-    )
-
-    parser.add_argument(
-        '--prompt-file', '-p',
+        "--prompt-file",
+        "-p",
         default=PROMPT_FILE,
-        help=f'Path to prompt file (default: {PROMPT_FILE})'
+        help=f"Path to prompt file (default: {PROMPT_FILE})",
     )
 
     parser.add_argument(
-        '--verbose', '-v',
-        action='store_true',
-        help='Enable verbose logging'
+        "--verbose", "-v", action="store_true", help="Enable verbose logging"
     )
 
     args = parser.parse_args()
@@ -285,7 +270,7 @@ def main():
         logging.getLogger().setLevel(logging.DEBUG)
 
     # Check for API key
-    api_key = os.environ.get('OPENAI_API_KEY')
+    api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         logger.error("OPENAI_API_KEY environment variable not set")
         print("Error: Please set the OPENAI_API_KEY environment variable")
@@ -296,9 +281,15 @@ def main():
         logger.info("Loading prompt from %s", args.prompt_file)
         system_prompt = load_prompt(args.prompt_file)
 
-        # Load test configuration
-        logger.info("Loading test configuration from %s", args.test_config)
-        config = load_test_config(args.test_config)
+        # Parse questions from generated test file
+        logger.info("Parsing questions from %s", args.test_file)
+        questions = parse_questions_from_gs_file(args.test_file)
+
+        if not questions:
+            logger.error("No questions parsed. Cannot proceed with analysis.")
+            return 1
+
+        logger.info("Parsed %d questions for analysis", len(questions))
 
         # Load course materials
         logger.info("Loading course materials from %s", args.materials_path)
@@ -306,16 +297,6 @@ def main():
 
         if not course_materials:
             logger.warning("No course materials loaded. Analysis may be limited.")
-
-        # Load questions
-        logger.info("Loading test questions for language: %s", args.language)
-        questions = get_test_questions(config, args.language, args.base_path)
-
-        if not questions:
-            logger.error("No questions loaded. Cannot proceed with analysis.")
-            return 1
-
-        logger.info("Loaded %d questions for analysis", len(questions))
 
         # Initialize OpenAI client
         client = OpenAI(api_key=api_key)
@@ -326,12 +307,15 @@ def main():
             questions=questions,
             course_materials=course_materials,
             system_prompt=system_prompt,
-            model=args.model
+            model=args.model,
         )
 
         # Output results
         print("\n" + "=" * 80)
         print("TEST ANALYSIS RESULTS")
+        print("=" * 80)
+        print(f"Test file: {args.test_file}")
+        print(f"Questions analyzed: {len(questions)}")
         print("=" * 80 + "\n")
         print(analysis)
         print("\n" + "=" * 80)
@@ -340,6 +324,9 @@ def main():
 
     except FileNotFoundError as e:
         logger.error("File not found: %s", e)
+        return 1
+    except ValueError as e:
+        logger.error("Parse error: %s", e)
         return 1
     except Exception as e:
         logger.error("Analysis failed: %s", e)

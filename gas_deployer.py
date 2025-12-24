@@ -27,9 +27,9 @@ logger = logging.getLogger(__name__)
 
 # Required scopes for Google Apps Script API
 SCOPES = [
-    'https://www.googleapis.com/auth/script.projects',
-    'https://www.googleapis.com/auth/forms',
-    'https://www.googleapis.com/auth/drive'
+    "https://www.googleapis.com/auth/script.projects",
+    "https://www.googleapis.com/auth/forms",
+    "https://www.googleapis.com/auth/drive",
 ]
 
 
@@ -37,9 +37,8 @@ class GoogleAppsScriptDeployer:
     """Simplified class for deploying Google Apps Script projects"""
 
     def __init__(
-        self,
-        credentials_path: Optional[str] = None,
-        token_path: Optional[str] = None):
+        self, credentials_path: Optional[str] = None, token_path: Optional[str] = None
+    ):
         """
         Initialize the deployer with authentication credentials
 
@@ -62,7 +61,9 @@ class GoogleAppsScriptDeployer:
         try:
             # Load existing token if available
             if Path(self.token_path).exists():
-                self.creds = Credentials.from_authorized_user_file(self.token_path, SCOPES)
+                self.creds = Credentials.from_authorized_user_file(
+                    self.token_path, SCOPES
+                )
 
             # If no valid credentials, get new ones
             if not self.creds or not self.creds.valid:
@@ -70,18 +71,22 @@ class GoogleAppsScriptDeployer:
                     self.creds.refresh(Request())
                 else:
                     if not Path(self.credentials_path).exists():
-                        logger.error("Credentials file not found: %s", self.credentials_path)
+                        logger.error(
+                            "Credentials file not found: %s", self.credentials_path
+                        )
                         return False
 
-                    flow = InstalledAppFlow.from_client_secrets_file(self.credentials_path, SCOPES)
+                    flow = InstalledAppFlow.from_client_secrets_file(
+                        self.credentials_path, SCOPES
+                    )
                     self.creds = flow.run_local_server(port=0)
 
                 # Save credentials for next run
-                with open(self.token_path, 'w', encoding='utf-8') as token:
+                with open(self.token_path, "w", encoding="utf-8") as token:
                     token.write(self.creds.to_json())
 
             # Build the service
-            self.script_service = build('script', 'v1', credentials=self.creds)
+            self.script_service = build("script", "v1", credentials=self.creds)
             logger.info("✓ Successfully authenticated with Google APIs")
             return True
 
@@ -99,12 +104,15 @@ class GoogleAppsScriptDeployer:
         Returns:
             Project name in format "{base_name} | 2025-09-08T12:19:18Z"
         """
-        timestamp = datetime.datetime.now(
-            datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        timestamp = datetime.datetime.now(datetime.timezone.utc).strftime(
+            "%Y-%m-%dT%H:%M:%SZ"
+        )
 
         return f"{base_name} | {timestamp}"
 
-    def create_script_project(self, project_title: str, script_content: str) -> Optional[str]:
+    def create_script_project(
+        self, project_title: str, script_content: str
+    ) -> Optional[str]:
         """
         Create a new Google Apps Script project with the given content
 
@@ -118,43 +126,38 @@ class GoogleAppsScriptDeployer:
         try:
             # Create project request
             request_body = {
-                'title': project_title,
-                'parentId': None  # Creates in root folder
+                "title": project_title,
+                "parentId": None,  # Creates in root folder
             }
 
             # Create the project
             logger.info("Creating Google Apps Script project: %s", project_title)
             project = self.script_service.projects().create(body=request_body).execute()  # pylint: disable=no-member
-            project_id = project['scriptId']
+            project_id = project["scriptId"]
             logger.info("✓ Created project with ID: %s", project_id)
 
             # Upload script content with manifest
             logger.info("Uploading script content...")
             files = [
+                {"name": "Code", "type": "SERVER_JS", "source": script_content},
                 {
-                    'name': 'Code',
-                    'type': 'SERVER_JS',
-                    'source': script_content
+                    "name": "appsscript",
+                    "type": "JSON",
+                    "source": json.dumps(
+                        {
+                            "timeZone": "America/New_York",
+                            "dependencies": {},
+                            "exceptionLogging": "STACKDRIVER",
+                            "runtimeVersion": "V8",
+                        }
+                    ),
                 },
-                {
-                    'name': 'appsscript',
-                    'type': 'JSON',
-                    'source': json.dumps({
-                        "timeZone": "America/New_York",
-                        "dependencies": {},
-                        "exceptionLogging": "STACKDRIVER",
-                        "runtimeVersion": "V8"
-                    })
-                }
             ]
 
-            request_body = {
-                'files': files
-            }
+            request_body = {"files": files}
 
             self.script_service.projects().updateContent(  # pylint: disable=no-member
-                scriptId=project_id,
-                body=request_body
+                scriptId=project_id, body=request_body
             ).execute()
 
             logger.info("✓ Script content uploaded successfully")
@@ -167,7 +170,9 @@ class GoogleAppsScriptDeployer:
             logger.error("Error creating project: %s", e)
             return None
 
-    def deploy_quiz_script(self, script_content: str) -> Tuple[Optional[str], Optional[str]]:
+    def deploy_quiz_script(
+        self, script_content: str
+    ) -> Tuple[Optional[str], Optional[str]]:
         """
         Deploy quiz script to Google Apps Script (deployment only)
 
@@ -207,8 +212,8 @@ class GoogleAppsScriptDeployer:
             return None, None
 
     def deploy_batch_quiz_scripts(
-        self,
-        quiz_files_pattern: str = "/tmp/* | * | * | Variant *.gs") -> List[Dict[str, str]]:
+        self, quiz_files_pattern: str = "/tmp/* | * | * | Variant *.gs"
+    ) -> List[Dict[str, str]]:
         """
         Deploy multiple quiz scripts from /tmp directory
 
@@ -223,7 +228,9 @@ class GoogleAppsScriptDeployer:
             quiz_files = glob.glob(quiz_files_pattern)
 
             if not quiz_files:
-                logger.error("No quiz files found matching pattern: %s", quiz_files_pattern)
+                logger.error(
+                    "No quiz files found matching pattern: %s", quiz_files_pattern
+                )
                 return []
 
             # Sort files to ensure consistent ordering
@@ -240,10 +247,12 @@ class GoogleAppsScriptDeployer:
                 try:
                     filename = Path(quiz_file).name
 
-                    logger.info("📝 Deploying %d/%d: %s", i+1, len(quiz_files), filename)
+                    logger.info(
+                        "📝 Deploying %d/%d: %s", i + 1, len(quiz_files), filename
+                    )
 
                     # Read the quiz script content
-                    with open(quiz_file, 'r', encoding='utf-8') as f:
+                    with open(quiz_file, "r", encoding="utf-8") as f:
                         script_content = f.read()
 
                     # Extract variant number from filename
@@ -254,17 +263,21 @@ class GoogleAppsScriptDeployer:
                     project_title = filename.replace(".gs", "")
 
                     # Create and upload the project
-                    project_id = self.create_script_project(project_title, script_content)
+                    project_id = self.create_script_project(
+                        project_title, script_content
+                    )
 
                     if project_id:
                         edit_url = f"https://script.google.com/d/{project_id}/edit"
 
-                        deployed_quizzes.append({
-                            'variant': variant_part,
-                            'filename': filename,
-                            'project_id': project_id,
-                            'edit_url': edit_url
-                        })
+                        deployed_quizzes.append(
+                            {
+                                "variant": variant_part,
+                                "filename": filename,
+                                "project_id": project_id,
+                                "edit_url": edit_url,
+                            }
+                        )
 
                         logger.info("✅ Variant %s deployed successfully", variant_part)
                     else:
@@ -277,15 +290,20 @@ class GoogleAppsScriptDeployer:
             # Summary
             logger.info("=" * 60)
             logger.info("🎉 BATCH DEPLOYMENT COMPLETE")
-            logger.info("✅ Successfully deployed: %d/%d quizzes",
-                        len(deployed_quizzes), len(quiz_files))
+            logger.info(
+                "✅ Successfully deployed: %d/%d quizzes",
+                len(deployed_quizzes),
+                len(quiz_files),
+            )
             logger.info("=" * 60)
 
             # List all deployed URLs
             if deployed_quizzes:
                 logger.info("🔗 DEPLOYED QUIZ URLS:")
                 for quiz in deployed_quizzes:
-                    logger.info("   📄 Variant %s: %s", quiz['variant'], quiz['edit_url'])
+                    logger.info(
+                        "   📄 Variant %s: %s", quiz["variant"], quiz["edit_url"]
+                    )
                 logger.info("=" * 60)
 
             return deployed_quizzes
