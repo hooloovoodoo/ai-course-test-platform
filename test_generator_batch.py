@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Batch Quiz Generation Script
+Batch Test Generation Script
 
-Generates multiple quiz variants based on JSON configuration files in QATests directory.
+Generates multiple test variants based on JSON configuration files in QATests directory.
 Supports both English (ENG) and Serbian (SRB) languages.
 """
 
@@ -14,7 +14,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Any
-from quiz_generator import QuestionGenerator
+from test_generator import QuestionGenerator
 
 # Configure logging
 logging.basicConfig(
@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 def load_config(config_path: str) -> Dict[str, Any]:
     """
-    Load quiz configuration from JSON file
+    Load test configuration from JSON file
 
     Args:
         config_path: Path to JSON configuration file
@@ -47,14 +47,14 @@ def load_config(config_path: str) -> Dict[str, Any]:
         raise
 
 
-def generate_quiz_variants(
+def generate_test_variants(
     config: Dict[str, Any],
     language: str = None,
     num_variants: int = None,
     output_dir: str = None
     ) -> list:
     """
-    Generate multiple quiz variants based on configuration
+    Generate multiple test variants based on configuration
 
     Args:
         config: Configuration dictionary from JSON file
@@ -66,7 +66,7 @@ def generate_quiz_variants(
         List of generated file paths
     """
     # Use config values or overrides
-    quiz_name = config['name']
+    test_name = config['name']
     results_sheet = config['results_sheet']
     content_config = config['content']
     config_language = config.get('language', 'both').lower()
@@ -81,7 +81,7 @@ def generate_quiz_variants(
     else:
         languages_to_generate = [config_language.lower()]
 
-    logger.info("🎯 Generating %d variants for quiz '%s'", variants, quiz_name)
+    logger.info("🎯 Generating %d variants for test '%s'", variants, test_name)
 
     # Create output directory if it doesn't exist
     Path(output).mkdir(parents=True, exist_ok=True)
@@ -97,21 +97,21 @@ def generate_quiz_variants(
 
         # Initialize generator for this language
         generator = QuestionGenerator(
-            name=quiz_name,
+            name=test_name,
             language=lang,
             results_sheet=results_sheet
         )
 
         for variant_num in range(1, variants + 1):
             try:
-                filename = f"{quiz_name} | {current_date} | [{lang}] | Variant {variant_num}.gs"
+                filename = f"{test_name} | {current_date} | [{lang}] | Variant {variant_num}.gs"
                 output_path = os.path.join(output, filename)
 
                 logger.info("📝 Generating variant %d/%d: %s",
                             variant_num, variants, filename)
 
-                # Generate quiz for the specified language
-                script_content = generator.generate_quiz_for_language(
+                # Generate test for the specified language
+                script_content = generator.generate_test_for_language(
                     content_config=content_config,
                     language=lang,
                     output_path=output_path,
@@ -125,46 +125,46 @@ def generate_quiz_variants(
                 logger.error("❌ Failed to generate variant %d: %s", variant_num, e)
                 continue
 
-    logger.info("🎉 Successfully generated %d/%d quiz variants",
+    logger.info("🎉 Successfully generated %d/%d test variants",
                 len(generated_files), len(languages_to_generate) * variants)
     return generated_files
 
 
-def list_generated_files(output_dir: str = "/tmp", language: str = None, quiz_name: str = None):
+def list_generated_files(output_dir: str = "/tmp", language: str = None, test_name: str = None):
     """
-    List all generated quiz files in the output directory
+    List all generated test files in the output directory
 
     Args:
-        output_dir: Directory to search for quiz files
+        output_dir: Directory to search for test files
         language: Optional language filter ("en" or "rs")
-        quiz_name: Optional quiz name filter
+        test_name: Optional test name filter
     """
-    if quiz_name:
-        pattern = f"{quiz_name} | * | *.gs"
+    if test_name:
+        pattern = f"{test_name} | * | *.gs"
         if language:
-            pattern = f"{quiz_name} | * | [{language.lower()}] | *.gs"
+            pattern = f"{test_name} | * | [{language.lower()}] | *.gs"
     else:
         pattern = "* | * | *.gs"
         if language:
             pattern = f"* | * | [{language.lower()}] | *.gs"
 
-    quiz_files = list(Path(output_dir).glob(pattern))
+    test_files = list(Path(output_dir).glob(pattern))
 
-    if quiz_files:
-        logger.info("📁 Found %d quiz files in %s:", len(quiz_files), output_dir)
-        for file_path in sorted(quiz_files):
+    if test_files:
+        logger.info("📁 Found %d test files in %s:", len(test_files), output_dir)
+        for file_path in sorted(test_files):
             file_size = file_path.stat().st_size
             logger.info("   📄 %s (%d bytes)", file_path.name, file_size)
     else:
-        logger.info("📁 No quiz files found in %s", output_dir)
+        logger.info("📁 No test files found in %s", output_dir)
 
-    return quiz_files
+    return test_files
 
 
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description='Generate multiple quiz variants from JSON configuration')
+        description='Generate multiple test variants from JSON configuration')
 
     parser.add_argument(
         'config',
@@ -180,7 +180,7 @@ def main():
     parser.add_argument(
         '--variants', '-n',
         type=int,
-        help='Override number of quiz variants from config'
+        help='Override number of test variants from config'
     )
 
     parser.add_argument(
@@ -191,7 +191,7 @@ def main():
     parser.add_argument(
         '--list-files', '-ls',
         action='store_true',
-        help='List existing quiz files in output directory'
+        help='List existing test files in output directory'
     )
 
     parser.add_argument(
@@ -219,7 +219,7 @@ def main():
     # List files if requested
     if args.list_files:
         list_generated_files(
-            output_dir, args.language, config.get('name'))
+            output_dir, args.language, test_name=config.get('name'))
         return 0
 
     # Validate arguments
@@ -229,8 +229,8 @@ def main():
         return 1
 
     try:
-        # Generate quizzes based on config
-        all_generated_files = generate_quiz_variants(
+        # Generate tests based on config
+        all_generated_files = generate_test_variants(
             config=config,
             language=args.language,
             num_variants=args.variants,
@@ -239,16 +239,16 @@ def main():
 
         # Summary
         if all_generated_files:
-            logger.info("🎊 Generation complete! Created %d quiz files",
+            logger.info("🎊 Generation complete! Created %d test files",
                         len(all_generated_files))
             logger.info("📂 Files saved to: %s", output_dir)
 
             # List generated files
-            list_generated_files(output_dir, quiz_name=config.get('name'))
+            list_generated_files(output_dir, test_name=config.get('name'))
 
             return 0
 
-        logger.error("❌ No quiz files were generated")
+        logger.error("❌ No test files were generated")
         return 1
 
     except KeyboardInterrupt:

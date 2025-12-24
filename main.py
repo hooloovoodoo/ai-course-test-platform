@@ -1,26 +1,26 @@
 #!/usr/bin/env python3
 """
-AI Quiz System - Main Entry Point
+AI Test System - Main Entry Point
 
-This script provides a unified interface for the complete AI quiz:
-1. Generate quiz variants from JSON config files (quiz_generator_batch.py)
-2. Deploy quizzes to Google Apps Script (gas_deployer_batch.py)
+This script provides a unified interface for the complete AI test:
+1. Generate test variants from JSON config files (test_generator_batch.py)
+2. Deploy tests to Google Apps Script (gas_deployer_batch.py)
 3. Send bilingual email notifications (email_notifier.py)
 
 Usage Examples:
-    # Generate quiz variants from config file (uses config defaults)
+    # Generate test variants from config file (uses config defaults)
     python main.py generate QATests/l0-ai-citizen.json
 
     # Generate with overrides (5 English variants only)
     python main.py generate QATests/l0-ai-citizen.json --language en --variants 5
 
-    # Generate AI Coder quiz
+    # Generate AI Coder test
     python main.py generate QATests/l1-ai-coder.json
 
-    # Deploy all English quizzes
+    # Deploy all English tests
     python main.py deploy --language en
 
-    # Send emails with quiz URLs
+    # Send emails with test URLs
     python main.py email en_urls.txt sr_urls.txt recipients.txt
 """
 
@@ -39,8 +39,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-class AIQuizOrchestrator:
-    """Main orchestrator for the AI quiz system"""
+class AITestOrchestrator:
+    """Main orchestrator for the AI test system"""
 
     def __init__(self):
         """Initialize the orchestrator"""
@@ -86,21 +86,21 @@ class AIQuizOrchestrator:
             logger.error("RuntimeError running script: %s", e)
             return False
 
-    def generate_quizzes(
+    def generate_tests(
         self,
         config_file: str,
         language: str = None,
         variants: int = None,
         output_dir: str = None
         ) -> bool:
-        """Generate quiz variants from configuration file"""
+        """Generate test variants from configuration file"""
         config_path = self.base_dir / config_file
 
         if not config_path.exists():
             logger.error("Configuration file not found: %s", config_path)
             return False
 
-        logger.info("🎯 Generating quiz variants from config: %s", config_file)
+        logger.info("🎯 Generating test variants from config: %s", config_file)
 
         args = [str(config_path)]
 
@@ -112,15 +112,15 @@ class AIQuizOrchestrator:
         if output_dir:
             args.extend(["--output-dir", output_dir])
 
-        return self.run_script("quiz_generator_batch.py", args)
+        return self.run_script("test_generator_batch.py", args)
 
-    def deploy_quizzes(self, language: Optional[str] = None, list_files: bool = False) -> bool:
-        """Deploy quiz variants to Google Apps Script"""
+    def deploy_tests(self, language: Optional[str] = None, list_files: bool = False) -> bool:
+        """Deploy test variants to Google Apps Script"""
         if list_files:
-            logger.info("📁 Listing available quiz files")
+            logger.info("📁 Listing available test files")
             args = ["--list-files"]
         else:
-            logger.info("🚀 Deploying quizzes{f' (%s)' if language else ''}", language)
+            logger.info("🚀 Deploying tests{f' (%s)' if language else ''}", language)
             args = []
 
         if language:
@@ -144,7 +144,7 @@ class AIQuizOrchestrator:
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(
-        description='AI Quiz System - Unified Interface',
+        description='AI Test System - Unified Interface',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__
     )
@@ -152,26 +152,26 @@ def main():
     subparsers = parser.add_subparsers(dest='command', help='Available commands')
 
     # Generate command
-    gen_parser = subparsers.add_parser('generate', help='Generate quiz variants')
+    gen_parser = subparsers.add_parser('generate', help='Generate test variants')
     gen_parser.add_argument('config', help='Path to configuration file (e.g., QATests/l0-ai-citizen.json)')
     gen_parser.add_argument('--language', '-l', choices=['en', 'rs'],
                            help='Override language from config (en or rs)')
     gen_parser.add_argument('--variants', '-n', type=int,
-                           help='Override number of quiz variants from config')
+                           help='Override number of test variants from config')
     gen_parser.add_argument('--output-dir', '-o',
                            help='Override output directory from config')
 
     # Deploy command
-    deploy_parser = subparsers.add_parser('deploy', help='Deploy quizzes to Google Apps Script')
+    deploy_parser = subparsers.add_parser('deploy', help='Deploy tests to Google Apps Script')
     deploy_parser.add_argument('--language', '-l', choices=['en', 'rs'],
-                              help='Deploy only specific language quizzes (en or rs)')
+                              help='Deploy only specific language tests (en or rs)')
     deploy_parser.add_argument('--list-files', '-ls', action='store_true',
-                              help='List available quiz files without deploying')
+                              help='List available test files without deploying')
 
     # Email command
     email_parser = subparsers.add_parser('email', help='Send bilingual email notifications')
-    email_parser.add_argument('en_urls_file', help='File containing English quiz URLs')
-    email_parser.add_argument('sr_urls_file', help='File containing Serbian quiz URLs')
+    email_parser.add_argument('en_urls_file', help='File containing English test URLs')
+    email_parser.add_argument('sr_urls_file', help='File containing Serbian test URLs')
     email_parser.add_argument('recipients_file', help='File containing recipient email addresses')
 
     # Global options
@@ -189,12 +189,12 @@ def main():
         return 1
 
     # Initialize orchestrator
-    orchestrator = AIQuizOrchestrator()
+    orchestrator = AITestOrchestrator()
 
     try:
         # Execute the requested command
         if args.command == 'generate':
-            success = orchestrator.generate_quizzes(
+            success = orchestrator.generate_tests(
                 config_file=args.config,
                 language=args.language,
                 variants=args.variants,
@@ -202,7 +202,7 @@ def main():
             )
 
         elif args.command == 'deploy':
-            success = orchestrator.deploy_quizzes(
+            success = orchestrator.deploy_tests(
                 language=args.language,
                 list_files=args.list_files
             )

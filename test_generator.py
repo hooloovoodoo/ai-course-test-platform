@@ -4,9 +4,9 @@ Question Generator & Script Builder Module
 This module handles:
 1. Loading questions from JSON files
 2. Converting JSON format to JavaScript-compatible structure
-3. Randomly selecting questions for quizzes
+3. Randomly selecting questions for tests
 4. Generating complete Google Apps Script code
-5. Configurable quiz settings
+5. Configurable test settings
 """
 
 import json
@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 class QuestionGenerator:
-    """Main class for generating quiz scripts from JSON question data"""
+    """Main class for generating test scripts from JSON question data"""
 
     def __init__(self,
                  name: str,
@@ -30,13 +30,13 @@ class QuestionGenerator:
                  points_per_question: int = 1,
                  confirmation_message: str = "Hvala što ste učestvovali u kvizu! / Thanks for taking the quiz!"):
         """
-        Initialize the quiz generator
+        Initialize the test generator
 
         Args:
-            name: Quiz name/title (e.g., "AI Citizen")
+            name: Test name/title (e.g., "AI Citizen")
             language: ISO 3166 language code ("en", "rs", or "both")
             results_sheet: Google Sheets document ID to store results
-            description: Quiz description (optional)
+            description: Test description (optional)
             points_per_question: Points awarded per question (optional)
             confirmation_message: Message shown after completion (optional)
         """
@@ -234,9 +234,9 @@ class QuestionGenerator:
                 correct_index = choices.index(correct_answer)
 
             # Add "I don't know" option as the last choice (after shuffling)
-            if self.language == "ENG":
+            if self.language == "en":
                 choices.append("I don't know")
-            else:  # SRB
+            else:  # rs (Serbian)
                 choices.append("Ne znam")
 
             js_question = {
@@ -281,8 +281,8 @@ class QuestionGenerator:
 function createRandomAIQuiz() {{
   const questionsPool = {questions_js};
 
-  // Shuffle and pick {len(questions)} questions
-  const selectedQuestions = shuffleArray(questionsPool).slice(0, {len(questions)});
+  // Use questions in order (no shuffling)
+  const selectedQuestions = questionsPool;
 
   // Create the quiz form
   const form = FormApp.create('{self._escape_js_string(self.title)}')
@@ -366,20 +366,6 @@ function createRandomAIQuiz() {{
     editUrl: form.getEditUrl(),
     formId: form.getId()
   }};
-}}
-
-// Helper function to shuffle array
-function shuffleArray(array) {{
-  let currentIndex = array.length, temporaryValue, randomIndex;
-  while (0 !== currentIndex) {{
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-    // Swap
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }}
-  return array;
 }}
 
 /**
@@ -561,7 +547,7 @@ function onFormSubmit(e) {{
             logger.error("Error saving script: %s", e)
             raise
 
-    def generate_quiz_from_multiple_files(
+    def generate_test_from_multiple_files(
         self,
         file_configs: List[Dict[str, Any]],
         output_path: str) -> str:
@@ -598,7 +584,7 @@ function onFormSubmit(e) {{
 
             total_questions = sum(config['count'] for config in file_configs)
             logger.info(
-                "Successfully generated %s quiz script with %d questions from %d files",
+                "Successfully generated %s test script with %d questions from %d files",
                 self.language,
                 total_questions,
                 len(file_configs))
@@ -609,17 +595,17 @@ function onFormSubmit(e) {{
             return script_content
 
         except RuntimeError as e:
-            logger.error("Error in multi-file quiz generation workflow: %s", e)
+            logger.error("Error in multi-file test generation workflow: %s", e)
             raise
 
-    def generate_quiz_for_language(
+    def generate_test_for_language(
         self,
         content_config: Dict[str, int],
         language: str,
         output_path: str = None,
         variant_number: Optional[int] = None) -> str:
         """
-        Generate quiz using content configuration for the specified language
+        Generate test using content configuration for the specified language
 
         Args:
             content_config: Dictionary mapping relative paths to question counts
@@ -640,11 +626,11 @@ function onFormSubmit(e) {{
         if output_path is None:
             lang_suffix = language.lower()
             if variant_number is not None:
-                output_path = f"generated_quiz_{lang_suffix}_variant_{variant_number}.gs"
+                output_path = f"generated_test_{lang_suffix}_variant_{variant_number}.gs"
             else:
-                output_path = f"generated_quiz_{lang_suffix}.gs"
+                output_path = f"generated_test_{lang_suffix}.gs"
 
-        return self.generate_quiz_from_multiple_files(file_configs, output_path)
+        return self.generate_test_from_multiple_files(file_configs, output_path)
 
 
 # Example usage and testing
@@ -666,26 +652,26 @@ if __name__ == "__main__":
 
     # Test both languages
     try:
-        # Generate English quiz
-        print("Generating English quiz...")
-        eng_script = generator.generate_quiz_for_language(
+        # Generate English test
+        print("Generating English test...")
+        eng_script = generator.generate_test_for_language(
             content_config=content_config,
             language="en",
-            output_path="generated_quiz_eng.gs",
+            output_path="generated_test_eng.gs",
             variant_number=1
         )
-        print("English quiz generation completed successfully!")
+        print("English test generation completed successfully!")
         print(f"Script length: {len(eng_script)} characters")
 
-        # Generate Serbian quiz
-        print("\nGenerating Serbian quiz...")
-        srb_script = generator.generate_quiz_for_language(
+        # Generate Serbian test
+        print("\nGenerating Serbian test...")
+        srb_script = generator.generate_test_for_language(
             content_config=content_config,
             language="rs",
-            output_path="generated_quiz_srb.gs",
+            output_path="generated_test_srb.gs",
             variant_number=1
         )
-        print("Serbian quiz generation completed successfully!")
+        print("Serbian test generation completed successfully!")
         print(f"Script length: {len(srb_script)} characters")
 
     except RuntimeError as e:
