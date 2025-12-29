@@ -40,16 +40,6 @@
     "correct": "Few-shot in-context learning: steer the model using several labeled examples"
   },
   {
-    "question": "You must minimize total token cost (input and output), provide instructions only (no examples), and no step-by-step reasoning is needed. Which setup should you choose?",
-    "answers": [
-      "One-shot prompting (single example)",
-      "Few-shot prompting (multiple examples)",
-      "Zero-shot prompting (instructions only)",
-      "Zero-shot prompting with chain-of-thought reasoning"
-    ],
-    "correct": "Zero-shot prompting (instructions only)"
-  },
-  {
     "question": "Your sentiment classification service returns inconsistent output formats across requests (e.g., 'positive', 'Sentiment: positive', or JSON). In a production setting where you can change prompts and parameters, what is the most effective fix to ensure reliably parseable outputs?",
     "answers": [
       "Add few-shot examples that show the exact output format you expect",
