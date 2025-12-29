@@ -1,6 +1,7 @@
 # AI Course Test Platform
 
-A comprehensive platform for generating, deploying, and managing AI course tests using Google Forms and Google Apps Script.
+A comprehensive platform for generating, deploying, and managing AI course tests
+using Google Forms and Google Apps Script.
 
 ## Features
 
@@ -22,19 +23,11 @@ ai-course-test-platform/
 ├── gas_deployer_batch.py      # Batch deployment
 ├── email_notifier.py          # Bilingual email notifications
 ├── QAPool/                    # Question pools organized by language
-│   ├── en/                    # English questions
-│   │   ├── l0-ai-citizen/     # Level 0: AI Citizen course
-│   │   └── l1-ai-coder/       # Level 1: AI Coder course
-│   └── rs/                    # Serbian questions
-│       └── l0-ai-citizen/
 ├── QATests/                   # Test configuration files
-│   ├── l0-ai-citizen.json
-│   └── l1-ai-coder.json
 ├── prompts/                   # Versioned LLM prompts
-│   └── test_analyzer_prompt.md
-├── pyproject.toml
-├── requirements.txt
-└── README.md
+├── pyproject.toml             # uv project configuration
+├── requirements.txt           # Python dependencies
+└── README.md                  # This file
 ```
 
 ## Installation
@@ -42,7 +35,7 @@ ai-course-test-platform/
 ### Prerequisites
 
 - Python 3.10+
-- [uv](https://docs.astral.sh/uv/) - Fast Python package manager
+- [uv](https://docs.astral.sh/uv/)
 - Google Cloud project with Forms API and Sheets API enabled
 - OpenAI API key (for test analyzer)
 
@@ -156,14 +149,14 @@ uv run python test_analyzer.py \
 }
 ```
 
-| Field | Description |
-|-------|-------------|
-| `name` | Test name displayed in Google Forms |
-| `language` | `"en"`, `"rs"`, or `"both"` |
-| `results_sheet` | Google Sheets ID for collecting responses |
-| `content` | Map of question file paths to number of questions to select |
-| `variants` | Number of test variants to generate |
-| `output-dir` | Directory for generated `.gs` files |
+| Field           | Description                                                 |
+|-----------------|-------------------------------------------------------------|
+| `name`          | Test name displayed in Google Forms                         |
+| `language`      | `"en"`, `"rs"`, or `"both"`                                 |
+| `results_sheet` | Google Sheets ID for collecting responses                   |
+| `content`       | Map of question file paths to number of questions to select |
+| `variants`      | Number of test variants to generate                         |
+| `output-dir`    | Directory for generated `.gs` files                         |
 
 ### Question Format (QAPool/*.json)
 
@@ -192,21 +185,7 @@ Test scripts are generated as Google Apps Script (`.gs`) files with the naming c
 
 Example: `AI Citizen | 2024-12-24 | [en] | Variant 1.gs`
 
-## Development
-
-### Adding New Questions
-
-1. Add questions to the appropriate JSON file in `QAPool/{language}/{course}/`
-2. Each question must have:
-   - `question`: The question text
-   - `answers`: Array of exactly 4 answer options
-   - `correct`: The correct answer (must match one of the answers exactly)
-
-### Adding New Courses
-
-1. Create question files in `QAPool/en/{course-name}/` and `QAPool/rs/{course-name}/`
-2. Create a test configuration in `QATests/{course-name}.json`
-
 ### Modifying the Analyzer Prompt
 
 Edit `prompts/test_analyzer_prompt.md` to adjust how GPT-4.1 analyzes questions for redundancy.
+

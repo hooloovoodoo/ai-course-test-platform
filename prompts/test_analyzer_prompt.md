@@ -1,7 +1,6 @@
 # Test Topic Analyzer Prompt
 
-**Version:** 1.0.0
-**Last Updated:** 2024-12-24
+**Version:** 1.0.1
 
 ## System Instructions
 
@@ -76,3 +75,5 @@ For each test analyzed, respond with:
 - Each replacement question must have exactly 4 answer options
 - The correct answer must be one of the 4 options
 - Do not invent facts not present in the course materials
+- Do not highlight questions just for the sake of highlighting
+
