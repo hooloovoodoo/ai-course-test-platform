@@ -1,0 +1,12 @@
+{
+  "name": "AI Citizen",
+  "language": "both",
+  "results_sheet": "1ax2Kkzxww9kdGLMfRoJIT923BvK56PtwOk1c8kZRBW0",
+  "content": {
+    "/l0-ai-citizen/m1.json": 7,
+    "/l0-ai-citizen/m2.json": 11,
+    "/l0-ai-citizen/m3.json": 7
+  },
+  "variants": 10,
+  "output-dir": "/tmp"
+}

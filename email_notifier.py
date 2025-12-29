@@ -22,8 +22,7 @@ from typing import List
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
@@ -34,16 +33,18 @@ class EmailNotifier:
     def __init__(self, smtp_server: str = "smtp.gmail.com", smtp_port: int = 587):
         self.smtp_server = smtp_server
         self.smtp_port = smtp_port
-        self.sender_email = os.getenv('SENDER_EMAIL')
-        self.sender_password = os.getenv('SENDER_PASSWORD')
+        self.sender_email = os.getenv("SENDER_EMAIL")
+        self.sender_password = os.getenv("SENDER_PASSWORD")
 
         if not self.sender_email or not self.sender_password:
-            raise ValueError("SENDER_EMAIL and SENDER_PASSWORD environment variables must be set")
+            raise ValueError(
+                "SENDER_EMAIL and SENDER_PASSWORD environment variables must be set"
+            )
 
     def read_urls_from_file(self, file_path: str) -> List[str]:
         """Read URLs from a text file, one URL per line."""
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 urls = [line.strip() for line in f if line.strip()]
             logger.info("Read %d URLs from %s", len(urls), file_path)
             return urls
@@ -57,8 +58,8 @@ class EmailNotifier:
     def read_recipients_from_file(self, file_path: str) -> List[str]:
         """Read email addresses from a text file, one email per line."""
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
-                emails = [line.strip() for line in f if line.strip() and '@' in line]
+            with open(file_path, "r", encoding="utf-8") as f:
+                emails = [line.strip() for line in f if line.strip() and "@" in line]
             logger.info("Read %d email addresses from %s", len(emails), file_path)
             return emails
         except FileNotFoundError:
@@ -204,18 +205,18 @@ HLV 💚 YOU \\o/ :)
         """Send a bilingual quiz email to a single recipient."""
         try:
             # Create message
-            msg = MIMEMultipart('alternative')
-            msg['From'] = self.sender_email
-            msg['To'] = recipient
-            msg['Subject'] = "🧠 AI Citizen Test"
+            msg = MIMEMultipart("alternative")
+            msg["From"] = self.sender_email
+            msg["To"] = recipient
+            msg["Subject"] = "🧠 AI Citizen Test"
 
             # Create both HTML and plain text versions
             text_content = self.create_plain_text_content(en_url, sr_url)
             html_content = self.create_html_email_content(en_url, sr_url)
 
             # Attach parts
-            part1 = MIMEText(text_content, 'plain', 'utf-8')
-            part2 = MIMEText(html_content, 'html', 'utf-8')
+            part1 = MIMEText(text_content, "plain", "utf-8")
+            part2 = MIMEText(html_content, "html", "utf-8")
 
             msg.attach(part1)
             msg.attach(part2)
@@ -230,10 +231,16 @@ HLV 💚 YOU \\o/ :)
             return True
 
         except SMTPServerDisconnected as e:
-            logger.error("SMTP server disconnected while sending to %s: %s. This may be due to rate limiting or connection issues.", recipient, e)
+            logger.error(
+                "SMTP server disconnected while sending to %s: %s. This may be due to rate limiting or connection issues.",
+                recipient,
+                e,
+            )
             return False
         except SMTPAuthenticationError as e:
-            logger.error("SMTP authentication failed while sending to %s: %s", recipient, e)
+            logger.error(
+                "SMTP authentication failed while sending to %s: %s", recipient, e
+            )
             return False
         except SMTPException as e:
             logger.error("SMTP error while sending to %s: %s", recipient, e)
@@ -242,7 +249,9 @@ HLV 💚 YOU \\o/ :)
             logger.error("Unexpected error while sending to %s: %s", recipient, e)
             return False
 
-    def send_batch_emails(self, en_urls_file: str, sr_urls_file: str, recipients_file: str) -> dict:
+    def send_batch_emails(
+        self, en_urls_file: str, sr_urls_file: str, recipients_file: str
+    ) -> dict:
         """Send emails to all recipients with random quiz URLs."""
         # Read all files
         en_urls = self.read_urls_from_file(en_urls_file)
@@ -262,7 +271,9 @@ HLV 💚 YOU \\o/ :)
             return {"success": 0, "failed": 0, "errors": ["No recipients found"]}
 
         logger.info("Sending emails to %d recipients", len(recipients))
-        logger.info("Available: %d English URLs, %d Serbian URLs", len(en_urls), len(sr_urls))
+        logger.info(
+            "Available: %d English URLs, %d Serbian URLs", len(en_urls), len(sr_urls)
+        )
 
         results = {"success": 0, "failed": 0, "errors": []}
         consecutive_failures = 0
@@ -272,7 +283,12 @@ HLV 💚 YOU \\o/ :)
             en_url = random.choice(en_urls)
             sr_url = random.choice(sr_urls)
 
-            logger.info("Sending to %s - EN: %s... SR: %s...", recipient, en_url[:50], sr_url[:50])
+            logger.info(
+                "Sending to %s - EN: %s... SR: %s...",
+                recipient,
+                en_url[:50],
+                sr_url[:50],
+            )
 
             if self.send_email(recipient, en_url, sr_url):
                 results["success"] += 1
@@ -287,7 +303,7 @@ HLV 💚 YOU \\o/ :)
                     logger.warning(
                         "Multiple consecutive failures detected (%d). This may indicate rate limiting. "
                         "Consider adding longer delays between emails or splitting the batch.",
-                        consecutive_failures
+                        consecutive_failures,
                     )
 
             # Add a small delay between emails to avoid rate limiting
@@ -300,10 +316,18 @@ HLV 💚 YOU \\o/ :)
 
 def main():
     """Main function to handle command line execution."""
-    parser = argparse.ArgumentParser(description="Send bilingual quiz notification emails")
-    parser.add_argument("en_urls_file", help="File with English quiz URLs (one per line)")
-    parser.add_argument("sr_urls_file", help="File with Serbian quiz URLs (one per line)")
-    parser.add_argument("recipients_file", help="File with recipient emails (one per line)")
+    parser = argparse.ArgumentParser(
+        description="Send bilingual quiz notification emails"
+    )
+    parser.add_argument(
+        "en_urls_file", help="File with English quiz URLs (one per line)"
+    )
+    parser.add_argument(
+        "sr_urls_file", help="File with Serbian quiz URLs (one per line)"
+    )
+    parser.add_argument(
+        "recipients_file", help="File with recipient emails (one per line)"
+    )
     parser.add_argument("--smtp-server", default="smtp.gmail.com", help="SMTP server")
     parser.add_argument("--smtp-port", type=int, default=587, help="SMTP port")
 
@@ -319,19 +343,20 @@ def main():
         # Create notifier and send emails
         notifier = EmailNotifier(args.smtp_server, args.smtp_port)
         results = notifier.send_batch_emails(
-            args.en_urls_file, args.sr_urls_file, args.recipients_file)
+            args.en_urls_file, args.sr_urls_file, args.recipients_file
+        )
 
         # Report results
         logger.info("Email sending completed:")
-        logger.info("  Success: %d", results['success'])
-        logger.info("  Failed: %d", results['failed'])
+        logger.info("  Success: %d", results["success"])
+        logger.info("  Failed: %d", results["failed"])
 
-        if results['errors']:
+        if results["errors"]:
             logger.error("Errors encountered:")
-            for error in results['errors']:
+            for error in results["errors"]:
                 logger.error("  - %s", error)
 
-        if results['failed'] > 0:
+        if results["failed"] > 0:
             sys.exit(1)
 
     except RuntimeError as e:

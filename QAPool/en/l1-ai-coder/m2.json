@@ -1,0 +1,302 @@
+[
+  {
+    "question": "Which statement best describes tokens in LLMs and why they're used?",
+    "answers": [
+      "A short-lived string used to authenticate API requests; it controls access to the model but isn't part of text processing or token-based billing.",
+      "A variable-length chunk of text (often a subword) used to keep vocabularies manageable and handle new or rare words across languages.",
+      "Typically a whole word; subword splitting occurs only in unusual cases, so tokens mostly align with word boundaries and pricing is effectively per word.",
+      "A fixed-size unit such as one Unicode character; tokens are defined at the character level to simplify counting and ensure consistent length across inputs."
+    ],
+    "correct": "A variable-length chunk of text (often a subword) used to keep vocabularies manageable and handle new or rare words across languages."
+  },
+  {
+    "question": "You are calling a model with a 128,000-token context window. Your assembled input (system + history + user) totals 113,500 tokens. Which statement about the model's output budget in this call is correct?",
+    "answers": [
+      "Up to 14,500 tokens can be generated; asking for more would exceed the window.",
+      "Up to 20,000 tokens can be generated if max_tokens is set to 20,000.",
+      "Up to 14,500 words can be generated; limits are measured in words.",
+      "Output tokens don't count toward the context window, so any max_tokens is fine."
+    ],
+    "correct": "Up to 14,500 tokens can be generated; asking for more would exceed the window."
+  },
+  {
+    "question": "You set rules in one LLM API call, then make a second call with only a new user prompt. The reply ignores the rules. What best explains this?",
+    "answers": [
+      "The LLM is stateless; prior context wasn't included, so it couldn't apply the rules.",
+      "The provider stores conversation state server-side, so resending history isn't necessary.",
+      "The model updated its neural weights after the first call and forgot the rules.",
+      "A high temperature cleared memory; lowering it will preserve prior instructions."
+    ],
+    "correct": "The LLM is stateless; prior context wasn't included, so it couldn't apply the rules."
+  },
+  {
+    "question": "Which scenario best illustrates a hallucination by an LLM?",
+    "answers": [
+      "Cites a journal article that doesn't exist to justify its answer.",
+      "Provides outdated details because its training data ends at a cutoff date.",
+      "Generates different responses to the exact same prompt across multiple runs.",
+      "Declines to respond, citing safety policies and potential harm to users."
+    ],
+    "correct": "Cites a journal article that doesn't exist to justify its answer."
+  },
+  {
+    "question": "In a single long-running chat session with a decoder-only LLM, responses start becoming irrelevant or get cut off around the 18-22nd turn. Infrastructure is stable, and the app sends the full conversation history with each request. What is the most likely cause?",
+    "answers": [
+      "The accumulated history plus prompt exceeded the model's context window, so earlier turns were dropped and relevance degraded.",
+      "Because the API is stateless, long chats lose memory even if history is included, so the model inevitably forgets prior context.",
+      "A strict max_tokens cap truncated outputs; raising it would restore complete, relevant answers without changing the prompt.",
+      "Attention favored the beginning and end of a long prompt ('lost in the middle'), causing irrelevance despite staying within the window."
+    ],
+    "correct": "The accumulated history plus prompt exceeded the model's context window, so earlier turns were dropped and relevance degraded."
+  },
+  {
+    "question": "Which RNN limitation is primarily alleviated by the self-attention mechanism in transformers?",
+    "answers": [
+      "Difficulty modeling long-range dependencies",
+      "Inability to parallelize sequence processing",
+      "Guaranteeing deterministic outputs",
+      "Maintaining state across separate API calls"
+    ],
+    "correct": "Difficulty modeling long-range dependencies"
+  },
+  {
+    "question": "In the context of LLMs, which statement best describes an embedding?",
+    "answers": [
+      "A fixed-length one-hot vector that uniquely identifies each token in the vocabulary space.",
+      "A learned numeric vector for text (tokens, words, or passages) that captures semantic meaning.",
+      "A positional encoding that represents each token's order and distance within a sequence.",
+      "A numeric index assigned by the tokenizer to map text to a specific vocabulary entry."
+    ],
+    "correct": "A learned numeric vector for text (tokens, words, or passages) that captures semantic meaning."
+  },
+  {
+    "question": "Which architecture type are GPT, Claude, and Llama models based on?",
+    "answers": [
+      "Encoder-only",
+      "Decoder-only",
+      "Encoder-decoder",
+      "Recurrent Neural Network (RNN)"
+    ],
+    "correct": "Decoder-only"
+  },
+  {
+    "question": "An LLM trained on data up to June 2024 is asked about an event from last week (October 2025). With no browsing, tools, or retrieved context, it gives a confident but incorrect answer. Which single LLM limitation made an accurate answer impossible in this scenario?",
+    "answers": [
+      "Hallucination: the model invents plausible details",
+      "Knowledge cutoff: training data predates the event",
+      "Non-determinism: outputs vary even with the same prompt",
+      "Context window: key info was outside the token limit"
+    ],
+    "correct": "Knowledge cutoff: training data predates the event"
+  },
+  {
+    "question": "Which configuration will yield the most deterministic and reproducible output across repeated runs for the same prompt?",
+    "answers": [
+      "Temperature = 0",
+      "Temperature = 0.3 and Top-p = 0.1",
+      "Temperature = 0.7 (default)",
+      "Temperature = 1.0 and Top-p = 0.95"
+    ],
+    "correct": "Temperature = 0"
+  },
+  {
+    "question": "In the three-layer LLM application architecture, which responsibility belongs to the backend layer?",
+    "answers": [
+      "Rendering the chat interface, formatting replies, and showing conversation history",
+      "Constructing prompts, selecting context, calling the LLM API, and validating outputs",
+      "Producing completions by computing token probabilities and sampling next tokens",
+      "Making the model remember prior chats automatically (enforce) without resending history"
+    ],
+    "correct": "Constructing prompts, selecting context, calling the LLM API, and validating outputs"
+  },
+  {
+    "question": "What is the primary reason modern LLMs use subword tokenization rather than whole words?",
+    "answers": [
+      "To keep the vocabulary manageable and handle rare or novel words across many languages",
+      "To make self-attention more accurate by computing weights over smaller textual units",
+      "To better exploit GPU parallelism by aligning tokens with fixed-size compute tiles",
+      "To minimize API costs by reducing the number of units billed during generation (inference)"
+    ],
+    "correct": "To keep the vocabulary manageable and handle rare or novel words across many languages"
+  },
+  {
+    "question": "A developer needs to estimate costs for processing a 1,000-word document. What should they use?",
+    "answers": [
+      "Word count (1,000 words)",
+      "Character count divided by 5",
+      "Token counters specific to the model's tokenizer (expect ~1,300+ tokens)",
+      "Page count multiplied by 250"
+    ],
+    "correct": "Token counters specific to the model's tokenizer (expect ~1,300+ tokens)"
+  },
+  {
+    "question": "You're building a chatbot that must answer questions from a 500-page product manual while staying within the model's context window and citing sources. In a RAG pipeline, what is the vector database's primary function?",
+    "answers": [
+      "Retrieve contextually relevant chunks via similarity search over stored vector representations",
+      "Persist and recall conversation history so the model can maintain long-term memory across calls",
+      "Perform keyword-based retrieval (e.g., BM25) over the manual to match exact terms",
+      "Cache repeated prompts and responses to lower cost and improve latency"
+    ],
+    "correct": "Retrieve contextually relevant chunks via similarity search over stored vector representations"
+  },
+  {
+    "question": "What does Retrieval-Augmented Generation (RAG) primarily mitigate?",
+    "answers": [
+      "Makes outputs deterministic by reducing reliance on sampling",
+      "Mitigates knowledge cutoffs and hallucinations using retrieved context",
+      "Helps manage context limits by retrieving only relevant chunks",
+      "Substantially lowers the need for validation by grounding answers"
+    ],
+    "correct": "Mitigates knowledge cutoffs and hallucinations using retrieved context"
+  },
+  {
+    "question": "You're deploying a medical diagnosis assistant for high-stakes use. The team prioritizes conservative, consistent outputs and wants to minimize hallucinations. Which temperature setting is the best default?",
+    "answers": [
+      "Temperature 0-0.3 to favor determinism and reduce hallucination risk",
+      "Temperature 0.5-0.7 for balanced conversational responses and moderate variability",
+      "Temperature 0.8-1.2 to encourage diverse, creative outputs during diagnosis",
+      "Temperature helps, but RAG/validation are primary; use 0.5-0.7 and focus on grounding"
+    ],
+    "correct": "Temperature 0-0.3 to favor determinism and reduce hallucination risk"
+  },
+  {
+    "question": "Why does self-attention in transformers scale as O(n^2) with sequence length n?",
+    "answers": [
+      "Because tokens are processed strictly in sequence, one at a time",
+      "Because it computes an attention score between every query token and every key token",
+      "Because the softmax over the vocabulary is the dominant cost for each token",
+      "Because multi-head attention increases parameters so cost grows with heads, not length"
+    ],
+    "correct": "Because it computes an attention score between every query token and every key token"
+  },
+  {
+    "question": "You're building a production service for sentence-level sentiment classification on short texts. It must be fast, cost-efficient, and does not require text generation. Which model architecture is the best fit?",
+    "answers": [
+      "Decoder-only (e.g., GPT, Claude)",
+      "Encoder-only (e.g., BERT, RoBERTa)",
+      "Encoder-decoder (e.g., T5, BART)",
+      "Recurrent Neural Networks (e.g., LSTM, GRU)"
+    ],
+    "correct": "Encoder-only (e.g., BERT, RoBERTa)"
+  },
+  {
+    "question": "You're sending ~120K tokens to a 128K-context model, and critical safety instructions currently sit mid - prompt. Without increasing total tokens, what's the best mitigation for the 'lost in the middle' effect?",
+    "answers": [
+      "Move the safety rules into the system message at the start and replace the mid - prompt copy with a one - line summary, trimming minor history to keep length",
+      "Keep the rules in the middle but set temperature=0 and a fixed seed to stabilize outputs, leaving the prompt order and length unchanged",
+      "Reorder only: shift the safety rules to the end and push small talk to the middle, keeping all content otherwise the same so tokens stay flat",
+      "Place the safety rules at both the start and the end while leaving the middle copy, shortening examples elsewhere to hold the token budget constant"
+    ],
+    "correct": "Move the safety rules into the system message at the start and replace the mid - prompt copy with a one - line summary, trimming minor history to keep length"
+  },
+  {
+    "question": "You need repeatable outputs for debugging. The API does not support setting a seed. If you may change only one decoding parameter (all others stay at their default values), which should you adjust first to maximize reproducibility?",
+    "answers": [
+      "Set top-p to 0.2",
+      "Set top-k to 10",
+      "Set temperature to 0",
+      "Set temperature to 0.2"
+    ],
+    "correct": "Set temperature to 0"
+  },
+  {
+    "question": "Which option best captures the key advantages of self-hosting open-source models like Llama?",
+    "answers": [
+      "Superior performance to frontier proprietary models in general",
+      "Data control, zero per-token fees, and customization",
+      "Lower total cost of ownership at small or moderate scale",
+      "Lower operational and maintenance burden than managed APIs"
+    ],
+    "correct": "Data control, zero per-token fees, and customization"
+  },
+  {
+    "question": "Your app processes about 25M tokens per month, and Legal requires all PHI to remain on-prem with no third-party processors. What's the right hosting choice?",
+    "answers": [
+      "Self-host to satisfy the on-prem PHI rule; the volume alone wouldn't justify it, but the policy does.",
+      "Use an API for now; plan to self-host once you hit roughly 10-50M tokens/month.",
+      "Stay on an API until you exceed around 100M tokens/month; compliance shouldn't change the cost calculus.",
+      "Pick a HIPAA API (e.g., Azure OpenAI with BAA); that's equivalent to on-prem for this mandate."
+    ],
+    "correct": "Self-host to satisfy the on-prem PHI rule; the volume alone wouldn't justify it, but the policy does."
+  },
+  {
+    "question": "Which advantage of self-attention most directly addresses the RNN limitations discussed in the module?",
+    "answers": [
+      "Capturing long-range dependencies without sequential bottlenecks",
+      "Enabling bidirectional context across the entire sequence in decoder-only models",
+      "Completely eliminating vanishing gradients in long sequences",
+      "Guaranteeing deterministic outputs by setting temperature to zero"
+    ],
+    "correct": "Capturing long-range dependencies without sequential bottlenecks"
+  },
+  {
+    "question": "An LLM app sends the same system instructions and context chunk across thousands of requests. Which strategy specifically offers up to 90% savings on those repeated inputs?",
+    "answers": [
+      "Enable prompt caching for repeated prompt segments across calls.",
+      "Use the Batch API to process requests asynchronously at a discount.",
+      "Set a lower max_tokens value to cap and shorten model outputs.",
+      "Switch to a cheaper model tier for these high-volume requests."
+    ],
+    "correct": "Enable prompt caching for repeated prompt segments across calls."
+  },
+  {
+    "question": "You repeatedly call the same LLM with identical prompt, parameters, and model, and set temperature to 0. Which statement best describes the expected behavior?",
+    "answers": [
+      "Outputs will be identical token-for-token across runs, yet they can still contain mistakes or hallucinations.",
+      "Outputs will be identical only if a random seed is also fixed; otherwise small variations may appear.",
+      "Outputs will be broadly similar, but exact repeats are unlikely because the model is inherently non-deterministic.",
+      "Outputs will be identical and free of hallucinations, since temperature 0 removes creative errors."
+    ],
+    "correct": "Outputs will be identical token-for-token across runs, yet they can still contain mistakes or hallucinations."
+  },
+  {
+    "question": "Your PM drafts the next sprint and asks you to personally own these tasks. Which task is explicitly outside your scope as an application developer (NOT your job)?",
+    "answers": [
+      "Design prompts and manage context for LLM API calls",
+      "Modify model weights or change the transformer architecture yourself",
+      "Implement output validation, retries, and fallbacks in the backend",
+      "Coordinate a domain fine-tuning effort with an ML specialist team"
+    ],
+    "correct": "Modify model weights or change the transformer architecture yourself"
+  },
+  {
+    "question": "Which statement best describes how distances between contextual embeddings (token representations) relate to meaning in modern LLMs?",
+    "answers": [
+      "In contextual spaces, semantically related tokens or occurrences tend to be closer, and a token's representation varies with its context.",
+      "With subword tokenization, shared spelling or prefixes often dominate proximity, even when meanings differ.",
+      "Distances have little semantic value; in high dimensions nearest neighbors are mostly noise without supervision.",
+      "Because base embeddings are fixed, distances mainly reflect those static vectors rather than context-dependent meaning."
+    ],
+    "correct": "In contextual spaces, semantically related tokens or occurrences tend to be closer, and a token's representation varies with its context."
+  },
+  {
+    "question": "According to the 'Never Trust, Always Verify' principle, an LLM returns professional-looking citations for its claims. What should you do next?",
+    "answers": [
+      "Verify that the cited sources exist and that they support the claims.",
+      "Ask the model to regenerate the list with DOIs so you can trust them.",
+      "Assume the references are accurate if they include a DOI or URL.",
+      "Set temperature to 0 next time; that prevents fabricated citations."
+    ],
+    "correct": "Verify that the cited sources exist and that they support the claims."
+  },
+  {
+    "question": "You're shipping a real-time AI chat feature that must respond in under 500 ms and stay within a tight per-request budget, accepting less nuanced answers from a smaller model. Which three factors define the trade-off you're managing?",
+    "answers": [
+      "Cost, Latency, Capability",
+      "Cost, Latency, Accuracy",
+      "Cost, Throughput, Capability",
+      "Scalability, Latency, Capability"
+    ],
+    "correct": "Cost, Latency, Capability"
+  },
+  {
+    "question": "What best explains why hallucinations can occur even at low temperature settings?",
+    "answers": [
+      "LLMs optimize next-token likelihood instead of performing any truth verification.",
+      "Higher temperature increases randomness, causing hallucinations even with clear context.",
+      "They lack built-in access to fact databases to verify claims.",
+      "Stronger models eliminate hallucinations; it's only a weak-model issue overall."
+    ],
+    "correct": "LLMs optimize next-token likelihood instead of performing any truth verification."
+  }
+]

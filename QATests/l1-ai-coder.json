@@ -1,0 +1,15 @@
+{
+  "name": "AI Coder",
+  "language": "en",
+  "results_sheet": "1ACSRHmuU_Jg1NuPsErYye3kXg64C2ibfk8omg3vKlsA",
+  "content": {
+    "/l1-ai-coder/m1.json": 3,
+    "/l1-ai-coder/m2.json": 6,
+    "/l1-ai-coder/m3.json": 7,
+    "/l1-ai-coder/m4.json": 7,
+    "/l1-ai-coder/m5.json": 5,
+    "/l1-ai-coder/m6.json": 2
+  },
+  "variants": 3,
+  "output-dir": "/tmp"
+}

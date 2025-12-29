@@ -1,0 +1,262 @@
+[
+  {
+    "question": "Which phrase does the module explicitly identify as the foundational principle of professional AI-assisted development?",
+    "answers": [
+      "Trust but Verify",
+      "Security by Default",
+      "Never Trust, Always Verify",
+      "Experiment, Break Things but Iterate Fast"
+    ],
+    "correct": "Never Trust, Always Verify"
+  },
+  {
+    "question": "Which behavior profile most closely matches 'pure vibe coding' as described in the module?",
+    "answers": [
+      "Ship AI suggestions with minimal reading; run code, paste errors back into the model, repeat; patch issues ad hoc; let design understanding lag; speed outweighs comprehension.",
+      "Provide detailed specs with security constraints; read every line of output; give targeted revisions; add tests before merge; integrate only after documented verification.",
+      "Skim AI diffs for style, trust unit tests and scanners to catch issues, merge quickly for feedback, plan to revisit security and design later.",
+      "Use AI only for scaffolding; craft core logic manually; enforce least privilege and secure defaults; require peer review and sign-off before integration."
+    ],
+    "correct": "Ship AI suggestions with minimal reading; run code, paste errors back into the model, repeat; patch issues ad hoc; let design understanding lag; speed outweighs comprehension."
+  },
+  {
+    "question": "Which practice best embodies treating AI as an unsupervised junior developer in professional development?",
+    "answers": [
+      "Provide clear specs, review every line, iterate fixes, integrate with tests, and take full ownership.",
+      "Manually review only security-critical modules; rely on scanners and integration tests for the rest.",
+      "Merge AI code if unit tests pass; add security hardening later during stabilization.",
+      "Treat the AI as a peer with context and architecture; focus reviews only on business logic."
+    ],
+    "correct": "Provide clear specs, review every line, iterate fixes, integrate with tests, and take full ownership."
+  },
+  {
+    "question": "In a professional AI-assisted workflow, a senior engineer first defines requirements, the AI proposes code, the engineer inspects it and provides targeted fixes, and finally the code is merged after testing. Which sequence names these four phases in the correct order?",
+    "answers": [
+      "Describe the Goal, Generate & Critically Review, Refine & Iterate, Integrate & Test",
+      "Describe the Goal, Generate & Critically Review, Integrate & Test, Refine & Iterate",
+      "Describe the Goal, Refine & Iterate, Generate & Critically Review, Integrate & Test",
+      "Describe the Goal, Critically Review & Generate, Refine & Iterate, Integrate & Test"
+    ],
+    "correct": "Describe the Goal, Generate & Critically Review, Refine & Iterate, Integrate & Test"
+  },
+  {
+    "question": "After an AI assistant generates code for a new API endpoint and deadlines are tight, which is the best next step aligned with Responsible AI-assisted development?",
+    "answers": [
+      "Do a line-by-line review, run targeted tests, and complete the AI PR checklist before merge.",
+      "Run unit and integration tests and a dependency audit, then merge if everything passes.",
+      "Skim the diff, trust the AI's security summary, and add TODOs for later fixes.",
+      "Review only auth and input validation, assume other changes are safe, and proceed to merge."
+    ],
+    "correct": "Do a line-by-line review, run targeted tests, and complete the AI PR checklist before merge."
+  },
+  {
+    "question": "An engineer merges AI-generated code without completing the mandatory PR checklist, and it causes a production outage. According to the module's accountability standard, who is accountable for the failure?",
+    "answers": [
+      "The engineer who merged and deployed the change",
+      "The code reviewer who approved the pull request",
+      "The engineering manager who authorized the release",
+      "The AI vendor that produced the code suggestion"
+    ],
+    "correct": "The engineer who merged and deployed the change"
+  },
+  {
+    "question": "In the module's Omission of Security Requirements example, a developer prompts: 'Build a REST API to fetch user data' without specifying protections. Which specific risk did the module identify as the most likely outcome?",
+    "answers": [
+      "Missing authentication and authorization checks",
+      "No input validation on request parameters",
+      "Absent rate limiting against enumeration",
+      "Detailed error messages returned to clients"
+    ],
+    "correct": "Missing authentication and authorization checks"
+  },
+  {
+    "question": "Which statement best captures the 'Security-by-Omission' problem described in this module?",
+    "answers": [
+      "AI tools embed standard security controls by default, so prompts don't need to mention them.",
+      "Security can safely be handled during testing since AI-generated code is already functionally correct.",
+      "LLM output omits security controls unless the prompt explicitly requires them.",
+      "Modern models automatically detect and strip insecure patterns during generation."
+    ],
+    "correct": "LLM output omits security controls unless the prompt explicitly requires them."
+  },
+  {
+    "question": "A developer prompts an LLM: 'In under a minute, write an API endpoint that searches users by name in a SQL database. Keep it simple - just make it work.' No security requirements are given. Based on the module's insecure prompting patterns, which security issue is most likely to result?",
+    "answers": [
+      "SQL injection from concatenating the user input into SQL",
+      "Cross-site scripting via reflecting unencoded input in responses",
+      "Broken access control because the endpoint lacks authorization checks",
+      "Hardcoded secrets such as inline database credentials in code"
+    ],
+    "correct": "SQL injection from concatenating the user input into SQL"
+  },
+  {
+    "question": "Which sequence best represents Multi-Stage Prompting in secure prompt engineering, as defined in this module?",
+    "answers": [
+      "Prompt 1: implement the feature; Prompt 2: add logging, metrics, and performance tuning",
+      "Prompt 1: implement the feature; Prompt 2: have the same AI review its output for security issues and return a corrected version",
+      "Prompt 1: generate secure coding guidelines; Prompt 2: implement the feature following those guidelines",
+      "Prompt 1: have Model A implement the feature; Prompt 2: have Model B audit the code for security risks"
+    ],
+    "correct": "Prompt 1: implement the feature; Prompt 2: have the same AI review its output for security issues and return a corrected version"
+  },
+  {
+    "question": "You are drafting a secure prompt for a user search endpoint. To specifically mitigate SQL injection, which directive is the best example of a negative constraint to include?",
+    "answers": [
+      "Never build SQL queries with string concatenation; require parameterized statements.",
+      "Never log secrets such as credentials or tokens in any environment.",
+      "Never disable SSL/TLS certificate verification for database connections.",
+      "Never return stack traces or internal error details to the client."
+    ],
+    "correct": "Never build SQL queries with string concatenation; require parameterized statements."
+  },
+  {
+    "question": "In a vulnerable handler, a request like '/serve?file=../../etc/passwd' returns that file's contents. The server reads the file and returns bytes; it does not execute or interpret files. No path normalization, allowlist, or sandboxing is applied. Which vulnerability best explains this behavior?",
+    "answers": [
+      "Path traversal (directory traversal)",
+      "Local file inclusion (LFI)",
+      "Broken access control (missing authorization)",
+      "Insecure direct object reference (IDOR)"
+    ],
+    "correct": "Path traversal (directory traversal)"
+  },
+  {
+    "question": "A developer pastes customer email addresses into a public, non-enterprise chatbot to 'format as JSON.' Under GDPR, what is the primary reason this violates requirements?",
+    "answers": [
+      "Personal data was shared with an unapproved third party, without a DPA, and moved outside company-controlled infrastructure",
+      "Consent is always required to process email addresses, and no explicit consent was obtained from the customers",
+      "The sharing automatically counts as an international transfer outside the EEA without SCCs or an adequacy decision",
+      "Email addresses are special-category data, requiring explicit consent and a DPIA before any processing occurs"
+    ],
+    "correct": "Personal data was shared with an unapproved third party, without a DPA, and moved outside company-controlled infrastructure"
+  },
+  {
+    "question": "According to this module, a developer pastes customer PII into a public AI tool without a company-approved data processing agreement. Regulators treat it as a higher-tier GDPR violation. Which pairing correctly identifies the maximum administrative fine bracket (whichever is higher) and the best single governance control that would have prevented the violation?",
+    "answers": [
+      "10 million EUR or 2% of annual global turnover, whichever is higher - complete the PR checklist before merge",
+      "20 million EUR or 4% of annual global turnover, whichever is higher - use company-approved AI tools with a DPA",
+      "20 million EUR or 2% of annual global turnover, whichever is higher - use company-approved AI tools with a DPA",
+      "10 million EUR or 4% of annual global turnover, whichever is higher - complete the PR checklist before merge"
+    ],
+    "correct": "20 million EUR or 4% - use company-approved AI tools with a DPA"
+  },
+  {
+    "question": "You're under time pressure to add a small feature in an unfamiliar framework. You will own architecture, security, and final testing, but you need help recalling API names, package options, and correct invocation. Under the 'AI as a junior developer' model, which single capability is most appropriate to rely on from the AI for this task?",
+    "answers": [
+      "Fast generation of candidate code snippets to explore solutions",
+      "Recognizing common patterns and idioms in the framework to scaffold code",
+      "Broad syntax/library knowledge across stacks for API and usage lookup",
+      "Built-in awareness of your organization's security model and business constraints"
+    ],
+    "correct": "Broad syntax/library knowledge across stacks for API and usage lookup"
+  },
+  {
+    "question": "An authenticated user changes /api/orders/101 to /api/orders/102 and successfully sees another customer's order. Which vulnerability best explains this behavior?",
+    "answers": [
+      "Broken access control: no authorization check on resource ownership",
+      "SQL injection: the ID change injects database commands",
+      "Sensitive data exposure: error messages reveal internals",
+      "Authentication failure: endpoint allows access without logging in"
+    ],
+    "correct": "Broken access control: no authorization check on resource ownership"
+  },
+  {
+    "question": "Your AI assistant proposes adding 'fastcsv-plus' to parse CSVs in a Node.js service. You can't find 'fastcsv-plus' in the npm registry, though a similarly named package 'fast-csv' exists. What best describes the risk and the right first step?",
+    "answers": [
+      "Hallucinated dependency; check the npm registry to confirm and switch to a known, vetted package.",
+      "Typosquatted package; install it but double-check the publisher.",
+      "Real package with known CVEs; pin a safe version and add a vulnerability exception.",
+      "Deprecated but legitimate library; fork it to avoid delays."
+    ],
+    "correct": "Hallucinated dependency; check the npm registry to confirm and switch to a known, vetted package."
+  },
+  {
+    "question": "Which single scenario best fits when 'pure vibe coding' is acceptable (i.e., throwaway prototypes, personal no-consequence projects, learning experiments, or one-time demos)?",
+    "answers": [
+      "A weekend learning experiment in a sandbox using only mock data and no persistent accounts.",
+      "A limited internal staging utility used by a small dev team each day to prepare releases.",
+      "A proof-of-concept intended to be evaluated for production hardening in the next quarter.",
+      "A demo app for external stakeholders that will be reused in monthly sales presentations."
+    ],
+    "correct": "A weekend learning experiment in a sandbox using only mock data and no persistent accounts."
+  },
+  {
+    "question": "Which scenario indicates skill atrophy in AI-assisted development, according to the module?",
+    "answers": [
+      "Relies on the model to implement routine algorithms and to diagnose most bugs.",
+      "Runs production using a database superuser account to avoid permission errors during deployment.",
+      "Prefers AI summaries over reading docs but still debugs independently and writes core logic.",
+      "Pastes customer data into a public AI tool to reformat it for analysis."
+    ],
+    "correct": "Relies on the model to implement routine algorithms and to diagnose most bugs."
+  },
+  {
+    "question": "According to the module's shift from 'Author -> Director' and 'Writer -> Critical Reviewer', which responsibilities define the engineer's role in AI-assisted development?",
+    "answers": [
+      "Set objectives and constraints, guide iterations, and perform line-by-line human review for functionality, security, dependencies, and architecture before integrating.",
+      "Provide detailed specs and use multi-stage prompting so the AI self-audits security; if unit and integration tests pass, proceed to merge.",
+      "Define goals and rely on automated scanners, dependency checks, and static analysis, with a quick skim of the AI code prior to approval.",
+      "Focus on secure prompt engineering (negative constraints, schemas) and accept AI output unless users or monitoring reveal issues, then iterate."
+    ],
+    "correct": "Set objectives and constraints, guide iterations, and perform line-by-line human review for functionality, security, dependencies, and architecture before integrating."
+  },
+  {
+    "question": "When a developer asks an AI, 'Create a file upload endpoint' without any security requirements, which initial implementation is most likely from the AI?",
+    "answers": [
+      "Accepts any file and original filename; saves to a publicly served directory; no server-side size limit",
+      "Enforces a max size and randomizes filenames but accepts any MIME type; no authentication",
+      "Stores files outside the web root and validates MIME type server-side; provides signed download URLs",
+      "Requires login and uses a strict extension allowlist; off-root storage with content scanning"
+    ],
+    "correct": "Accepts any file and original filename; saves to a publicly served directory; no server-side size limit"
+  },
+  {
+    "question": "Which practice best mitigates the 'Speed Trap Risk' in AI-assisted development?",
+    "answers": [
+      "Enforce the AI Code Review Gate and Integration Gate to prevent skipping verification.",
+      "Use faster AI models and caching so developers can keep up with output.",
+      "Expand prompts with extra context to minimize bugs and reduce the need for review.",
+      "Shorten CI pipelines and disable verbose logging to accelerate safe production releases."
+    ],
+    "correct": "Enforce the AI Code Review Gate and Integration Gate to prevent skipping verification."
+  },
+  {
+    "question": "According to the mandatory PR checklist, which of the following is NOT required for new packages/libraries?",
+    "answers": [
+      "Verify the package in official registries to avoid typosquatting.",
+      "Check for known vulnerabilities using tools such as npm audit or pip check.",
+      "Confirm the package is actively maintained (e.g., recent commits).",
+      "Prefer packages primarily based on highest download counts."
+    ],
+    "correct": "Prefer packages primarily based on highest download counts."
+  },
+  {
+    "question": "Which scenario best exemplifies Cross-Site Scripting (XSS)?",
+    "answers": [
+      "A search page inserts the q parameter directly into the page; entering <script>alert(1)</script> makes the browser run that script for anyone viewing the results.",
+      "A malicious site loads a hidden form to a bank; when a logged-in user visits, the browser submits a money transfer using the victim's cookies without their intent.",
+      "A login feature concatenates user input into a SQL query; entering ' OR '1'='1 makes the condition true and logs the attacker in without a valid password.",
+      "An API responds with Access-Control-Allow-Origin: * and allows credentials, letting any website read authenticated responses via cross-origin requests."
+    ],
+    "correct": "A search page inserts the q parameter directly into the page; entering <script>alert(1)</script> makes the browser run that script for anyone viewing the results."
+  },
+  {
+    "question": "Your API currently returns {'error': str(e)} to clients when exceptions occur. Which mitigation best aligns with the module's guidance?",
+    "answers": [
+      "Send a generic error with correct status; log details and a correlation ID.",
+      "Return a sanitized error code to clients; keep server logs for debugging only.",
+      "Base64-encode the exception and include it in the JSON response body.",
+      "Show full stack traces to authenticated admins; return generic messages for all other users."
+    ],
+    "correct": "Send a generic error with correct status; log details and a correlation ID."
+  },
+  {
+    "question": "A read-only microservice serves customer profile lookups in a multi-tenant system. Some columns (e.g., password_hash, ssn) must never be exposed. Which database configuration best applies the Principle of Least Privilege?",
+    "answers": [
+      "One database role with SELECT on all tables; credentials kept in a secret manager; app code handles tenant checks and hides sensitive fields",
+      "Dedicated service account with SELECT only on profile views exposing required columns; row-level security enforces tenant isolation; credentials managed via a secret manager",
+      "Dedicated read-only role with SELECT on the whole schema; access routed through stored procedures that validate tenant_id before returning rows",
+      "Shared read-only account used by multiple services with SELECT on needed tables; network allowlists restrict connections; audit logging enabled"
+    ],
+    "correct": "Dedicated service account with SELECT only on profile views exposing required columns; row-level security enforces tenant isolation; credentials managed via a secret manager"
+  }
+]

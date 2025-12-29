@@ -1,0 +1,32 @@
+[project]
+name = "ai-course-test-platform"
+version = "1.0.0"
+description = "Platform for generating, deploying, and managing AI course tests using Google Forms"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "google-api-python-client>=2.70.0",
+    "google-auth-httplib2>=0.1.0",
+    "google-auth-oauthlib>=0.8.0",
+    "google-auth>=2.17.3",
+    "yagmail>=0.15.293",
+    "python-dotenv>=1.0.0",
+    "jinja2>=3.1.2",
+    "secure-smtplib>=0.1.1",
+    "openai>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+ai-test = "main:main"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+]
