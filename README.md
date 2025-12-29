@@ -85,7 +85,53 @@ uv run python main.py deploy --language en
 uv run python main.py deploy --list-files
 ```
 
+#### Manual Steps For Tests
+
+After generating and deploying the tests, links will be provided in the console output.
+Follow each (if multiple were generated) and perform the same set of steps:
+
+1. Run the script from the Google Apps Script editor
+
+2. Accept the permissions prompt:
+   - View and manage your forms in Google Drive
+   - Connect to an external service
+   - Send email as you
+   - Allow this application to run when you are not present
+
+![App Script Permissions](static/readme/permissions.jpg)
+
+3. Open the "Edit form" URL (provided in the Execution log)
+
+4. Go to Settings of the Form and select `Immediately after each submission` and toggle:
+- Missed questions
+- Correct answers
+- Point values
+
+![Settings](static/readme/settings.jpg)
+
+5. In the "Form defaults", set "Collect email addresses by default" TWICE - move from "Verified", to "Do not collect" and back to "Verified" (otherwise it won't work -.-)
+
+![Verified](static/readme/verified.jpg)
+
+6. Back on the Questions - on the very top of the page - click on the "Theme:
+
+![Theme](static/readme/theme.jpg)
+
+7. Select `Header`, "Choose Image" and upload the Header image of the course in hand (e.g., `static/l1.jpg`)
+
+![Header](static/readme/header.jpg)
+
+8. Choose a color that resemples HLV colors, at least slightly :)
+
+![Colors](static/readme/color.jpg)
+
+9. Use the OTHER link from the Google Apps Script editor - for updating the test links (e.g., `en_urls_file.txt`, `sr_urls_file.txt`)
+
 #### Send Email Notifications
+
+Populate the `recipients.txt` with target emails that the tests will be dispatched to, alongside the test URLs retrived from previous step.
+
+Afterwards:
 
 ```bash
 # Send bilingual emails with test URLs
