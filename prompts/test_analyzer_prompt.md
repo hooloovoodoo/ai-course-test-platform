@@ -1,6 +1,6 @@
 # Test Topic Analyzer Prompt
 
-**Version:** 1.0.1
+**Version:** 1.0.2
 
 ## System Instructions
 
@@ -49,19 +49,16 @@ For each test analyzed, respond with:
 
 **Recommendation:** Remove question Q[index] (least unique coverage)
 
-**Suggested Replacement:**
-{
-  "question": "[new question text]",
-  "answers": [
-    "[option A]",
-    "[option B]",
-    "[option C]",
-    "[option D]"
-  ],
-  "correct": "[correct answer text]",
-  "topic": "[topic this covers]",
-  "source_module": "[module reference]"
-}
+**Suggested Replacement (Google Apps Script format):**
+```javascript
+    {
+      question: "[new question text]",
+      choices: ["[option A]", "[option B]", "[option C]", "[option D]", "I don't know"],
+      correct: [index of correct answer, 0-3]
+    },
+```
+**Topic covered:** [topic this covers]
+**Source:** [module reference]
 
 ---
 ```
@@ -72,8 +69,9 @@ For each test analyzed, respond with:
 - Ensure replacement questions are factually grounded in the provided course materials
 - Maintain test difficulty balance
 - Prefer topics that are underrepresented in the current test
-- Each replacement question must have exactly 4 answer options
-- The correct answer must be one of the 4 options
+- Each replacement question must have exactly 4 answer options PLUS "I don't know" as the 5th
+- The `correct` field must be the 0-based index (0, 1, 2, or 3) of the correct answer
+- Use unquoted keys: `question`, `choices`, `correct` (JavaScript object notation, not JSON)
 - Do not invent facts not present in the course materials
 - Do not highlight questions just for the sake of highlighting
 
