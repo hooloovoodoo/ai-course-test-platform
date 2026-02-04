@@ -1,0 +1,302 @@
+[
+  {
+    "question": "What is the Golden Rule of working with AI according to Module 2?",
+    "answers": [
+      "AI is always right, trust the output",
+      "You are the professional, AI is the assistant — you own the output",
+      "AI should make all final decisions",
+      "Always use the most advanced AI model available"
+    ],
+    "correct": "You are the professional, AI is the assistant — you own the output"
+  },
+  {
+    "question": "What does the phrase 'prompting is the new UI' mean?",
+    "answers": [
+      "Buttons and menus are being replaced by voice commands only",
+      "Text instructions have become the primary interface for interacting with AI",
+      "AI systems no longer need any user input",
+      "Programming languages are the only way to communicate with AI"
+    ],
+    "correct": "Text instructions have become the primary interface for interacting with AI"
+  },
+  {
+    "question": "Which of the following is NOT a benefit of well-crafted prompts mentioned in the module?",
+    "answers": [
+      "Speed - generating outputs in seconds that might take hours manually",
+      "Accuracy - reducing ambiguity and hallucinations",
+      "Automation - completely eliminating the need for human review",
+      "Accessibility - non-technical users can leverage AI effectively"
+    ],
+    "correct": "Automation - completely eliminating the need for human review"
+  },
+  {
+    "question": "What is 'superagency' in the context of AI-augmented professionals?",
+    "answers": [
+      "A government agency regulating AI",
+      "A drastic increase in human ability to decide and act with AI while keeping control",
+      "An AI system that operates without human oversight",
+      "A certification for AI professionals"
+    ],
+    "correct": "A drastic increase in human ability to decide and act with AI while keeping control"
+  },
+  {
+    "question": "According to the module, what should professionals always do when reviewing AI output?",
+    "answers": [
+      "Accept it without changes to save time",
+      "Evaluate it for accuracy, bias, appropriateness, and confidentiality",
+      "Share it immediately with stakeholders",
+      "Delete it and start over"
+    ],
+    "correct": "Evaluate it for accuracy, bias, appropriateness, and confidentiality"
+  },
+  {
+    "question": "What are the four new responsibilities of an AI-Augmented Professional?",
+    "answers": [
+      "Code, Debug, Deploy, Monitor",
+      "Prompt Effectively, Evaluate Critically, Iterate Intelligently, Stay Curious",
+      "Plan, Execute, Review, Report",
+      "Research, Write, Edit, Publish"
+    ],
+    "correct": "Prompt Effectively, Evaluate Critically, Iterate Intelligently, Stay Curious"
+  },
+  {
+    "question": "In the Human-in-the-Loop Cycle, what do humans retain while AI increases speed and capacity?",
+    "answers": [
+      "Data storage and processing power",
+      "Judgment, control, and accountability",
+      "Technical expertise only",
+      "Nothing - AI takes over completely"
+    ],
+    "correct": "Judgment, control, and accountability"
+  },
+  {
+    "question": "What are the five steps in Google's 5-Step Prompting Framework?",
+    "answers": [
+      "Plan, Write, Review, Edit, Publish",
+      "Task, Context, References, Evaluate, Iterate",
+      "Input, Process, Output, Feedback, Repeat",
+      "Define, Design, Develop, Test, Deploy"
+    ],
+    "correct": "Task, Context, References, Evaluate, Iterate"
+  },
+  {
+    "question": "In Google's 5-Step Framework, what does the 'Task' step involve?",
+    "answers": [
+      "Adding examples to refine the output",
+      "Clearly defining what you want the AI to do",
+      "Assessing the AI's response for quality",
+      "Modifying the prompt to improve results"
+    ],
+    "correct": "Clearly defining what you want the AI to do"
+  },
+  {
+    "question": "What is the purpose of providing 'Context' in a prompt?",
+    "answers": [
+      "To confuse the AI with extra information",
+      "To provide details that help AI understand the request",
+      "To make the prompt longer",
+      "To test if the AI can handle complexity"
+    ],
+    "correct": "To provide details that help AI understand the request"
+  },
+  {
+    "question": "In Google's 5-Step Framework, what does the 'References' step involve?",
+    "answers": [
+      "Citing academic sources",
+      "Adding examples or additional information to refine the output",
+      "Checking the AI's references for accuracy",
+      "Providing your contact information"
+    ],
+    "correct": "Adding examples or additional information to refine the output"
+  },
+  {
+    "question": "What should you check when evaluating AI output according to the 5-Step Framework?",
+    "answers": [
+      "Only the word count",
+      "Data correctness, tone appropriateness, hallucinations, and biases",
+      "Only spelling errors",
+      "How fast the AI responded"
+    ],
+    "correct": "Data correctness, tone appropriateness, hallucinations, and biases"
+  },
+  {
+    "question": "What does the 'Iterate' step in Google's 5-Step Framework involve?",
+    "answers": [
+      "Accepting the first output as final",
+      "Modifying your prompt and refining it to improve the result",
+      "Deleting all previous attempts",
+      "Switching to a different AI tool"
+    ],
+    "correct": "Modifying your prompt and refining it to improve the result"
+  },
+  {
+    "question": "What are the Four Core Elements of a strong prompt?",
+    "answers": [
+      "Who, What, When, Where",
+      "Role/Persona, Task/Instruction, Context/Input Data, Output Format",
+      "Introduction, Body, Conclusion, Summary",
+      "Question, Answer, Explanation, Example"
+    ],
+    "correct": "Role/Persona, Task/Instruction, Context/Input Data, Output Format"
+  },
+  {
+    "question": "What does 'Role/Persona' mean in the Four Core Elements of prompting?",
+    "answers": [
+      "Your job title in the company",
+      "The identity or expertise the AI should adopt",
+      "The person who will receive the output",
+      "Your username in the AI system"
+    ],
+    "correct": "The identity or expertise the AI should adopt"
+  },
+  {
+    "question": "What does 'Output Format' specify in a prompt?",
+    "answers": [
+      "The file type for saving the response",
+      "The structure or style of the result (e.g., bulleted list, table, paragraphs)",
+      "The font and color of the text",
+      "The maximum file size allowed"
+    ],
+    "correct": "The structure or style of the result (e.g., bulleted list, table, paragraphs)"
+  },
+  {
+    "question": "According to Google's research, what causes most poor AI results?",
+    "answers": [
+      "Weak AI models",
+      "Unclear human instructions",
+      "Internet connectivity issues",
+      "Insufficient computing power"
+    ],
+    "correct": "Unclear human instructions"
+  },
+  {
+    "question": "What do clear prompts with the right context help reduce?",
+    "answers": [
+      "Processing time only",
+      "Ambiguity and hallucinations",
+      "The cost of AI services",
+      "The need for any human involvement"
+    ],
+    "correct": "Ambiguity and hallucinations"
+  },
+  {
+    "question": "The Four Core Elements focus on prompt _______, while Google's 5-Step Framework focuses on prompting as a _______.",
+    "answers": [
+      "length; conversation",
+      "structure; process",
+      "creativity; science",
+      "speed; art"
+    ],
+    "correct": "structure; process"
+  },
+  {
+    "question": "When should you use the Four Core Elements approach?",
+    "answers": [
+      "Only for complex, multi-step projects",
+      "When you want a strong first result for contained or one-off tasks",
+      "Only when working with technical AI systems",
+      "When you have unlimited time for iteration"
+    ],
+    "correct": "When you want a strong first result for contained or one-off tasks"
+  },
+  {
+    "question": "When is Google's 5-Step Framework most appropriate to use?",
+    "answers": [
+      "For simple, quick tasks only",
+      "When the task has higher stakes or complexity and you expect to refine the output",
+      "Only for coding tasks",
+      "When you don't have time to review the output"
+    ],
+    "correct": "When the task has higher stakes or complexity and you expect to refine the output"
+  },
+  {
+    "question": "What is Chain-of-Thought (CoT) prompting?",
+    "answers": [
+      "Asking multiple AIs the same question",
+      "Asking the AI to think step by step or show its reasoning before arriving at a conclusion",
+      "Linking multiple prompts together automatically",
+      "Using AI to write code"
+    ],
+    "correct": "Asking the AI to think step by step or show its reasoning before arriving at a conclusion"
+  },
+  {
+    "question": "When is Chain-of-Thought prompting most useful?",
+    "answers": [
+      "Simple email drafting",
+      "Complex reasoning, calculations, and analysis tasks",
+      "Basic formatting requests",
+      "Creative writing only"
+    ],
+    "correct": "Complex reasoning, calculations, and analysis tasks"
+  },
+  {
+    "question": "Why does Chain-of-Thought prompting work according to the module?",
+    "answers": [
+      "It makes the AI run faster",
+      "Intermediate steps become extra context that improves consistency and makes errors easier to catch",
+      "It bypasses the AI's safety filters",
+      "It reduces the cost of AI processing"
+    ],
+    "correct": "Intermediate steps become extra context that improves consistency and makes errors easier to catch"
+  },
+  {
+    "question": "What is Step-Back prompting?",
+    "answers": [
+      "Asking the AI to undo its previous response",
+      "Asking the AI to first provide a broad analysis or outline before diving into details",
+      "Taking a break before reviewing AI output",
+      "Going back to a previous conversation"
+    ],
+    "correct": "Asking the AI to first provide a broad analysis or outline before diving into details"
+  },
+  {
+    "question": "When should you use Step-Back prompting?",
+    "answers": [
+      "For quick, simple tasks",
+      "For structured content, strategic planning, and complex projects that need structure first",
+      "Only for mathematical calculations",
+      "When you want the shortest possible response"
+    ],
+    "correct": "For structured content, strategic planning, and complex projects that need structure first"
+  },
+  {
+    "question": "What is Meta-Prompting?",
+    "answers": [
+      "Prompting about metadata",
+      "Asking the AI to help you write a better prompt",
+      "Using multiple AI systems simultaneously",
+      "Programming AI at a code level"
+    ],
+    "correct": "Asking the AI to help you write a better prompt"
+  },
+  {
+    "question": "When is Meta-Prompting most useful?",
+    "answers": [
+      "Only for AI developers",
+      "When you're not sure how to structure a complex request or want to learn better prompting techniques",
+      "For routine daily tasks",
+      "When you already have a perfect prompt"
+    ],
+    "correct": "When you're not sure how to structure a complex request or want to learn better prompting techniques"
+  },
+  {
+    "question": "How do the Four Core Elements and Google's 5-Step Framework work together?",
+    "answers": [
+      "They are mutually exclusive and should never be combined",
+      "Use the Four Core Elements for the initial prompt, then apply the 5-Step Framework to evaluate and iterate",
+      "Use only one approach depending on the day of the week",
+      "They are exactly the same approach with different names"
+    ],
+    "correct": "Use the Four Core Elements for the initial prompt, then apply the 5-Step Framework to evaluate and iterate"
+  },
+  {
+    "question": "According to the module, what is the relationship between humans and AI in professional work?",
+    "answers": [
+      "AI is replacing human professionals",
+      "AI is augmenting human professionals, not replacing them",
+      "Humans should avoid using AI",
+      "AI and humans should work separately"
+    ],
+    "correct": "AI is augmenting human professionals, not replacing them"
+  }
+]

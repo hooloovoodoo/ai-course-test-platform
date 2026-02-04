@@ -1,0 +1,242 @@
+[
+  {
+    "question": "How does Gemini appear within Google Workspace?",
+    "answers": [
+      "As a separate application you must download",
+      "Embedded directly into everyday tools like Gmail, Docs, Sheets, Drive, and Meet",
+      "Only through a browser extension",
+      "As a standalone mobile app only"
+    ],
+    "correct": "Embedded directly into everyday tools like Gmail, Docs, Sheets, Drive, and Meet"
+  },
+  {
+    "question": "What is the key difference between Gemini in Workspace and standalone Gemini?",
+    "answers": [
+      "Standalone Gemini is faster",
+      "Standalone Gemini is designed for general-purpose use and does not automatically have access to your Workspace content",
+      "There is no difference",
+      "Workspace Gemini only works with spreadsheets"
+    ],
+    "correct": "Standalone Gemini is designed for general-purpose use and does not automatically have access to your Workspace content"
+  },
+  {
+    "question": "What does the 'Help Me Write' feature in Gmail do?",
+    "answers": [
+      "Checks grammar only",
+      "Drafts emails based on brief instructions",
+      "Translates emails to other languages",
+      "Schedules emails for later sending"
+    ],
+    "correct": "Drafts emails based on brief instructions"
+  },
+  {
+    "question": "What is the Email Summarization feature in Gmail best used for?",
+    "answers": [
+      "Deleting old emails",
+      "Catching up after time off and understanding context quickly",
+      "Creating email templates",
+      "Blocking spam messages"
+    ],
+    "correct": "Catching up after time off and understanding context quickly"
+  },
+  {
+    "question": "How do you use Gmail Q&A to find information in your inbox?",
+    "answers": [
+      "Use the search bar with exact keywords only",
+      "Click the Gemini icon and ask a natural language question",
+      "Send an email to support",
+      "Use keyboard shortcuts"
+    ],
+    "correct": "Click the Gemini icon and ask a natural language question"
+  },
+  {
+    "question": "What does the 'Rewrite and Refine' feature in Google Docs allow you to do?",
+    "answers": [
+      "Delete entire paragraphs",
+      "Select text and choose tone options like formal, concise, or casual",
+      "Convert documents to PDFs",
+      "Add page numbers"
+    ],
+    "correct": "Select text and choose tone options like formal, concise, or casual"
+  },
+  {
+    "question": "What is the 'Expand and Elaborate' feature in Google Docs best for?",
+    "answers": [
+      "Reducing document length",
+      "Converting notes into full documents",
+      "Adding footnotes",
+      "Creating headers and footers"
+    ],
+    "correct": "Converting notes into full documents"
+  },
+  {
+    "question": "What does the 'Data Analysis and Insights' feature in Google Sheets do?",
+    "answers": [
+      "Only creates pivot tables",
+      "Analyzes data and surfaces trends and anomalies",
+      "Protects cells from editing",
+      "Imports data from external databases"
+    ],
+    "correct": "Analyzes data and surfaces trends and anomalies"
+  },
+  {
+    "question": "What is the main benefit of Formula Creation in Google Sheets with Gemini?",
+    "answers": [
+      "It makes formulas run faster",
+      "It allows complex calculations without knowing formula syntax",
+      "It automatically backs up formulas",
+      "It creates formulas in multiple languages"
+    ],
+    "correct": "It allows complex calculations without knowing formula syntax"
+  },
+  {
+    "question": "What makes Intelligent Search in Google Drive different from traditional file search?",
+    "answers": [
+      "It only searches file names",
+      "It finds documents based on content, not just file names",
+      "It only works with PDF files",
+      "It requires exact phrase matching"
+    ],
+    "correct": "It finds documents based on content, not just file names"
+  },
+  {
+    "question": "What is the Document Summarization feature in Google Drive best for?",
+    "answers": [
+      "Creating new documents",
+      "Quickly understanding large volumes of content",
+      "Deleting old files",
+      "Moving files between folders"
+    ],
+    "correct": "Quickly understanding large volumes of content"
+  },
+  {
+    "question": "What does 'Cross-Document Insights' in Google Drive allow you to do?",
+    "answers": [
+      "Merge multiple documents into one",
+      "Synthesize information across multiple files",
+      "Share documents externally",
+      "Convert file formats"
+    ],
+    "correct": "Synthesize information across multiple files"
+  },
+  {
+    "question": "How do you enable Automated Meeting Notes in Google Meet?",
+    "answers": [
+      "It's automatically enabled for all meetings",
+      "Enable 'Take notes' when starting a meeting",
+      "Send a calendar invite with notes enabled",
+      "Install a separate extension"
+    ],
+    "correct": "Enable 'Take notes' when starting a meeting"
+  },
+  {
+    "question": "What is the Meeting Summaries feature in Google Meet best for?",
+    "answers": [
+      "Recording video of meetings",
+      "Sharing outcomes with absent stakeholders",
+      "Scheduling follow-up meetings",
+      "Adding participants to meetings"
+    ],
+    "correct": "Sharing outcomes with absent stakeholders"
+  },
+  {
+    "question": "What is standalone Gemini described as in the context of work?",
+    "answers": [
+      "A replacement for all Workspace apps",
+      "The 'front door' for thinking, drafting, planning, and creating before copying output into work tools",
+      "A file storage system",
+      "An email client"
+    ],
+    "correct": "The 'front door' for thinking, drafting, planning, and creating before copying output into work tools"
+  },
+  {
+    "question": "What should AI-generated images be treated as when used professionally?",
+    "answers": [
+      "Final brand assets ready for publication",
+      "Starting points and concepts, not finished deliverables",
+      "Legal documents",
+      "Permanent marketing materials"
+    ],
+    "correct": "Starting points and concepts, not finished deliverables"
+  },
+  {
+    "question": "Why is brand accuracy NOT guaranteed in AI image generation?",
+    "answers": [
+      "AI intentionally changes brand elements",
+      "AI does not inherently 'know' your brand guidelines",
+      "Brand colors are copyrighted",
+      "Images are always in black and white"
+    ],
+    "correct": "AI does not inherently 'know' your brand guidelines"
+  },
+  {
+    "question": "What is a known limitation regarding text inside AI-generated images?",
+    "answers": [
+      "Text cannot be included at all",
+      "Text, especially small text or non-English languages, can still contain errors",
+      "Text always appears perfectly",
+      "Text can only be in uppercase"
+    ],
+    "correct": "Text, especially small text or non-English languages, can still contain errors"
+  },
+  {
+    "question": "What is Gemini Deep Research designed for?",
+    "answers": [
+      "Quick email replies",
+      "Bigger questions where you would normally open many tabs and documents",
+      "Creating simple charts",
+      "Formatting documents"
+    ],
+    "correct": "Bigger questions where you would normally open many tabs and documents"
+  },
+  {
+    "question": "What sources can Gemini Deep Research use?",
+    "answers": [
+      "Only web sources",
+      "Only internal documents",
+      "Both web sources and internal context (Gmail, Drive, Chat)",
+      "Only social media"
+    ],
+    "correct": "Both web sources and internal context (Gmail, Drive, Chat)"
+  },
+  {
+    "question": "What is Gemini Deep Research best suited for?",
+    "answers": [
+      "Scheduling meetings",
+      "Competitive landscape scans and synthesizing internal learnings into briefings",
+      "Creating email signatures",
+      "Organizing calendar events"
+    ],
+    "correct": "Competitive landscape scans and synthesizing internal learnings into briefings"
+  },
+  {
+    "question": "What is Google Workspace Studio?",
+    "answers": [
+      "A video editing tool",
+      "A no-code environment for building AI-powered workflows (agents) across Google Workspace",
+      "A music streaming service",
+      "A social media platform"
+    ],
+    "correct": "A no-code environment for building AI-powered workflows (agents) across Google Workspace"
+  },
+  {
+    "question": "When is Workspace Studio most useful for a task?",
+    "answers": [
+      "When a task is done only once",
+      "When a task is repeatable, multi-step, and involves moving information between tools",
+      "When you need to make phone calls",
+      "When you're creating personal artwork"
+    ],
+    "correct": "When a task is repeatable, multi-step, and involves moving information between tools"
+  },
+  {
+    "question": "What are the three main components of a Workspace Studio flow?",
+    "answers": [
+      "Email, Calendar, Tasks",
+      "A Starter (trigger), AI steps, and Workspace actions",
+      "Login, Dashboard, Logout",
+      "Copy, Paste, Delete"
+    ],
+    "correct": "A Starter (trigger), AI steps, and Workspace actions"
+  }
+]

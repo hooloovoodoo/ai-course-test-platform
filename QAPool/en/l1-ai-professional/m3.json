@@ -1,0 +1,252 @@
+[
+  {
+    "question": "What is 'jagged intelligence' in the context of AI?",
+    "answers": [
+      "AI that only works on certain days of the week",
+      "AI that is superhuman in some areas but surprisingly weak in others",
+      "AI that requires constant internet connection",
+      "AI that improves steadily over time without gaps"
+    ],
+    "correct": "AI that is superhuman in some areas but surprisingly weak in others"
+  },
+  {
+    "question": "Which of the following is a task where AI typically excels?",
+    "answers": [
+      "Counting letters in a word accurately",
+      "Understanding company politics",
+      "Analyzing thousands of customer reviews to identify themes",
+      "Accessing real-time stock prices"
+    ],
+    "correct": "Analyzing thousands of customer reviews to identify themes"
+  },
+  {
+    "question": "Which task is AI likely to struggle with?",
+    "answers": [
+      "Writing first drafts of emails",
+      "Generating multiple variations of marketing copy",
+      "Basic counting and simple math",
+      "Summarizing lengthy documents"
+    ],
+    "correct": "Basic counting and simple math"
+  },
+  {
+    "question": "What is the 'Golden Rule' when working with AI?",
+    "answers": [
+      "Always use the most expensive AI tool available",
+      "You are the professional, AI is the assistant - review everything AI produces",
+      "Trust AI completely for all business decisions",
+      "Never use AI for any work-related tasks"
+    ],
+    "correct": "You are the professional, AI is the assistant - review everything AI produces"
+  },
+  {
+    "question": "What are AI hallucinations?",
+    "answers": [
+      "When AI systems experience hardware malfunctions",
+      "When AI confidently generates plausible-sounding but false information",
+      "When users misinterpret correct AI outputs",
+      "When AI refuses to answer a question"
+    ],
+    "correct": "When AI confidently generates plausible-sounding but false information"
+  },
+  {
+    "question": "Why are AI hallucinations particularly dangerous?",
+    "answers": [
+      "They cause the AI system to crash",
+      "They are easy to detect immediately",
+      "AI sounds completely convincing even when it's wrong",
+      "They only occur in consumer AI tools"
+    ],
+    "correct": "AI sounds completely convincing even when it's wrong"
+  },
+  {
+    "question": "Which of the following is a common cause of AI hallucinations?",
+    "answers": [
+      "Using enterprise-grade AI tools",
+      "Training data gaps where AI lacks information on certain topics",
+      "Asking questions that are too simple",
+      "Having a stable internet connection"
+    ],
+    "correct": "Training data gaps where AI lacks information on certain topics"
+  },
+  {
+    "question": "What does 'temperature' control in AI systems?",
+    "answers": [
+      "The physical heat of the servers",
+      "How fast the AI responds",
+      "How creative vs. deterministic the AI is",
+      "The number of users who can access the system"
+    ],
+    "correct": "How creative vs. deterministic the AI is"
+  },
+  {
+    "question": "Which is a red flag that might indicate an AI hallucination?",
+    "answers": [
+      "The AI admits uncertainty about a topic",
+      "Citations without links, authors, or specific details",
+      "The response is shorter than expected",
+      "The AI asks for clarification"
+    ],
+    "correct": "Citations without links, authors, or specific details"
+  },
+  {
+    "question": "What should you do if AI provides a citation like 'According to a 2024 study...' without author or journal details?",
+    "answers": [
+      "Trust it because it mentions a specific year",
+      "Google the exact title, author, or quote to verify it exists",
+      "Assume it's accurate if the content sounds reasonable",
+      "Include it in your work since AI wouldn't make up sources"
+    ],
+    "correct": "Google the exact title, author, or quote to verify it exists"
+  },
+  {
+    "question": "What type of bias involves associating certain roles or traits with specific genders?",
+    "answers": [
+      "Cultural bias",
+      "Socioeconomic bias",
+      "Gender bias",
+      "Representation bias"
+    ],
+    "correct": "Gender bias"
+  },
+  {
+    "question": "Which phrase in AI-generated content would be a red flag for gender bias?",
+    "answers": [
+      "'Team members should collaborate'",
+      "'The CEO...he' or 'The nurse...she'",
+      "'Professionals in this field'",
+      "'Employees are encouraged to participate'"
+    ],
+    "correct": "'The CEO...he' or 'The nurse...she'"
+  },
+  {
+    "question": "What is PII that should NEVER be included in an AI prompt?",
+    "answers": [
+      "General industry statistics",
+      "Full names combined with addresses, phone numbers, or Social Security numbers",
+      "Publicly available company information",
+      "Generic job titles"
+    ],
+    "correct": "Full names combined with addresses, phone numbers, or Social Security numbers"
+  },
+  {
+    "question": "What does PHI stand for in the context of data privacy?",
+    "answers": [
+      "Personal Human Interaction",
+      "Protected Health Information",
+      "Private Historical Information",
+      "Public Health Index"
+    ],
+    "correct": "Protected Health Information"
+  },
+  {
+    "question": "Which of the following is an example of confidential company data that should NOT go into AI prompts?",
+    "answers": [
+      "Your company's publicly listed address",
+      "Unreleased financial results or M&A information",
+      "The company's mission statement from the website",
+      "General industry best practices"
+    ],
+    "correct": "Unreleased financial results or M&A information"
+  },
+  {
+    "question": "What is the recommended approach instead of including real names in AI prompts?",
+    "answers": [
+      "Use nicknames",
+      "Use placeholders like 'Employee A' or 'Customer X'",
+      "Abbreviate the names",
+      "Include names but mark them as confidential"
+    ],
+    "correct": "Use placeholders like 'Employee A' or 'Customer X'"
+  },
+  {
+    "question": "What are the five checkpoints in the AI Output Evaluation Framework?",
+    "answers": [
+      "Speed, Cost, Quality, Format, Length",
+      "Accuracy, Hallucinations, Bias, PII/Confidentiality, Relevance",
+      "Grammar, Spelling, Tone, Style, Structure",
+      "Input, Process, Output, Review, Publish"
+    ],
+    "correct": "Accuracy, Hallucinations, Bias, PII/Confidentiality, Relevance"
+  },
+  {
+    "question": "Who is accountable for AI-generated output that is shared, published, or acted upon?",
+    "answers": [
+      "The AI company that created the tool",
+      "The IT department",
+      "The human who uses and shares the output",
+      "No one - AI outputs are not anyone's responsibility"
+    ],
+    "correct": "The human who uses and shares the output"
+  },
+  {
+    "question": "What should you do when AI generates information about recent events?",
+    "answers": [
+      "Trust it completely since AI has access to all information",
+      "Be skeptical because AI's training data has a cutoff date",
+      "Assume it's accurate if it sounds confident",
+      "Use it immediately since recent events are easy for AI"
+    ],
+    "correct": "Be skeptical because AI's training data has a cutoff date"
+  },
+  {
+    "question": "Which task is appropriate to use AI for?",
+    "answers": [
+      "Final calculations for financial reports without verification",
+      "Legal advice for important contracts",
+      "First drafts and outlines",
+      "Decisions requiring company-specific political context"
+    ],
+    "correct": "First drafts and outlines"
+  },
+  {
+    "question": "What lesson does the Air Canada chatbot case teach about AI use?",
+    "answers": [
+      "AI chatbots are always accurate for customer service",
+      "Organizations remain accountable for AI outputs even when used as support tools",
+      "Companies should never use AI for customer communication",
+      "AI chatbots cannot provide legally binding information"
+    ],
+    "correct": "Organizations remain accountable for AI outputs even when used as support tools"
+  },
+  {
+    "question": "Why were multiple lawyers sanctioned for using AI-generated legal cases?",
+    "answers": [
+      "They used AI without company permission",
+      "They cited legal cases that AI fabricated and did not actually exist",
+      "They shared confidential client information with AI",
+      "They billed clients for AI-generated work"
+    ],
+    "correct": "They cited legal cases that AI fabricated and did not actually exist"
+  },
+  {
+    "question": "What is a recommended practice to reduce bias in AI-generated job postings?",
+    "answers": [
+      "Use terms like 'rockstar' and 'crush it' to attract top talent",
+      "Emphasize 'culture fit' requirements",
+      "Use inclusive, gender-neutral language and avoid stereotypes",
+      "Focus only on aggressive and competitive traits"
+    ],
+    "correct": "Use inclusive, gender-neutral language and avoid stereotypes"
+  },
+  {
+    "question": "What does AI typically struggle with regarding spatial reasoning?",
+    "answers": [
+      "Generating text descriptions of spaces",
+      "Mental rotation tasks and understanding relative positions of objects",
+      "Creating bullet point lists",
+      "Formatting information into tables"
+    ],
+    "correct": "Mental rotation tasks and understanding relative positions of objects"
+  },
+  {
+    "question": "If an AI-generated output includes specific titles, names, statistics, or URLs, how should you treat them?",
+    "answers": [
+      "As verified facts that can be used immediately",
+      "As claims that require verification before use",
+      "As suggestions that are optional to check",
+      "As accurate data since AI accesses live databases"
+    ],
+    "correct": "As claims that require verification before use"
+  }
+]

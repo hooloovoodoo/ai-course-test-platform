@@ -1,0 +1,272 @@
+[
+  {
+    "question": "According to recent research, approximately what percentage of companies are actually 'AI mature'?",
+    "answers": [
+      "About 25%",
+      "About 10%",
+      "About 1%",
+      "About 50%"
+    ],
+    "correct": "About 1%"
+  },
+  {
+    "question": "What is identified as the main bottleneck preventing companies from getting real value from AI?",
+    "answers": [
+      "The technology itself",
+      "The cost of AI tools",
+      "The workflow",
+      "Lack of AI models"
+    ],
+    "correct": "The workflow"
+  },
+  {
+    "question": "Most of the AI impact comes from improving which professional activities?",
+    "answers": [
+      "Replacing workers with automation",
+      "Building new software products",
+      "Communicating, analyzing information, making decisions, and creating content",
+      "Managing databases and servers"
+    ],
+    "correct": "Communicating, analyzing information, making decisions, and creating content"
+  },
+  {
+    "question": "What does the 'Set the Direction' strategic guideline recommend?",
+    "answers": [
+      "Chat with AI aimlessly to explore features",
+      "Be deliberate, pick exactly where AI helps, and define what 'good' output looks like",
+      "Let employees figure out their own AI usage",
+      "Focus only on technical implementation"
+    ],
+    "correct": "Be deliberate, pick exactly where AI helps, and define what 'good' output looks like"
+  },
+  {
+    "question": "According to 'Standardize Success', what should you do when you find a prompt or workflow that works?",
+    "answers": [
+      "Keep it to yourself as a competitive advantage",
+      "Report it to IT for review",
+      "Turn good prompts into reusable templates and share them",
+      "Delete it and start fresh each time"
+    ],
+    "correct": "Turn good prompts into reusable templates and share them"
+  },
+  {
+    "question": "What does 'Create Leverage' mean in the context of AI workflow?",
+    "answers": [
+      "Use AI to negotiate better deals",
+      "Use AI to do the 'first pass' so you can focus on final decisions and strategy",
+      "Replace all human decision-making with AI",
+      "Leverage AI to reduce headcount"
+    ],
+    "correct": "Use AI to do the 'first pass' so you can focus on final decisions and strategy"
+  },
+  {
+    "question": "What does 'Doing AI' typically mean?",
+    "answers": [
+      "Redesigning workflows so AI is built in by default",
+      "Adding AI on top of today's process while keeping the workflow the same",
+      "Completely replacing human workers with AI",
+      "Training your own AI model from scratch"
+    ],
+    "correct": "Adding AI on top of today's process while keeping the workflow the same"
+  },
+  {
+    "question": "What does 'Being AI-native' mean?",
+    "answers": [
+      "Only hiring employees who know how to code",
+      "Using AI occasionally to speed up work",
+      "Redesigning workflows so AI is built in by default with clear outcomes and review checkpoints",
+      "Using only the newest AI models available"
+    ],
+    "correct": "Redesigning workflows so AI is built in by default with clear outcomes and review checkpoints"
+  },
+  {
+    "question": "Which is NOT a common reason why AI pilots don't turn into real impact?",
+    "answers": [
+      "Technology-first thinking",
+      "No workflow redesign",
+      "Too much measurement and tracking",
+      "Weak leadership and unclear standards"
+    ],
+    "correct": "Too much measurement and tracking"
+  },
+  {
+    "question": "AI adoption succeeds or fails primarily based on what factor?",
+    "answers": [
+      "The quality of AI models used",
+      "Leadership, not better tools",
+      "The amount of budget allocated",
+      "The number of AI tools purchased"
+    ],
+    "correct": "Leadership, not better tools"
+  },
+  {
+    "question": "What are the biggest barriers to AI adoption according to the module?",
+    "answers": [
+      "Cost and complexity of technology",
+      "Lack of available AI tools",
+      "People and process (uncertainty, fear of mistakes, lack of standards)",
+      "Insufficient computing power"
+    ],
+    "correct": "People and process (uncertainty, fear of mistakes, lack of standards)"
+  },
+  {
+    "question": "What is 'Superagency' in the context of AI?",
+    "answers": [
+      "An AI that can operate independently without human oversight",
+      "A government body that regulates AI",
+      "A drastic increase in human ability to decide and act with AI as a partner",
+      "A type of AI that supervises other AI systems"
+    ],
+    "correct": "A drastic increase in human ability to decide and act with AI as a partner"
+  },
+  {
+    "question": "What does the 'pilot trap' refer to?",
+    "answers": [
+      "When AI tools are too expensive",
+      "A phase of endless experimentation without real transformation",
+      "When pilots refuse to use AI for flying",
+      "A security vulnerability in AI systems"
+    ],
+    "correct": "A phase of endless experimentation without real transformation"
+  },
+  {
+    "question": "What is Generative AI (GenAI)?",
+    "answers": [
+      "AI that only analyzes existing data",
+      "AI that creates new content (text, images, summaries) from prompts",
+      "AI that generates electricity",
+      "AI that copies content from the internet"
+    ],
+    "correct": "AI that creates new content (text, images, summaries) from prompts"
+  },
+  {
+    "question": "What does LLM stand for?",
+    "answers": [
+      "Low Latency Machine",
+      "Large Language Model",
+      "Learned Logic Module",
+      "Linguistic Learning Mechanism"
+    ],
+    "correct": "Large Language Model"
+  },
+  {
+    "question": "What is a 'Hallucination' in AI terminology?",
+    "answers": [
+      "When AI creates visual images",
+      "When AI generates false information confidently",
+      "When AI refuses to answer questions",
+      "When AI misunderstands the prompt"
+    ],
+    "correct": "When AI generates false information confidently"
+  },
+  {
+    "question": "What is a 'Prompt' in AI terminology?",
+    "answers": [
+      "The output AI generates",
+      "The instructions you give to AI",
+      "The training data used by AI",
+      "The speed at which AI responds"
+    ],
+    "correct": "The instructions you give to AI"
+  },
+  {
+    "question": "What determines the quality of AI output?",
+    "answers": [
+      "The cost of the AI subscription",
+      "The quality of your prompt",
+      "The age of the AI model",
+      "The number of users on the platform"
+    ],
+    "correct": "The quality of your prompt"
+  },
+  {
+    "question": "What is RAG (Retrieval Augmented Generation)?",
+    "answers": [
+      "AI that generates random content",
+      "AI that retrieves relevant documents/data before generating an answer",
+      "A method to restrict AI usage",
+      "A type of AI error"
+    ],
+    "correct": "AI that retrieves relevant documents/data before generating an answer"
+  },
+  {
+    "question": "What are the four layers of the AI Stack from bottom to top?",
+    "answers": [
+      "Users → Tools → Models → Data",
+      "Infrastructure → Models → Platforms → Agents & Applications",
+      "Hardware → Software → Users → Outputs",
+      "Data → Algorithms → Interfaces → Results"
+    ],
+    "correct": "Infrastructure → Models → Platforms → Agents & Applications"
+  },
+  {
+    "question": "Where should managers focus to create value in the AI Stack?",
+    "answers": [
+      "Infrastructure and models",
+      "Platforms and agents/applications",
+      "Only infrastructure",
+      "Only models"
+    ],
+    "correct": "Platforms and agents/applications"
+  },
+  {
+    "question": "According to the AI-native mindset shift, what question should you ask instead of 'Where can we use AI?'",
+    "answers": [
+      "How much does AI cost?",
+      "How would we design this workflow from scratch if AI was available from day one?",
+      "Which AI tool is the most popular?",
+      "Can AI replace our employees?"
+    ],
+    "correct": "How would we design this workflow from scratch if AI was available from day one?"
+  },
+  {
+    "question": "What are the four basic review checkpoints mentioned for AI outputs?",
+    "answers": [
+      "Speed, cost, features, compatibility",
+      "Accuracy, bias, privacy, relevance",
+      "Format, length, style, tone",
+      "Technical, legal, financial, operational"
+    ],
+    "correct": "Accuracy, bias, privacy, relevance"
+  },
+  {
+    "question": "According to the module, AI proficiency is now considered:",
+    "answers": [
+      "An optional skill for tech enthusiasts",
+      "A core professional competency",
+      "Only important for IT departments",
+      "A temporary trend"
+    ],
+    "correct": "A core professional competency"
+  },
+  {
+    "question": "What is Machine Learning (ML)?",
+    "answers": [
+      "Teaching humans how to use machines",
+      "How AI learns from data",
+      "A type of robot",
+      "A programming language"
+    ],
+    "correct": "How AI learns from data"
+  },
+  {
+    "question": "What is NLP (Natural Language Processing)?",
+    "answers": [
+      "A new programming language",
+      "How AI systems process and understand human language",
+      "A network security protocol",
+      "A type of AI hardware"
+    ],
+    "correct": "How AI systems process and understand human language"
+  },
+  {
+    "question": "What is 'Fine-Tuning' in AI terminology?",
+    "answers": [
+      "Adjusting audio settings in AI tools",
+      "Customizing AI for specific tasks",
+      "Reducing the cost of AI",
+      "Speeding up AI responses"
+    ],
+    "correct": "Customizing AI for specific tasks"
+  }
+]
