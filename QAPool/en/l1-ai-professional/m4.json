@@ -1,43 +1,43 @@
 [
   {
-    "question": "How does Gemini appear within Google Workspace?",
+    "question": "Which statement best describes the relationship between in-app Gemini in Google Workspace and the standalone Gemini experience?",
     "answers": [
-      "As a separate application you must download",
-      "Embedded directly into everyday tools like Gmail, Docs, Sheets, Drive, and Meet",
-      "Only through a browser extension",
-      "As a standalone mobile app only"
+      "In Workspace, Gemini is built into apps like Gmail and Docs and respects org data and permissions; the standalone Gemini is separate and doesn’t automatically read your Workspace content.",
+      "Both versions are embedded in Workspace apps and, by default, have full access to all Workspace files and emails, with the standalone adding general-purpose chat.",
+      "Gemini appears in Workspace only through a Chrome extension that overlays features, while the standalone app is the primary way to use it with work data.",
+      "In Workspace, Gemini is provided as individual Marketplace add-ons you install per app, and these add-ons mirror the consumer Gemini’s default data access."
     ],
-    "correct": "Embedded directly into everyday tools like Gmail, Docs, Sheets, Drive, and Meet"
+    "correct": "In Workspace, Gemini is built into apps like Gmail and Docs and respects org data and permissions; the standalone Gemini is separate and doesn’t automatically read your Workspace content."
   },
   {
-    "question": "What is the key difference between Gemini in Workspace and standalone Gemini?",
+    "question": "You need AI to synthesize information from Gmail, Drive, and Docs without manual uploads and with default respect for your organization’s permissions. Assume you cannot change admin settings today. Which statement best describes the right approach and why?",
     "answers": [
-      "Standalone Gemini is faster",
-      "Standalone Gemini is designed for general-purpose use and does not automatically have access to your Workspace content",
-      "There is no difference",
-      "Workspace Gemini only works with spreadsheets"
+      "Use Gemini in Workspace; it has built-in, permissions-aware access to Gmail, Drive, and Docs, enabling synthesis by default. Standalone Gemini does not have Workspace content access by default.",
+      "Use standalone Gemini with Deep Research; it automatically reads Gmail, Drive, and Docs without any admin configuration while still honoring your org’s permissions, making it the quickest way to synthesize across sources.",
+      "Use Workspace Studio to build a flow; Studio ships with full read access to Gmail and Drive by default, so it can aggregate content without additional setup or permission changes.",
+      "Either mode works; once you’re signed into your account, both Gemini in Workspace and standalone Gemini access the same Gmail/Drive/Docs content automatically under the same permissions."
     ],
-    "correct": "Standalone Gemini is designed for general-purpose use and does not automatically have access to your Workspace content"
+    "correct": "Use Gemini in Workspace; it has built-in, permissions-aware access to Gmail, Drive, and Docs, enabling synthesis by default. Standalone Gemini does not have Workspace content access by default."
   },
   {
-    "question": "What does the 'Help Me Write' feature in Gmail do?",
+    "question": "In Gmail, you have a short brief and need a polite first-draft email without leaving the compose window. Which Gemini capability should you use?",
     "answers": [
-      "Checks grammar only",
-      "Drafts emails based on brief instructions",
-      "Translates emails to other languages",
-      "Schedules emails for later sending"
+      "Help Me Write - drafts an email from your brief",
+      "Summarize - condenses long email threads into key points",
+      "Smart Reply - suggests quick, context-aware one-tap responses",
+      "Gmail Q&A - lets you ask natural language questions about your inbox"
     ],
-    "correct": "Drafts emails based on brief instructions"
+    "correct": "Help Me Write - drafts an email from your brief"
   },
   {
-    "question": "What is the Email Summarization feature in Gmail best used for?",
+    "question": "You return from a week off and open a 30-message Gmail thread about a client project. Your immediate goal is to grasp key points and decisions before replying. Which Gemini capability should you use first?",
     "answers": [
-      "Deleting old emails",
-      "Catching up after time off and understanding context quickly",
-      "Creating email templates",
-      "Blocking spam messages"
+      "Click Summarize to see a concise overview of the thread.",
+      "Use Help me write to draft a polished, professional reply.",
+      "Choose a Smart Reply to respond quickly and keep momentum.",
+      "Ask Gemini to search for related emails and extract next steps."
     ],
-    "correct": "Catching up after time off and understanding context quickly"
+    "correct": "Click Summarize to see a concise overview of the thread."
   },
   {
     "question": "How do you use Gmail Q&A to find information in your inbox?",
@@ -50,44 +50,44 @@
     "correct": "Click the Gemini icon and ask a natural language question"
   },
   {
-    "question": "What does the 'Rewrite and Refine' feature in Google Docs allow you to do?",
+    "question": "In Google Docs with Gemini, you need to adapt a dense technical paragraph for a non-technical audience and shorten it, while keeping the existing section structure. Which feature is the best fit, and how would you use it?",
     "answers": [
-      "Delete entire paragraphs",
-      "Select text and choose tone options like formal, concise, or casual",
-      "Convert documents to PDFs",
-      "Add page numbers"
+      "Rewrite and Refine — select the paragraph, then apply a concise or simpler tone to modify the existing text",
+      "Help me write — paste the paragraph into the prompt to get a simplified rewrite and insert it in place",
+      "Expand and Elaborate — transform the paragraph into a fuller version with clearer explanations, examples, and added context",
+      "Gemini side panel — ask for a shorter, plain-language rewrite and manually paste it over the original text"
     ],
-    "correct": "Select text and choose tone options like formal, concise, or casual"
+    "correct": "Rewrite and Refine — select the paragraph, then apply a concise or simpler tone to modify the existing text"
   },
   {
-    "question": "What is the 'Expand and Elaborate' feature in Google Docs best for?",
+    "question": "You have bullet-point notes from a meeting and need a fully fleshed-out write-up in Google Docs without starting over. Which Gemini feature is the best fit?",
     "answers": [
-      "Reducing document length",
-      "Converting notes into full documents",
-      "Adding footnotes",
-      "Creating headers and footers"
+      "Help me write (create a new draft from a prompt)",
+      "Rewrite and Refine (adjust tone/clarity of selected text)",
+      "Expand and Elaborate (grow brief notes into full content)",
+      "Gemini Side Panel (get in-doc guidance and suggestions)"
     ],
-    "correct": "Converting notes into full documents"
+    "correct": "Expand and Elaborate (grow brief notes into full content)"
   },
   {
-    "question": "What does the 'Data Analysis and Insights' feature in Google Sheets do?",
+    "question": "You’re using Gemini in Google Sheets to analyze a customer churn table (regions, plans, usage, outcomes). You want Gemini to explore the data, surface patterns and outliers, and highlight likely drivers of churn—before deciding whether to chart the results. Which capability should you use first?",
     "answers": [
-      "Only creates pivot tables",
-      "Analyzes data and surfaces trends and anomalies",
-      "Protects cells from editing",
-      "Imports data from external databases"
+      "Data Classification",
+      "Charts and Visualizations",
+      "Data Analysis and Insights",
+      "Formula Creation"
     ],
-    "correct": "Analyzes data and surfaces trends and anomalies"
+    "correct": "Data Analysis and Insights"
   },
   {
-    "question": "What is the main benefit of Formula Creation in Google Sheets with Gemini?",
+    "question": "You’re building a regional dashboard in Google Sheets and need to compute month-over-month growth with nested conditions, but you can’t recall the exact functions. Which Gemini in Sheets feature will turn your plain‑English description into the needed calculation?",
     "answers": [
-      "It makes formulas run faster",
-      "It allows complex calculations without knowing formula syntax",
-      "It automatically backs up formulas",
-      "It creates formulas in multiple languages"
+      "Formula Creation — generate the required formula from your natural‑language request",
+      "Data Analysis and Insights — examine the sheet and suggest key metrics and trends",
+      "Data Cleaning and Formatting — standardize dates and text so calculations are consistent",
+      "Charts and Visualizations — plot results to highlight growth patterns"
     ],
-    "correct": "It allows complex calculations without knowing formula syntax"
+    "correct": "Formula Creation — generate the required formula from your natural‑language request"
   },
   {
     "question": "What makes Intelligent Search in Google Drive different from traditional file search?",
@@ -100,74 +100,74 @@
     "correct": "It finds documents based on content, not just file names"
   },
   {
-    "question": "What is the Document Summarization feature in Google Drive best for?",
+    "question": "You have a Drive folder with dozens of project reports and need concise per-file summaries without opening each document. Which Gemini in Drive capability should you use?",
     "answers": [
-      "Creating new documents",
-      "Quickly understanding large volumes of content",
-      "Deleting old files",
-      "Moving files between folders"
+      "Document Summarization — create concise overviews of selected files or an entire folder",
+      "Intelligent Search — locate files by their contents when titles are unknown",
+      "Cross-Document Insights — surface shared themes and patterns across multiple files",
+      "Content Organization — suggest folder structures and consistent grouping for files"
     ],
-    "correct": "Quickly understanding large volumes of content"
+    "correct": "Document Summarization — create concise overviews of selected files or an entire folder"
   },
   {
-    "question": "What does 'Cross-Document Insights' in Google Drive allow you to do?",
+    "question": "You need to surface common themes across 50 customer feedback documents in Drive and produce a single analysis. Which Gemini in Drive feature should you use?",
     "answers": [
-      "Merge multiple documents into one",
-      "Synthesize information across multiple files",
-      "Share documents externally",
-      "Convert file formats"
+      "Intelligent Search",
+      "Document Summarization",
+      "Cross-Document Insights",
+      "Content Organization"
     ],
-    "correct": "Synthesize information across multiple files"
+    "correct": "Cross-Document Insights"
   },
   {
-    "question": "How do you enable Automated Meeting Notes in Google Meet?",
+    "question": "In Google Meet, to have Gemini capture automated meeting notes and generate a summary, what should you do right when the meeting starts?",
     "answers": [
-      "It's automatically enabled for all meetings",
-      "Enable 'Take notes' when starting a meeting",
-      "Send a calendar invite with notes enabled",
-      "Install a separate extension"
+      "Turn on 'Captions' from the bottom bar when the call begins.",
+      "Open Meet settings before joining and enable a 'Meeting Summary' toggle.",
+      "Use the in-meeting controls to enable 'Take notes' at the start of the call.",
+      "Create 'Meeting notes' in the Calendar event beforehand to trigger summaries."
     ],
-    "correct": "Enable 'Take notes' when starting a meeting"
+    "correct": "Use the in-meeting controls to enable 'Take notes' at the start of the call."
   },
   {
-    "question": "What is the Meeting Summaries feature in Google Meet best for?",
+    "question": "You ran a Google Meet with Take notes enabled. After it ends, you need a brief recap to share with teammates who couldn’t attend—without sending the full notes document. Which Workspace feature should you use to generate that concise overview?",
     "answers": [
-      "Recording video of meetings",
-      "Sharing outcomes with absent stakeholders",
-      "Scheduling follow-up meetings",
-      "Adding participants to meetings"
+      "Automated meeting notes (Meet)",
+      "Document summarization (Drive)",
+      "Help me write (Gmail)",
+      "Meeting summaries (Meet)"
     ],
-    "correct": "Sharing outcomes with absent stakeholders"
+    "correct": "Meeting summaries (Meet)"
   },
   {
-    "question": "What is standalone Gemini described as in the context of work?",
+    "question": "You’re brainstorming copy for a new campaign and want one conversational place to think and draft, then paste the text into a Doc later. You don’t want the assistant to pull from Gmail or Drive by default. Which option fits best?",
     "answers": [
-      "A replacement for all Workspace apps",
-      "The 'front door' for thinking, drafting, planning, and creating before copying output into work tools",
-      "A file storage system",
-      "An email client"
+      "Standalone Gemini — a general‑purpose space for drafting and planning that doesn’t automatically use your Workspace content.",
+      "Gemini in Docs — embedded help that can use the current document and related Workspace context while you write.",
+      "Gemini Deep Research — to synthesize web sources and internal files into a single structured research brief.",
+      "Drive with Gemini — to reorganize folders, improve search, and summarize files across a folder or project."
     ],
-    "correct": "The 'front door' for thinking, drafting, planning, and creating before copying output into work tools"
+    "correct": "Standalone Gemini — a general‑purpose space for drafting and planning that doesn’t automatically use your Workspace content."
   },
   {
-    "question": "What should AI-generated images be treated as when used professionally?",
+    "question": "According to the module, how should teams treat AI-generated images intended for external, brand-governed channels?",
     "answers": [
-      "Final brand assets ready for publication",
-      "Starting points and concepts, not finished deliverables",
-      "Legal documents",
-      "Permanent marketing materials"
+      "Publication-ready assets if prompts include brand colors and logo placement.",
+      "Draft concepts that require human review and design refinement before use.",
+      "Stock-photo equivalents suitable for campaigns when the text looks correct.",
+      "Reusable templates that ensure consistent layouts across a full set of visuals."
     ],
-    "correct": "Starting points and concepts, not finished deliverables"
+    "correct": "Draft concepts that require human review and design refinement before use."
   },
   {
-    "question": "Why is brand accuracy NOT guaranteed in AI image generation?",
+    "question": "According to the module, why isn’t strict brand accuracy guaranteed when using Gemini’s Create images, even with a detailed prompt?",
     "answers": [
-      "AI intentionally changes brand elements",
-      "AI does not inherently 'know' your brand guidelines",
-      "Brand colors are copyrighted",
-      "Images are always in black and white"
+      "Gemini doesn’t inherently know or enforce your exact brand guidelines, so logos, fonts, and colors may be approximated.",
+      "Visual consistency across multiple generated images is limited, leading to subtle differences in layout and proportions even with similar prompts.",
+      "Embedded text in images can be unreliable, which can affect branded taglines or typography.",
+      "The tool is intended for rapid concept drafts, so final brand compliance should be applied later in professional design tools."
     ],
-    "correct": "AI does not inherently 'know' your brand guidelines"
+    "correct": "Gemini doesn’t inherently know or enforce your exact brand guidelines, so logos, fonts, and colors may be approximated."
   },
   {
     "question": "What is a known limitation regarding text inside AI-generated images?",
@@ -180,14 +180,14 @@
     "correct": "Text, especially small text or non-English languages, can still contain errors"
   },
   {
-    "question": "What is Gemini Deep Research designed for?",
+    "question": "Which scenario is the best fit for using Gemini's Deep Research mode?",
     "answers": [
-      "Quick email replies",
-      "Bigger questions where you would normally open many tabs and documents",
-      "Creating simple charts",
-      "Formatting documents"
+      "Draft and refine a single email reply in Gmail, apply the right tone, check for clarity, and send it after a quick review.",
+      "Combine web research with relevant Drive and Gmail materials to create a structured brief with key findings, risks, and recommended next steps.",
+      "Turn a spreadsheet into charts, surface key trends using formulas, format the table, and prepare visuals for a weekly performance update.",
+      "Polish a working document by rewriting sections, adjusting tone and length, generating an outline, and preparing a concise summary for readers."
     ],
-    "correct": "Bigger questions where you would normally open many tabs and documents"
+    "correct": "Combine web research with relevant Drive and Gmail materials to create a structured brief with key findings, risks, and recommended next steps."
   },
   {
     "question": "What sources can Gemini Deep Research use?",
@@ -200,34 +200,34 @@
     "correct": "Both web sources and internal context (Gmail, Drive, Chat)"
   },
   {
-    "question": "What is Gemini Deep Research best suited for?",
+    "question": "Which output best matches the typical deliverable from Gemini Deep Research, as opposed to other Workspace AI features?",
     "answers": [
-      "Scheduling meetings",
-      "Competitive landscape scans and synthesizing internal learnings into briefings",
-      "Creating email signatures",
-      "Organizing calendar events"
+      "A structured brief that synthesizes insights from web and Workspace sources, including summary, key findings, themes, and recommended next steps",
+      "An annotated list of recent web sources with citations and links, without synthesis or recommendations",
+      "A consolidated summary of selected internal Drive files and emails only, excluding the open web and market context",
+      "A one-page recap of a single article with key quotes and references, but no cross-source analysis or next steps"
     ],
-    "correct": "Competitive landscape scans and synthesizing internal learnings into briefings"
+    "correct": "A structured brief that synthesizes insights from web and Workspace sources, including summary, key findings, themes, and recommended next steps"
   },
   {
-    "question": "What is Google Workspace Studio?",
+    "question": "You need a weekly digest that runs automatically, pulls fresh information each time with Gemini, and emails the results to your team without manual steps. Which setup best meets these requirements?",
     "answers": [
-      "A video editing tool",
-      "A no-code environment for building AI-powered workflows (agents) across Google Workspace",
-      "A music streaming service",
-      "A social media platform"
+      "Workspace Studio flow: schedule starter + Ask Gemini + Gmail action to send.",
+      "Deep Research run weekly via Calendar reminder; email the findings afterward.",
+      "Gmail Scheduled Send with a saved template and Smart features to deliver weekly.",
+      "Docs with a Gemini-based template and a weekly reminder to share with the team."
     ],
-    "correct": "A no-code environment for building AI-powered workflows (agents) across Google Workspace"
+    "correct": "Workspace Studio flow: schedule starter + Ask Gemini + Gmail action to send."
   },
   {
-    "question": "When is Workspace Studio most useful for a task?",
+    "question": "Which scenario is the best fit for using Workspace Studio?",
     "answers": [
-      "When a task is done only once",
-      "When a task is repeatable, multi-step, and involves moving information between tools",
-      "When you need to make phone calls",
-      "When you're creating personal artwork"
+      "A weekly automation that collects tagged emails, summarizes them into a Doc, and drafts a team update email for review.",
+      "A one-time need to write and polish a single reply in Gmail using tone and length adjustments.",
+      "Brainstorming and refining slide content inside one Google Doc with Gemini suggestions and quick rewrites.",
+      "Compiling a market brief by synthesizing web sources and relevant Drive files in a single research session."
     ],
-    "correct": "When a task is repeatable, multi-step, and involves moving information between tools"
+    "correct": "A weekly automation that collects tagged emails, summarizes them into a Doc, and drafts a team update email for review."
   },
   {
     "question": "What are the three main components of a Workspace Studio flow?",

@@ -1,23 +1,23 @@
 [
   {
-    "question": "What is 'jagged intelligence' in the context of AI?",
+    "question": "Which scenario best illustrates 'jagged intelligence' as described in Module 3?",
     "answers": [
-      "AI that only works on certain days of the week",
-      "AI that is superhuman in some areas but surprisingly weak in others",
-      "AI that requires constant internet connection",
-      "AI that improves steadily over time without gaps"
+      "It clusters 1,000 support tickets into themes in minutes but sometimes gets simple counts wrong.",
+      "It delivers consistent quality across tasks whenever the prompt is very detailed; differences mostly reflect how well the request is written.",
+      "It responds more slowly without specialized hardware, yet its accuracy stays consistent across task types regardless of what it is asked to do.",
+      "It improves uniformly across skills as it sees more data, so performance gaps between tasks fade and results become predictably even."
     ],
-    "correct": "AI that is superhuman in some areas but surprisingly weak in others"
+    "correct": "It clusters 1,000 support tickets into themes in minutes but sometimes gets simple counts wrong."
   },
   {
-    "question": "Which of the following is a task where AI typically excels?",
+    "question": "Based on Module 3’s jagged intelligence concept—and assuming a general-purpose text model without external tools or live data—which task is AI most reliable at?",
     "answers": [
-      "Counting letters in a word accurately",
-      "Understanding company politics",
-      "Analyzing thousands of customer reviews to identify themes",
-      "Accessing real-time stock prices"
+      "Counting letters in a word without mistakes",
+      "Identifying themes across large sets of customer reviews",
+      "Choosing the perfect tone for a specific executive",
+      "Accurately interpreting a complex floor plan after a 90° rotation"
     ],
-    "correct": "Analyzing thousands of customer reviews to identify themes"
+    "correct": "Identifying themes across large sets of customer reviews"
   },
   {
     "question": "Which task is AI likely to struggle with?",
@@ -40,14 +40,14 @@
     "correct": "You are the professional, AI is the assistant - review everything AI produces"
   },
   {
-    "question": "What are AI hallucinations?",
+    "question": "An AI assistant says, “According to a 2024 HBR study by Dr. J. Lawson, 87% of firms…” but you can’t find the study, author, or source after checking. This is best classified as:",
     "answers": [
-      "When AI systems experience hardware malfunctions",
-      "When AI confidently generates plausible-sounding but false information",
-      "When users misinterpret correct AI outputs",
-      "When AI refuses to answer a question"
+      "Hallucination: confident, plausible but fabricated claim or citation",
+      "Outdated information: previously accurate content presented as current",
+      "Bias: output reflecting stereotypes or unfair assumptions",
+      "Jagged intelligence: uneven strengths and weaknesses across tasks"
     ],
-    "correct": "When AI confidently generates plausible-sounding but false information"
+    "correct": "Hallucination: confident, plausible but fabricated claim or citation"
   },
   {
     "question": "Why are AI hallucinations particularly dangerous?",
@@ -70,54 +70,44 @@
     "correct": "Training data gaps where AI lacks information on certain topics"
   },
   {
-    "question": "What does 'temperature' control in AI systems?",
+    "question": "You’re drafting a customer policy notice where accuracy is critical and reducing hallucination risk matters. Which temperature choice and expected effect are most appropriate?",
     "answers": [
-      "The physical heat of the servers",
-      "How fast the AI responds",
-      "How creative vs. deterministic the AI is",
-      "The number of users who can access the system"
+      "Use a low temperature; outputs are more deterministic and less variable, reducing but not eliminating hallucination risk.",
+      "Use a high temperature; greater creativity makes answers fuller and therefore more reliable.",
+      "Use a medium temperature; it balances creativity and accuracy and is preferred for critical factual work.",
+      "Use a low temperature; the model will automatically retrieve and verify external sources."
     ],
-    "correct": "How creative vs. deterministic the AI is"
+    "correct": "Use a low temperature; outputs are more deterministic and less variable, reducing but not eliminating hallucination risk."
   },
   {
-    "question": "Which is a red flag that might indicate an AI hallucination?",
+    "question": "Which behavior best matches the module’s hallucination red flag described as 'Citations without links or details'?",
     "answers": [
-      "The AI admits uncertainty about a topic",
-      "Citations without links, authors, or specific details",
-      "The response is shorter than expected",
-      "The AI asks for clarification"
+      "The model cites “a 2024 MIT study by Dr. Lee Chang” and lists only “Source: MIT” without a link, journal, or publication details.",
+      "The model reports 74% and a three-week timeframe and includes a working link to an industry survey with the publisher and methodology appendix.",
+      "The model states assumptions, uses cautious terms like “may” and “estimates,” and recommends independent verification of figures.",
+      "The model notes its knowledge cutoff is 2023 and advises checking for updates before relying on claims about very recent events."
     ],
-    "correct": "Citations without links, authors, or specific details"
+    "correct": "The model cites “a 2024 MIT study by Dr. Lee Chang” and lists only “Source: MIT” without a link, journal, or publication details."
   },
   {
-    "question": "What should you do if AI provides a citation like 'According to a 2024 study...' without author or journal details?",
+    "question": "An AI draft says, 'According to a 2024 study...' but gives no author, journal, or link. What is the best next step?",
     "answers": [
-      "Trust it because it mentions a specific year",
-      "Google the exact title, author, or quote to verify it exists",
-      "Assume it's accurate if the content sounds reasonable",
-      "Include it in your work since AI wouldn't make up sources"
+      "Ask the AI for a full citation and include it if it looks complete",
+      "Treat it as a red flag: verify externally; if you can’t confirm, remove or rephrase the claim",
+      "Keep the claim but hedge with 'one study suggests' until more info is available",
+      "Trust it if the tool is enterprise-grade and the response sounds professional"
     ],
-    "correct": "Google the exact title, author, or quote to verify it exists"
+    "correct": "Treat it as a red flag: verify externally; if you can’t confirm, remove or rephrase the claim"
   },
   {
-    "question": "What type of bias involves associating certain roles or traits with specific genders?",
+    "question": "Which sentence is the clearest red-flag indicator of gender bias in AI-generated content?",
     "answers": [
-      "Cultural bias",
-      "Socioeconomic bias",
-      "Gender bias",
-      "Representation bias"
+      "Each manager should submit their report by Friday.",
+      "The CEO should submit his quarterly report by Friday.",
+      "Each manager should submit his or her report by Friday.",
+      "All managers should submit their reports by Friday."
     ],
-    "correct": "Gender bias"
-  },
-  {
-    "question": "Which phrase in AI-generated content would be a red flag for gender bias?",
-    "answers": [
-      "'Team members should collaborate'",
-      "'The CEO...he' or 'The nurse...she'",
-      "'Professionals in this field'",
-      "'Employees are encouraged to participate'"
-    ],
-    "correct": "'The CEO...he' or 'The nurse...she'"
+    "correct": "The CEO should submit his quarterly report by Friday."
   },
   {
     "question": "What is PII that should NEVER be included in an AI prompt?",
@@ -140,54 +130,54 @@
     "correct": "Protected Health Information"
   },
   {
-    "question": "Which of the following is an example of confidential company data that should NOT go into AI prompts?",
+    "question": "Assume you're using an enterprise-grade AI tool; organizational privacy rules still apply. Which of the following should NOT be included in a work prompt?",
     "answers": [
-      "Your company's publicly listed address",
-      "Unreleased financial results or M&A information",
-      "The company's mission statement from the website",
-      "General industry best practices"
+      "Text from the product FAQ available to customers",
+      "An anonymized table of quarterly sales by region (no customer identifiers)",
+      "A spreadsheet of customer email addresses (no names included)",
+      "A generic performance-review template with placeholder fields"
     ],
-    "correct": "Unreleased financial results or M&A information"
+    "correct": "A spreadsheet of customer email addresses (no names included)"
   },
   {
-    "question": "What is the recommended approach instead of including real names in AI prompts?",
+    "question": "You're using an AI tool to draft a performance review. To protect privacy while still getting a useful draft, what is the best approach?",
     "answers": [
-      "Use nicknames",
-      "Use placeholders like 'Employee A' or 'Customer X'",
-      "Abbreviate the names",
-      "Include names but mark them as confidential"
+      "Use initials and the department instead of the full name.",
+      "Ask for a generic draft with placeholders and add real details later.",
+      "Include the real name but label the prompt as confidential.",
+      "Use a pseudonym and keep a secure mapping file to the real person."
     ],
-    "correct": "Use placeholders like 'Employee A' or 'Customer X'"
+    "correct": "Ask for a generic draft with placeholders and add real details later."
   },
   {
-    "question": "What are the five checkpoints in the AI Output Evaluation Framework?",
+    "question": "The AI Output Evaluation Framework uses five checkpoints. Which option lists them exactly as named in the module?",
     "answers": [
-      "Speed, Cost, Quality, Format, Length",
-      "Accuracy, Hallucinations, Bias, PII/Confidentiality, Relevance",
-      "Grammar, Spelling, Tone, Style, Structure",
-      "Input, Process, Output, Review, Publish"
+      "Accuracy, Hallucinations, Tone, PII/Confidentiality, Relevance/Context",
+      "Accuracy, Hallucinations, Bias, PII/Confidentiality, Relevance/Jaggedness",
+      "Accuracy, Sources, Bias, Compliance, Relevance/Context",
+      "Accuracy, Citations, Bias, Privacy/PII, Relevance/Context Fit"
     ],
-    "correct": "Accuracy, Hallucinations, Bias, PII/Confidentiality, Relevance"
+    "correct": "Accuracy, Hallucinations, Bias, PII/Confidentiality, Relevance/Jaggedness"
   },
   {
-    "question": "Who is accountable for AI-generated output that is shared, published, or acted upon?",
+    "question": "According to this module's accountability guidance, as an individual professional, who is responsible for any AI-generated content you share, publish, or act on?",
     "answers": [
-      "The AI company that created the tool",
-      "The IT department",
-      "The human who uses and shares the output",
-      "No one - AI outputs are not anyone's responsibility"
+      "You, the professional who uses and shares it",
+      "Your organization's legal or compliance team",
+      "The IT department that deployed the tool",
+      "The AI vendor that built the model"
     ],
-    "correct": "The human who uses and shares the output"
+    "correct": "You, the professional who uses and shares it"
   },
   {
-    "question": "What should you do when AI generates information about recent events?",
+    "question": "Your AI assistant (no browsing or real-time tools) confidently summarizes a product launch reported 'last week' with precise figures. What’s the best next step?",
     "answers": [
-      "Trust it completely since AI has access to all information",
-      "Be skeptical because AI's training data has a cutoff date",
-      "Assume it's accurate if it sounds confident",
-      "Use it immediately since recent events are easy for AI"
+      "Verify against current primary sources and confirm dates; the model lacks live data.",
+      "Trust the summary if the citations look real and are well-formatted.",
+      "Ask the AI to re-check the dates and add links, then proceed with its answer.",
+      "Lower the temperature to reduce creativity and keep the numbers as given."
     ],
-    "correct": "Be skeptical because AI's training data has a cutoff date"
+    "correct": "Verify against current primary sources and confirm dates; the model lacks live data."
   },
   {
     "question": "Which task is appropriate to use AI for?",
@@ -210,24 +200,24 @@
     "correct": "Organizations remain accountable for AI outputs even when used as support tools"
   },
   {
-    "question": "Why were multiple lawyers sanctioned for using AI-generated legal cases?",
+    "question": "In the 'Legal Cases Fabrication' example, why were the lawyers sanctioned?",
     "answers": [
-      "They used AI without company permission",
-      "They cited legal cases that AI fabricated and did not actually exist",
-      "They shared confidential client information with AI",
-      "They billed clients for AI-generated work"
+      "They cited court opinions that AI had invented and do not exist.",
+      "They cited real opinions from the wrong jurisdiction.",
+      "They failed to disclose that AI helped draft the brief.",
+      "They relied on outdated precedents due to the model's cutoff."
     ],
-    "correct": "They cited legal cases that AI fabricated and did not actually exist"
+    "correct": "They cited court opinions that AI had invented and do not exist."
   },
   {
-    "question": "What is a recommended practice to reduce bias in AI-generated job postings?",
+    "question": "Your AI draft for a developer job post reads: 'We're looking for a rockstar who can crush it in a fast-paced environment. Must be a culture fit. Minimal onboarding provided.' Which prompt revision best aligns with the module's guidance to reduce bias and clarify expectations?",
     "answers": [
-      "Use terms like 'rockstar' and 'crush it' to attract top talent",
-      "Emphasize 'culture fit' requirements",
-      "Use inclusive, gender-neutral language and avoid stereotypes",
-      "Focus only on aggressive and competitive traits"
+      "Use inclusive, gender-neutral language; remove hype terms; avoid 'culture fit' in favor of clear role criteria; define what 'fast-paced' means; include onboarding and flexibility details.",
+      "Use inclusive language and drop hype terms; keep 'culture fit' to reflect values; mention fast pace briefly; treat onboarding as optional to keep the post concise.",
+      "Keep a neutral tone and avoid slang; stress high performance and ownership; leave 'fast-paced' broad; omit onboarding and flexibility to maintain a focused, results-first message.",
+      "Use gender-neutral language and define fast pace with one example; retain 'culture fit' to screen applicants; add a brief note on accessibility and hybrid work options."
     ],
-    "correct": "Use inclusive, gender-neutral language and avoid stereotypes"
+    "correct": "Use inclusive, gender-neutral language; remove hype terms; avoid 'culture fit' in favor of clear role criteria; define what 'fast-paced' means; include onboarding and flexibility details."
   },
   {
     "question": "What does AI typically struggle with regarding spatial reasoning?",
@@ -240,13 +230,13 @@
     "correct": "Mental rotation tasks and understanding relative positions of objects"
   },
   {
-    "question": "If an AI-generated output includes specific titles, names, statistics, or URLs, how should you treat them?",
+    "question": "An AI draft states: 'According to a 2024 Harvard Business Review study by Dr. Jennifer Lawson, 87% of firms using AI chatbots cut support costs by 42% (see hbr.org/2024/07/roi-conversational-ai).' Before adding this to your internal report, what is the best next step per the verification checklist?",
     "answers": [
-      "As verified facts that can be used immediately",
-      "As claims that require verification before use",
-      "As suggestions that are optional to check",
-      "As accurate data since AI accesses live databases"
+      "Treat the details as likely accurate because they include precise numbers and a professional-sounding citation, and include them with a brief cautionary note.",
+      "Independently verify the study and statistics by searching exact titles, authors, and quotes; cross-check with reliable sources and remove anything unverifiable.",
+      "Use the numbers for internal drafts without delay, and plan to verify them only if the content will be shared externally or published.",
+      "Open the provided link to confirm it loads, and if the page appears legitimate, proceed to use the citation and statistics as written."
     ],
-    "correct": "As claims that require verification before use"
+    "correct": "Independently verify the study and statistics by searching exact titles, authors, and quotes; cross-check with reliable sources and remove anything unverifiable."
   }
 ]

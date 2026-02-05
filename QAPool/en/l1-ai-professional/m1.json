@@ -1,33 +1,33 @@
 [
   {
-    "question": "According to recent research, approximately what percentage of companies are actually 'AI mature'?",
+    "question": "Given the module’s figures (92% increasing AI investment, ~1% AI mature, 88% using AI in at least one function, ~39% reporting EBIT impact), which explanation best accounts for why many organizations remain stuck in 'pilot mode'?",
     "answers": [
-      "About 25%",
-      "About 10%",
-      "About 1%",
-      "About 50%"
+      "The constraint is model quality; better algorithms will turn investment into scale.",
+      "The blockers are workflow redesign, leadership standards, and measurement—not the tools.",
+      "The problem is employee reluctance and limited tool access, which suppress adoption.",
+      "Low impact shows GenAI mainly helps engineers, so non-technical teams should wait."
     ],
-    "correct": "About 1%"
+    "correct": "The blockers are workflow redesign, leadership standards, and measurement—not the tools."
   },
   {
-    "question": "What is identified as the main bottleneck preventing companies from getting real value from AI?",
+    "question": "A company has run several AI pilots that speed up individual tasks, yet nothing has scaled or changed outcomes. What is the most likely bottleneck?",
     "answers": [
-      "The technology itself",
-      "The cost of AI tools",
-      "The workflow",
-      "Lack of AI models"
+      "Limitations of the current AI models and tools",
+      "Isolated use cases that don't connect to the full workflow",
+      "Lack of workflow redesign (how the work gets done)",
+      "Weak leadership direction and unclear standards"
     ],
-    "correct": "The workflow"
+    "correct": "Lack of workflow redesign (how the work gets done)"
   },
   {
-    "question": "Most of the AI impact comes from improving which professional activities?",
+    "question": "Where does AI create the most business value for non-technical teams?",
     "answers": [
-      "Replacing workers with automation",
-      "Building new software products",
-      "Communicating, analyzing information, making decisions, and creating content",
-      "Managing databases and servers"
+      "Augmenting everyday knowledge work—drafting, analysis, and decisions—with human review",
+      "Automating most routine steps end-to-end so human oversight is rarely needed",
+      "Running tool pilots in isolated tasks while keeping the existing process unchanged",
+      "Prioritizing model selection and infrastructure tuning over workflow and standards"
     ],
-    "correct": "Communicating, analyzing information, making decisions, and creating content"
+    "correct": "Augmenting everyday knowledge work—drafting, analysis, and decisions—with human review"
   },
   {
     "question": "What does the 'Set the Direction' strategic guideline recommend?",
@@ -40,24 +40,24 @@
     "correct": "Be deliberate, pick exactly where AI helps, and define what 'good' output looks like"
   },
   {
-    "question": "According to 'Standardize Success', what should you do when you find a prompt or workflow that works?",
+    "question": "Over the past two weeks, your team used a new prompt and consistently saw higher-quality drafts. According to the Three Shifts guidance on Standardize Success, what should you do next?",
     "answers": [
-      "Keep it to yourself as a competitive advantage",
-      "Report it to IT for review",
-      "Turn good prompts into reusable templates and share them",
-      "Delete it and start fresh each time"
+      "Post the prompt and example outputs in team chat and encourage voluntary use; skip formal templates or checks to keep adoption fast and lightweight.",
+      "Document the results and submit the prompt to IT/governance for the quarterly tools review, pausing team-wide use until formal approval is granted.",
+      "Convert it into a team template, embed required review checks (accuracy, bias, privacy, relevance), and publish it in the shared library for consistent use.",
+      "Create a template and add it to the library, but omit formal review checkpoints so people can move quickly and adjust quality controls later."
     ],
-    "correct": "Turn good prompts into reusable templates and share them"
+    "correct": "Convert it into a team template, embed required review checks (accuracy, bias, privacy, relevance), and publish it in the shared library for consistent use."
   },
   {
-    "question": "What does 'Create Leverage' mean in the context of AI workflow?",
+    "question": "Your team spends hours structuring reports before debating recommendations. To apply the 'Create Leverage' shift, which action fits best?",
     "answers": [
-      "Use AI to negotiate better deals",
-      "Use AI to do the 'first pass' so you can focus on final decisions and strategy",
-      "Replace all human decision-making with AI",
-      "Leverage AI to reduce headcount"
+      "Define what a good report looks like and specify where AI should assist up front",
+      "Create a shared prompt template and add accuracy, bias, and relevance checks for reports",
+      "Have AI produce the first-pass structure and key points so the team focuses on judgment",
+      "Use AI mainly to polish wording and formatting once analysts finish the structure and recommendations"
     ],
-    "correct": "Use AI to do the 'first pass' so you can focus on final decisions and strategy"
+    "correct": "Have AI produce the first-pass structure and key points so the team focuses on judgment"
   },
   {
     "question": "What does 'Doing AI' typically mean?",
@@ -70,54 +70,44 @@
     "correct": "Adding AI on top of today's process while keeping the workflow the same"
   },
   {
-    "question": "What does 'Being AI-native' mean?",
+    "question": "In this course, 'being AI-native' is best described as:",
     "answers": [
-      "Only hiring employees who know how to code",
-      "Using AI occasionally to speed up work",
-      "Redesigning workflows so AI is built in by default with clear outcomes and review checkpoints",
-      "Using only the newest AI models available"
+      "Adding AI on top of current processes to speed up parts of the work without redesigning the workflow",
+      "Rolling out AI tools while leaving handoffs, approvals, and decision steps unchanged across the end-to-end process",
+      "Designing workflows so AI is built in by default, with clear outcomes, review checks, and humans owning final decisions",
+      "Prioritizing access to the newest AI models and features to maximize performance, then adapting processes later if needed"
     ],
-    "correct": "Redesigning workflows so AI is built in by default with clear outcomes and review checkpoints"
+    "correct": "Designing workflows so AI is built in by default, with clear outcomes, review checks, and humans owning final decisions"
   },
   {
-    "question": "Which is NOT a common reason why AI pilots don't turn into real impact?",
+    "question": "According to Module 1, a team already has capable AI tools, but usage is inconsistent due to unclear standards and uncertainty about what’s allowed. Which factor most determines whether adoption will succeed?",
     "answers": [
-      "Technology-first thinking",
-      "No workflow redesign",
-      "Too much measurement and tracking",
-      "Weak leadership and unclear standards"
+      "Leadership that sets direction, standards, and workflow changes",
+      "Upgrading to higher-accuracy models and adding more integrations",
+      "Increasing budget for licenses, pilots, and vendor tools",
+      "Greater employee willingness to experiment and use AI more often"
     ],
-    "correct": "Too much measurement and tracking"
+    "correct": "Leadership that sets direction, standards, and workflow changes"
   },
   {
-    "question": "AI adoption succeeds or fails primarily based on what factor?",
+    "question": "According to the module, which barrier most often prevents scaling AI beyond pilots?",
     "answers": [
-      "The quality of AI models used",
-      "Leadership, not better tools",
-      "The amount of budget allocated",
-      "The number of AI tools purchased"
+      "Cost and complexity of the technology",
+      "Limited access to AI tools and licenses",
+      "People and process—unclear standards and workflows",
+      "Employee resistance and low willingness to use AI"
     ],
-    "correct": "Leadership, not better tools"
+    "correct": "People and process—unclear standards and workflows"
   },
   {
-    "question": "What are the biggest barriers to AI adoption according to the module?",
+    "question": "As defined in this module, which statement best describes 'Superagency' and its implications for team roles?",
     "answers": [
-      "Cost and complexity of technology",
-      "Lack of available AI tools",
-      "People and process (uncertainty, fear of mistakes, lack of standards)",
-      "Insufficient computing power"
+      "An autonomous AI capability that makes and approves final decisions without human oversight to maximize speed and consistency.",
+      "An internal Center of Excellence that defines AI policies, approves use cases, and governs adoption across the company.",
+      "A step-change in human capacity to decide and act: AI does the first pass on drafting/analysis, while humans retain final judgment and accountability.",
+      "A supervisory AI layer that coordinates multiple agents, sets priorities, and enforces workflow standards across tasks."
     ],
-    "correct": "People and process (uncertainty, fear of mistakes, lack of standards)"
-  },
-  {
-    "question": "What is 'Superagency' in the context of AI?",
-    "answers": [
-      "An AI that can operate independently without human oversight",
-      "A government body that regulates AI",
-      "A drastic increase in human ability to decide and act with AI as a partner",
-      "A type of AI that supervises other AI systems"
-    ],
-    "correct": "A drastic increase in human ability to decide and act with AI as a partner"
+    "correct": "A step-change in human capacity to decide and act: AI does the first pass on drafting/analysis, while humans retain final judgment and accountability."
   },
   {
     "question": "What does the 'pilot trap' refer to?",
@@ -170,24 +160,24 @@
     "correct": "The instructions you give to AI"
   },
   {
-    "question": "What determines the quality of AI output?",
+    "question": "Per the module’s 'Set the Direction' guidance, you’re unhappy with a Gemini draft. What’s the best immediate step to improve the next output?",
     "answers": [
-      "The cost of the AI subscription",
-      "The quality of your prompt",
-      "The age of the AI model",
-      "The number of users on the platform"
+      "Refine the prompt with clear instructions, an example, and quality criteria",
+      "Ask the model to critique its draft against your goals, then retry",
+      "Move the task into the app where the output will live and rerun it",
+      "Try a higher-capability model before changing anything in your request"
     ],
-    "correct": "The quality of your prompt"
+    "correct": "Refine the prompt with clear instructions, an example, and quality criteria"
   },
   {
-    "question": "What is RAG (Retrieval Augmented Generation)?",
+    "question": "You need the AI to answer employee questions using the latest internal policies and include links to the exact sources. Which approach best fits this need?",
     "answers": [
-      "AI that generates random content",
-      "AI that retrieves relevant documents/data before generating an answer",
-      "A method to restrict AI usage",
-      "A type of AI error"
+      "Retrieval-Augmented Generation: fetch relevant policy files at query time and ground the answer with citations.",
+      "Fine-tune the model on policy text so it can recall details without accessing documents.",
+      "Add a detailed prompt asking the AI to cite sources, without changing how it accesses data.",
+      "Lower the temperature so responses are more consistent and less likely to fabricate sources."
     ],
-    "correct": "AI that retrieves relevant documents/data before generating an answer"
+    "correct": "Retrieval-Augmented Generation: fetch relevant policy files at query time and ground the answer with citations."
   },
   {
     "question": "What are the four layers of the AI Stack from bottom to top?",
@@ -200,24 +190,24 @@
     "correct": "Infrastructure → Models → Platforms → Agents & Applications"
   },
   {
-    "question": "Where should managers focus to create value in the AI Stack?",
+    "question": "A manager wants to improve meeting follow-up using AI. According to the AI Stack perspective, where should they focus first to create value?",
     "answers": [
-      "Infrastructure and models",
       "Platforms and agents/applications",
-      "Only infrastructure",
-      "Only models"
+      "Platforms and models",
+      "Platforms and infrastructure",
+      "All layers equally"
     ],
     "correct": "Platforms and agents/applications"
   },
   {
-    "question": "According to the AI-native mindset shift, what question should you ask instead of 'Where can we use AI?'",
+    "question": "You manage customer support and want to move beyond pilots. Which framing question best sets up an AI-native redesign?",
     "answers": [
-      "How much does AI cost?",
-      "How would we design this workflow from scratch if AI was available from day one?",
-      "Which AI tool is the most popular?",
-      "Can AI replace our employees?"
+      "If we rebuilt support with AI by default, what would the end-to-end flow, human review points, and reusable templates be?",
+      "Which model and tool stack scores best on support-email benchmarks, integrates with our helpdesk, and meets our security standards?",
+      "How do we insert AI into the current steps, add accuracy and bias checks, and keep existing approvals and handoffs as they are?",
+      "Which tasks should we automate first to reduce handle time and error rates, while leaving current approvals and routing rules unchanged?"
     ],
-    "correct": "How would we design this workflow from scratch if AI was available from day one?"
+    "correct": "If we rebuilt support with AI by default, what would the end-to-end flow, human review points, and reusable templates be?"
   },
   {
     "question": "What are the four basic review checkpoints mentioned for AI outputs?",
@@ -230,24 +220,24 @@
     "correct": "Accuracy, bias, privacy, relevance"
   },
   {
-    "question": "According to the module, AI proficiency is now considered:",
+    "question": "You’re allocating a limited training budget for next quarter. Which strategy best reflects the module’s guidance on AI proficiency for non-technical teams?",
     "answers": [
-      "An optional skill for tech enthusiasts",
-      "A core professional competency",
-      "Only important for IT departments",
-      "A temporary trend"
+      "Treat AI as a core skill; focus training on prompt tips, app features, and quick wins first—process redesign can come later.",
+      "Treat AI as a core skill; redesign key workflows with shared standards and human-in-the-loop review, using prompts/templates to support the new process.",
+      "Offer optional AI training to enthusiasts; most roles can continue existing methods.",
+      "Invest mainly in technical upskilling for engineers; business teams just need awareness briefings."
     ],
-    "correct": "A core professional competency"
+    "correct": "Treat AI as a core skill; redesign key workflows with shared standards and human-in-the-loop review, using prompts/templates to support the new process."
   },
   {
-    "question": "What is Machine Learning (ML)?",
+    "question": "Which scenario best illustrates machine learning (ML) in everyday email use, as described in this module?",
     "answers": [
-      "Teaching humans how to use machines",
-      "How AI learns from data",
-      "A type of robot",
-      "A programming language"
+      "The inbox adjusts message priority based on which emails you open and respond to, refining the order over time.",
+      "A filter routes any message with 'invoice' in the subject to a folder you chose.",
+      "Emails are divided into Important and Other using a company-maintained list of senders and keywords.",
+      "An AI assistant drafts replies from a prompt and tone you provide, with suggestions that don’t change based on your history."
     ],
-    "correct": "How AI learns from data"
+    "correct": "The inbox adjusts message priority based on which emails you open and respond to, refining the order over time."
   },
   {
     "question": "What is NLP (Natural Language Processing)?",
@@ -260,13 +250,13 @@
     "correct": "How AI systems process and understand human language"
   },
   {
-    "question": "What is 'Fine-Tuning' in AI terminology?",
+    "question": "Which scenario best illustrates fine-tuning?",
     "answers": [
-      "Adjusting audio settings in AI tools",
-      "Customizing AI for specific tasks",
-      "Reducing the cost of AI",
-      "Speeding up AI responses"
+      "Retraining a model with your company's labeled data to improve answers about internal policies",
+      "Using RAG to retrieve relevant documents at query time and include citations in responses",
+      "Writing a structured prompt template to standardize tone and format for customer replies",
+      "Switching to a faster model tier to cut response latency during peak usage"
     ],
-    "correct": "Customizing AI for specific tasks"
+    "correct": "Retraining a model with your company's labeled data to improve answers about internal policies"
   }
 ]
