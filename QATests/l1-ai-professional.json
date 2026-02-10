@@ -1,0 +1,13 @@
+{
+  "name": "AI Professional",
+  "language": "en",
+  "results_sheet": "1heXR_dXvsx1Xedq-i27KVlSl3fRANV83Rms4V73WNGo",
+  "content": {
+    "/l1-ai-professional/m1.json": 5,
+    "/l1-ai-professional/m2.json": 7,
+    "/l1-ai-professional/m3.json": 6,
+    "/l1-ai-professional/m4.json": 7
+  },
+  "variants": 5,
+  "output-dir": "/tmp"
+}
